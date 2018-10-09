@@ -1,0 +1,30 @@
+#main-tabbar>a i.iconfont.home:before{
+  content: "\e60d";
+}
+#main-tabbar>a.weui-bar__item--on i.iconfont.home:before{
+  content: "\e604";
+  color: #04BE02;
+}
+
+#main-tabbar>a i.iconfont.user:before{
+  content: "\e6bc";
+}
+
+#main-tabbar>a.weui-bar__item--on i.iconfont.user:before{
+  content: "\e752";
+  color: #04BE02;
+}
+
+#root>.weui-tab>.weui-tab__bd {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 54px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    height: unset !important;
+}
+#root>.weui-tab>.weui-tabbar{
+    position: fixed;
+}
