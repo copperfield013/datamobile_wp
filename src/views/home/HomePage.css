@@ -38,6 +38,13 @@ div#app {
     flex-wrap: nowrap;
     align-items: center;
 }
+.nav-item-2>a:hover,
+.nav-item-2>a:visited,
+.nav-item-2>a:link,
+.nav-item-2>a:active{
+    text-decoration: none;
+    color: #999;
+}
 .nav-item-2:active,.nav-item-2:active>a{
     background-color: #efefef;
 }

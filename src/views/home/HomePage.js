@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import {Link} from 'react-router-dom';
 import 'weui';
 import 'react-weui/build/packages/react-weui.css';
 import './HomePage.css';
@@ -28,7 +28,7 @@ class NavItem1 extends Component{
                 {<ul>
                     {
                         this.props.children?this.props.children.map((item, index)=>{
-                            return (<NavItem2 key={`c_${index}`} title={item} />)
+                            return (<NavItem2 key={`c_${index}`} title={item} menuId={item} />)
                         }): ''
                     }
                 </ul>}
@@ -46,18 +46,14 @@ class NavItem2 extends Component{
 
     }
     go() {
-        this.setState({
-            expanded : !this.state.expanded
-        });
     }
     render() {
         return (
             <li className="nav-item-2" >
-                <a onClick={this.go}>
+                <Link to={`/entity/list/${this.props.menuId}`}>
                     <span className="nav-item-title">{this.props.title}</span>
                     <span className="nav-item-arrow"></span>
-                </a>
-               
+                </Link>
             </li>
             )
     }
