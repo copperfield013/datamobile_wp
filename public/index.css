@@ -1,0 +1,99 @@
+.entity-list-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.entity-item {
+    display: block;
+    width: 90%;
+    margin: 1em 5%;
+    background-color: #fff;
+    float: left;
+    font-size: 18px;
+    font-family: 微软雅黑;
+    border-radius: 5px;
+    color: #888;
+    position: relative;
+}
+
+.entity-item-fields {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+}
+
+.entity-item-field-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding: 0.5em 1em;
+    border-bottom: 1px solid #efefef;
+}
+
+.entity-item-field-group>label {
+    display: inline-block;
+    width: 30%;
+}
+.entity-item-field-group>label:after {
+    content: "：";
+}
+
+.entity-item-field-group>span {
+    width: 70%;
+    display: inline-block;
+}
+.entity-operate-btn-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.entity-operate-btn-area>a {
+    display: inline-block;
+    margin: 5px 10px;
+    border: 1px solid;
+    border-radius: 1em;
+    padding: 0 1em;
+}
+
+.entity-operate-btn-area>a:active{
+    background-color: #efefef;
+}
+
+.entity-operate-btn-area>a.btn-detail {
+    border-color: #53a93f;
+    color: #53a93f;
+}
+
+.entity-operate-btn-area>a.btn-update {
+    color: #2dc3e8;
+    border-color: #2dc3e8;
+}
+
+.entity-operate-btn-area>a.btn-remove {
+    color: #d73d32;
+    border-color: #d73d32;
+}
+
+i.entity-item-index {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    font-style: normal;
+    font-size: 10px;
+    color: #999;
+}
+i.entity-item-index:before{
+    content: "No.";
+}
+
+
+.entity-list-meta {
+    background-color: #efefef;
+}
+
+span.entity-list-meta-count {
+    float: right;
+    color: #999;
+    font-size: 12px;
+    margin-right: 10px;
+}

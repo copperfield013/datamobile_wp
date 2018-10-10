@@ -16,7 +16,7 @@
 }
 
 #root>.weui-tab>.weui-tab__bd {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     top: 0;
@@ -27,4 +27,16 @@
 }
 #root>.weui-tab>.weui-tabbar{
     position: fixed;
+}
+
+#main-tabbar .menu-icon>i{
+    font-size: 35px;
+    line-height: 54px;
+    height: 54px;
+    display: inline-block;
+}
+
+#main-tabbar .menu-icon:active{
+    color: #222;
+    background-color: #ccc;
 }

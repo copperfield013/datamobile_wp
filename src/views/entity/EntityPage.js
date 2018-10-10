@@ -1,15 +1,24 @@
 import React, {Component} from 'react';
-import {BrowserRouter , Route, NavLink, Switch, Redirect } from "react-router-dom";
+import {BrowserRouter , Route, Switch } from "react-router-dom";
 import EntityList from './EntityList';
-
+import EntityDetail from './EntityDetail';
+import EntityUpdate from './EntityUpdate';
 
 class EntityPage extends  Component{
     render() {
         return (
             <BrowserRouter>
-                <div>
-                    <Route path="/entity/list/:menuId" component={EntityList} />
-                </div>
+                <Switch>
+                    <Route path="/entity/list/:menuId" render={(props)=>{
+                        return <EntityList menuId={props.match.params.menuId} drawer={this.props.drawer} />
+                    }} />
+                    <Route path="/entity/detail/:menuId/:code" render={()=>{
+                        return <EntityDetail onMenuIconClick={this.props.onMenuIconClick} />
+                    }} />
+                    <Route path="/entity/update/:menuId/:code" render={()=>{
+                        return <EntityUpdate onMenuIconClick={this.props.onMenuIconClick} />
+                    }} />
+                </Switch>
             </BrowserRouter>
         )
     }
