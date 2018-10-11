@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import 'weui';
 import 'react-weui/build/packages/react-weui.css';
 import './HomePage.css';
+import AlertMenu,{MenuItem} from "../main/AlertMenu";
 
 class NavItem1 extends Component{
     constructor() {
@@ -42,10 +43,6 @@ class NavItem2 extends Component{
         super();
         this.state = {
         };
-        this.go = this.go.bind(this);
-
-    }
-    go() {
     }
     render() {
         return (
@@ -62,11 +59,11 @@ class NavItem2 extends Component{
 
 class HomePage extends Component{
     componentDidMount () {
+        this.props.menuBinder.setTitle('首页');
     }
     render() {
         let container = (
             <div id="app">
-                <h1>导航</h1>
                 <ul className="nav-list">
                     <NavItem1 title="Demo" children={[1,2,3]}></NavItem1>
                     <NavItem1 title="人口" ></NavItem1>
@@ -83,6 +80,9 @@ class HomePage extends Component{
                     <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
                     <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
                 </ul>
+                <AlertMenu menuBinder={this.props.menuBinder} >
+                    <MenuItem href="/user" title="用户" iconfont="icon-user1"  />
+                </AlertMenu>
             </div>
         );
         return container;

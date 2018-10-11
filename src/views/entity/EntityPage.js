@@ -10,7 +10,7 @@ class EntityPage extends  Component{
             <BrowserRouter>
                 <Switch>
                     <Route path="/entity/list/:menuId" render={(props)=>{
-                        return <EntityList menuId={props.match.params.menuId} drawer={this.props.drawer} />
+                        return <EntityList menuId={props.match.params.menuId} menuBinder={this.props.menuBinder} />
                     }} />
                     <Route path="/entity/detail/:menuId/:code" render={()=>{
                         return <EntityDetail onMenuIconClick={this.props.onMenuIconClick} />

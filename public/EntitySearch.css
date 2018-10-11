@@ -1,0 +1,133 @@
+.entity-search {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    overflow-y: auto;
+}
+.entity-search-container {
+    position: absolute;
+    top: 0;
+    bottom: 51px;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    background-color: #F8F8F8;
+}
+.entity-search-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 15px;
+}
+.entity-search-wrapper>h3{
+    font-size: 1.2em;
+    height: 2em;
+    line-height: 2em;
+    text-indent: 5px;
+    margin-top: 5px;
+    background-color: #fafafa;
+    color: #999;
+}
+
+.entity-criteria-group {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 2em;
+    line-height: 2em;
+    border-bottom: 1px solid #eee;
+    /* border-top: 1px solid #eee; */
+    margin: 8px 0;
+    padding: 10px 0;
+}
+
+label.criteria-title {
+    display: block;
+    font-size: 0.9em;
+    color: #999;
+    text-indent: 10px;
+}
+
+.criteria-value {
+    padding-left: 15px;
+    display: block;
+    background-color: #fff;
+    height: 45px;
+    border: 1px solid #e5e5e5;
+    border-left: none;
+    border-right: none;
+}
+
+.criteria-value input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    height: 2em;
+    line-height: 1.2em;
+    color: #888;
+    font-size: inherit;
+}
+
+.criteria-value input:focus {
+    color: #000000;
+}
+
+.entity-search-operate-area {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid #eeeeee;
+    display: flex;
+    justify-content: flex-end;
+}
+.entity-search-operate-area>span {
+    flex-basis: auto;
+    text-align: center;
+}
+
+.entity-search-operate-area>span>button {
+    margin-right: 15px;
+}
+
+/************LinkIcon Start*************/
+
+.linkicon-container {
+    height: 100%;
+    display: inline-block;
+    flex: 1;
+    text-indent: 12px;
+}
+
+
+.linkicon-container>a {
+    display: inline-block;
+    max-width: 50%;
+    width: 40px;
+    color: #1aad19;
+}
+
+.linkicon-container>a>i {
+    font-size: 30px;
+}
+.linkicon-container>a:active {
+    color: #1aad19;
+}
+
+/************LinkIcon End*************/
+
+
+.entity-search .weui-cells{
+    font-size: inherit;
+    line-height: inherit;
+}
+.entity-search select,
+.entity-search .weui-cell__bd{
+    color: #888;
+}

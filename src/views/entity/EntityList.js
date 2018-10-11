@@ -109,24 +109,23 @@ class EntityList extends React.Component{
         };
 
     }
-    componentWillMount() {
-        document.title = '易+(' + this.state.module.title + '列表)';
+    componentDidMount () {
+        this.props.menuBinder.setTitle(`易+(${this.state.module.title}列表)`);
     }
-
     render() {
         return (
             <div>
                 <div className="entity-list-container" >
                     <div className="entity-list-wrapper">
-                        <div class="entity-list-meta">
-                            <span class="entity-list-meta-count">共100条</span>
+                        <div className="entity-list-meta">
+                            <span className="entity-list-meta-count">共100条</span>
                         </div>
                         {this.state.entities.map((entity)=>{
                             return <EntityItem entity={entity} key={entity.code} />
                         })}
                     </div>
                 </div>
-                <Drawer drawer={this.props.drawer}>
+                <Drawer drawer={this.props.menuBinder}>
                     <EntitySearch ltmpl={this.state.ltmpl} menuId={this.state.menuId} criteriaMap={this.state.criteriaMap} />
                 </Drawer>
             </div>

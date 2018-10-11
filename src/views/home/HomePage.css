@@ -4,19 +4,7 @@
 }
 
 div#app {
-    background-color: #f6f6f6;
-    font-size: 16px;
-    font-family: 微软雅黑;
-    display: block;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-#app>h1 {
-    font-size: 1.3em;
-    font-weight: normal;
-    margin-left: 5%;
-    line-height: 3em;
+    padding: 20px 0;
 }
 
 #app>ul.nav-list {

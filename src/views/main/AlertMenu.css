@@ -1,0 +1,81 @@
+.alertmenu-cover.covered {
+    display: block;
+}
+
+.alertmenu-cover {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    opacity: 0.01;
+    display: none;
+}
+
+.alertmenu-menu.shown-alertmenu {
+    display: block;
+}
+
+.alertmenu-menu {
+    font-size: 18px;
+    position: fixed;
+    top: 40px;
+    right: 9px;
+    width: 7em;
+    display: none;
+}
+
+.alertmenu-menu.shown-alertmenu:before {
+    content: "";
+    display: block;
+    border-width: 10px;
+    position: fixed;
+    top: 30px;
+    right: 10px;
+    border-style: solid dashed dashed;
+    border-color: transparent transparent #222 transparent;
+    font-size: 0;
+    line-height: 0;
+}
+
+.alertmenu-menu>div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    background-color: #222;
+}
+
+.alertmenu-menu>div>a {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 1000;
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #333;
+}
+.alertmenu-menu>div>a:active{
+    background-color: #333333;
+}
+.alertmenu-menu>div>a:first-child{
+    padding-top: 13px;
+
+}
+.alertmenu-menu>div>a:last-child{
+    padding-bottom: 13px;
+}
+
+.alertmenu-menu>div>a>span:first-child{
+    flex-basis: 2em;
+    text-align: center;
+}
+.alertmenu-menu>div>a>span:last-child{
+    flex: 1;
+    text-align: left;
+}
+
+.alertmenu-menu>div>a>span>i {
+    font-size: 1em;
+}

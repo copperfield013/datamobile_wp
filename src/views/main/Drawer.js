@@ -11,6 +11,8 @@ import './Drawer.css';
 class Drawer extends React.Component{
     constructor() {
         super();
+        this.mainContainerScrollTop = 0;
+        this.mainContainer = null;
         this.toggle = this.toggle.bind(this);
     }
     componentDidMount() {
@@ -19,15 +21,34 @@ class Drawer extends React.Component{
         }
     }
     toggle(toShow) {
-        this.refs.toolbar.classList.toggle('shown-toolbar', toShow);
         this.refs.cover.classList.toggle('covered', toShow);
+        toShow = this.refs.cover.classList.contains('covered');
         let $container = this.props.drawer.getContainer();
         if($container){
-            $container.classList.toggle('lock', this.refs.cover.classList.contains('covered'));
+            if(toShow){
+                if($container.parentElement.scrollTop > 0){
+                    this.mainContainer = $container.parentElement;
+                }else{
+                    this.mainContainer = $container;
+                }
+                this.mainContainerScrollTop = this.mainContainer.scrollTop;
+            }
+            $container.classList.toggle('lock', toShow);
+            if(toShow){
+                $container.style.top = `${-this.mainContainerScrollTop}px`;
+            }else{
+                $container.style.top = null;
+                this.mainContainer.scrollTo(0, this.mainContainerScrollTop);
+            }
         }
+        this.refs.toolbar.classList.toggle('shown-toolbar', toShow);
     }
     componentWillUnmount() {
         this.props.drawer.toggle(this.toggle, false);
+        let $container = this.props.drawer.getContainer();
+        if($container){
+            $container.classList.remove('lock');
+        }
     }
     render() {
         return (

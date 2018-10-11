@@ -1,3 +1,6 @@
+html,body,#root{
+    background-color: #f8f8f8;
+}
 .entity-list-wrapper {
     display: flex;
     flex-direction: column;
@@ -86,14 +89,10 @@ i.entity-item-index:before{
     content: "No.";
 }
 
-
-.entity-list-meta {
-    background-color: #efefef;
-}
-
 span.entity-list-meta-count {
     float: right;
     color: #999;
     font-size: 12px;
     margin-right: 10px;
 }
+

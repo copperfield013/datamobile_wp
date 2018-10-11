@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter , Route, NavLink, Switch, Redirect } from "react-router-dom";
+import {BrowserRouter , Route, NavLink, Switch } from "react-router-dom";
 import HomePage from '../home/HomePage';
 import UserPage from '../user/UserPage';
 import EntityPage from '../entity/EntityPage';
@@ -11,14 +11,16 @@ class Main extends Component{
     constructor() {
         super();
         this.state = {
-            menuIconClickCallback   : null
+            menuIconClickCallback   : null,
+            title   : '导航页'
         }
         this.onMenuIconClick = this.onMenuIconClick.bind(this);
         this.getContentContainer = this.getContentContainer.bind(this);
+        this.setTitle = this.setTitle.bind(this);
     }
     onMenuIconClick(callback, removeFlag) {
         if(typeof callback === 'function'){
-            if(removeFlag == false && this.state.menuIconClickCallback === callback){
+            if(removeFlag === false && this.state.menuIconClickCallback === callback){
                 this.setState({
                     menuIconClickCallback : null
                 });
@@ -34,55 +36,34 @@ class Main extends Component{
         }
     }
     getContentContainer() {
-        return this.refs.contentContainer;
+        return document.body;
+    }
+    setTitle(title) {
+        this.setState({
+            title: title
+        });
     }
     render() {
+        let menuBinder = {
+            toggle          : this.onMenuIconClick,
+            getContainer    : this.getContentContainer,
+            setTitle        : this.setTitle
+        };
         return (
             <BrowserRouter>
-                <div className="weui-tab">
-                    <div className="weui-tab__bd" ref="contentContainer">
-                        <Switch>
-                            <Route path="(/)" exact component={HomePage} />
-                            <Route path="/user" component={UserPage} />
-                            <Route path="/entity/*" render={props=>{
-                                return <EntityPage drawer={{
-                                    toggle          : this.onMenuIconClick,
-                                    getContainer    : this.getContentContainer,
-                                }} />
-                            }} />
-                        </Switch>
-                    </div>
-                    <div className="weui-tabbar" id="main-tabbar">
-                        <NavLink to="/"
-                                 className="weui-tabbar__item"
-                                 activeClassName="weui-bar__item--on"
-                                 style={{flexGrow:15}}
-                                 isActive={(x,y)=>{
-                                     return x && !y.pathname.startsWith('/user');
-                                 }}   >
-                            <div className="weui-tabbar__icon">
-                                <i className="iconfont home"></i>
-                            </div>
-                            <p className="weui-tabbar__label">首页</p>
-                        </NavLink>
-                        <NavLink to="/user"
-                                 className="weui-tabbar__item"
-                                 activeClassName="weui-bar__item--on"
-                                 style={{flexGrow:15}}
-                                 isActive={(x, y)=>{
-                                     return y && y.pathname.startsWith('/user');
-                                 }}>
-                            <div className="weui-tabbar__icon">
-                                <i className="iconfont user"></i>
-                            </div>
-                            <p className="weui-tabbar__label">我</p>
-                        </NavLink>
+                <div ref="contentContainer" id="contentContainer">
+                    <Switch>
+                        <Route path="(/)" exact render={()=><HomePage menuBinder={menuBinder} />} />
+                        <Route path="/user" render={()=><UserPage menuBinder={menuBinder} />} />
+                        <Route path="/entity/*" render={()=><EntityPage menuBinder={menuBinder} />} />
+                    </Switch>
+                    <div id="titlebar">
+                        <h1>{this.state.title}</h1>
                         {
                             this.state.menuIconClickCallback?
                                 <MenuIcon style={{flexBasis:"50px"}} ref="menuIcon" onClick={this.onMenuIconClick} />
                                 : ''
                         }
-
                     </div>
                 </div>
             </BrowserRouter>
