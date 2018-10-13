@@ -1,0 +1,77 @@
+.entity-field-group {
+    margin: 10px 0;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.entity-field-group>h3.entity-field-group-title {
+    font-size: 0.9em;
+    font-weight: normal;
+    color: #888;
+    text-indent: 1em;
+    height: 2em;
+    line-height: 2em;
+    background-color: #f6f6f6;
+}
+
+.entity-field-group .entity-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding: 8px 0;
+    color: #444;
+}
+
+.entity-field-group .entity-field{
+    border-bottom: 1px solid #efefef;
+}
+.entity-field-group>.entity-field{
+    padding-left: 12px;
+}
+
+.entity-field-group .entity-field>label {
+    text-align: right;
+}
+
+@media screen and (max-width: 450px) {
+    .entity-field-group .entity-field>label {
+        flex-basis: 25%;
+    }
+}
+
+@media screen and (min-width: 450px) {
+    .entity-field-group .entity-field>label {
+        flex-basis: 6em;
+    }
+}
+
+
+.entity-field-group .entity-field>label:after {
+    content: "：";
+    color: #666;
+}
+
+.entity-field-group .entity-field>div {
+    text-align: right;
+    padding-right: 15px;
+    padding-left: 1em;
+    flex: 1;
+}
+
+.entity-field-group>.entity-field-group-array {
+    margin: 10px 0 10px 5px;
+    padding-left: 10px;
+    border-left: 4px solid #53a93f;
+}
+
+.entity-field-group-array > em {
+    text-align: left;
+    display: block;
+    flex-basis: 10px;
+    font-size: 10px;
+    padding-left: 5px;
+    color: #c0c0c0;
+    overflow: visible;
+    height: 10px;
+}
