@@ -3,7 +3,7 @@ var webpack = require('webpack');
 module.exports = {
     mode    : "production",
     entry: {
-        "main"      : path.resolve(__dirname, './src/index.js')
+        "main"      : path.resolve(__dirname, './src/reducer.js')
     },
     output: {
         path: path.resolve(__dirname, './build'),

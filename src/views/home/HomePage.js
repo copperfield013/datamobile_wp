@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import 'weui';
 import 'react-weui/build/packages/react-weui.css';
 import './HomePage.css';
-import AlertMenu,{MenuItem} from "../main/AlertMenu";
+import AlertMenu,{MenuItem} from "../common/AlertMenu";
 
 class NavItem1 extends Component{
     constructor() {

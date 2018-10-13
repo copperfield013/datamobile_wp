@@ -13,7 +13,7 @@ class EntityPage extends  Component{
                         return <EntityList menuId={props.match.params.menuId} menuBinder={this.props.menuBinder} />
                     }} />
                     <Route path="/entity/detail/:menuId/:code" render={()=>{
-                        return <EntityDetail onMenuIconClick={this.props.onMenuIconClick} />
+                        return <EntityDetail menuBinder={this.props.menuBinder} />
                     }} />
                     <Route path="/entity/update/:menuId/:code" render={()=>{
                         return <EntityUpdate onMenuIconClick={this.props.onMenuIconClick} />

@@ -19,14 +19,28 @@ class AlertMenu extends React.Component{
         }
     }
     toggle(toShow) {
+        if(typeof toShow !== 'boolean'){
+            toShow = !this.refs.menu.classList.contains('shown-alertmenu');
+        }
         this.refs.menu.classList.toggle('shown-alertmenu', toShow);
+        if(toShow && this.props.menuBinder){
+            let $container = this.props.menuBinder.getContainer();
+            if($container){
+                let _this = this;
+                $container.addEventListener('click', (e) => {
+                    _this.toggle(false);
+                }, {
+                    once: true
+                });
+            }
+        }
     }
     componentWillUnmount() {
         this.props.menuBinder.toggle(this.toggle, false);
     }
     render() {
         return (
-            <div onClick={()=>{this.toggle(false)}}>
+            <div>
                 <div className="alertmenu-menu" ref="menu">
                     <div>
                         {this.props.children}

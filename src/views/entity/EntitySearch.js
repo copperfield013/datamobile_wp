@@ -1,6 +1,6 @@
 import React from 'react';
 import {Form, FormCell, CellBody, CellFooter, Switch, Select} from 'react-weui';
-import LinkIcon from '../main/LinkIcon'
+import LinkIcon from '../common/LinkIcon'
 class EntitySearch extends React.Component{
     constructor() {
         super();

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {MenuItem} from "../main/AlertMenu";
-import AlertMenu from "../main/AlertMenu";
+import {MenuItem} from "../common/AlertMenu";
+import AlertMenu from "../common/AlertMenu";
 
 class UserPage extends Component{
     componentDidMount () {

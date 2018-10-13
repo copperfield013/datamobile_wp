@@ -13,19 +13,19 @@ class LinkIcon extends React.Component{
         super();
         this.renderIcon = this.renderIcon.bind(this);
     }
-    renderIcon(name) {
+    renderIcon(name, key) {
         let url = urlMap[name];
         let iconClass = iconClassMap[name];
         if(url && iconClass){
             return (
-                <a href={url} ><i className={`iconfont ${iconClass}`}></i></a>
+                <a key={key} href={url} ><i className={`iconfont ${iconClass}`}></i></a>
             );
         }
     }
     render() {
         return (
             <div className="linkicon-container">
-                {this.props.links.map((name)=>this.renderIcon(name))}
+                {this.props.links.map((name, index)=>this.renderIcon(name, `link-${index}`))}
             </div>
         )
     }

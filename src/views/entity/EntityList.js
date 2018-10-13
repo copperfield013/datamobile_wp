@@ -2,7 +2,7 @@ import React from 'react';
 
 import EntityItem from './EntityItem';
 import EntitySearch from './EntitySearch';
-import Drawer from '../main/Drawer';
+import Drawer from '../common/Drawer';
 class EntityList extends React.Component{
     constructor(props) {
         super(props);

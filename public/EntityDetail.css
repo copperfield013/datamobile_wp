@@ -17,22 +17,21 @@
 
 .entity-field-group .entity-field {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: left;
-    padding: 3px 0;
+    padding: 8px 0;
     color: #444;
 }
 
 .entity-field-group .entity-field{
+    border-bottom: 1px solid #efefef;
 }
 .entity-field-group>.entity-field{
+    padding-left: 12px;
 }
 
 .entity-field-group .entity-field>label {
-    text-align: left;
-    color: #999;
-    font-size: 0.8em;
-    padding-left: 20px;
+    text-align: right;
 }
 
 @media screen and (max-width: 450px) {
@@ -43,22 +42,21 @@
 
 @media screen and (min-width: 450px) {
     .entity-field-group .entity-field>label {
-        height: 2em;
-        line-height: 2em;
+        flex-basis: 6em;
     }
 }
 
 
 .entity-field-group .entity-field>label:after {
-    /* content: "："; */
+    content: "：";
     color: #666;
 }
 
 .entity-field-group .entity-field>div {
-    text-align: left;
-    padding: 0.5em 15px 0.5em 20px;
-    background-color: #fff;
-    margin: 5px 0;
+    text-align: right;
+    padding-right: 15px;
+    padding-left: 1em;
+    flex: 1;
 }
 
 .entity-field-group>.entity-field-group-array {
