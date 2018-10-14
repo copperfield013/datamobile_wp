@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import dialogReducer from './reducers/dialog-reducer';
-
+//import dialogReducer from './reducers/dialog-reducer';
+import pageReducer from './reducers/page-reducer';
 
 const allReducers = {
-    dialog      : dialogReducer
+    page        : pageReducer
 }
 
 const rootReducer = combineReducers(allReducers);

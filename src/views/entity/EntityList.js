@@ -3,6 +3,8 @@ import React from 'react';
 import EntityItem from './EntityItem';
 import EntitySearch from './EntitySearch';
 import Drawer from '../common/Drawer';
+import store from '../../redux/store';
+import {setTitle} from "../../redux/actions/page-actions";
 class EntityList extends React.Component{
     constructor(props) {
         super(props);
@@ -109,8 +111,8 @@ class EntityList extends React.Component{
         };
 
     }
-    componentDidMount () {
-        this.props.menuBinder.setTitle(`易+(${this.state.module.title}列表)`);
+    componentWillMount () {
+        store.dispatch(setTitle(`易+(${this.state.module.title}列表)`));
     }
     render() {
         return (

@@ -1,5 +1,7 @@
 import React from 'react';
 import './AlertMenu.css';
+import store from '../../redux/store';
+import {registMenu, unregistMenu, getContainer} from '../../redux/actions/page-actions';
 /**
  * 用于在页面右侧创建一个抽屉式的模态工具页面
  * 该组件需要一个参数drawer，drawer的值是一个对象，对象内有两个属性
@@ -14,17 +16,16 @@ class AlertMenu extends React.Component{
         this.toggle = this.toggle.bind(this);
     }
     componentDidMount() {
-        if(this.props.menuBinder){
-            this.props.menuBinder.toggle(this.toggle);
-        }
+        console.log(222);
+        store.dispatch(registMenu(this.toggle));
     }
     toggle(toShow) {
         if(typeof toShow !== 'boolean'){
             toShow = !this.refs.menu.classList.contains('shown-alertmenu');
         }
         this.refs.menu.classList.toggle('shown-alertmenu', toShow);
-        if(toShow && this.props.menuBinder){
-            let $container = this.props.menuBinder.getContainer();
+        if(toShow){
+            let $container = getContainer();
             if($container){
                 let _this = this;
                 $container.addEventListener('click', (e) => {
@@ -36,7 +37,8 @@ class AlertMenu extends React.Component{
         }
     }
     componentWillUnmount() {
-        this.props.menuBinder.toggle(this.toggle, false);
+        console.log(333);
+        store.dispatch(unregistMenu(this.toggle));
     }
     render() {
         return (
@@ -54,7 +56,7 @@ class AlertMenu extends React.Component{
 class MenuItem extends React.Component{
     render() {
         return (
-            <a href={this.props.href} title={this.props.title}>
+            <a href={this.props.href} onClick={this.props.onClick} title={this.props.title}>
                 <span><i className={`iconfont ${this.props.iconfont}`}></i></span>
                 <span>{this.props.title}</span>
             </a>

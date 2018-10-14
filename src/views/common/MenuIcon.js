@@ -3,6 +3,7 @@ import React from 'react';
 class MenuIcon extends React.Component{
     componentDidMount() {
         let _this = this;
+        console.log(_this);
         this.refs.icon1.addEventListener('click', (e)=>{
             e.stopPropagation();
             _this.props.onClick.apply(this);

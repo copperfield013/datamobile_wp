@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 import {MenuItem} from "../common/AlertMenu";
 import AlertMenu from "../common/AlertMenu";
+import store from "../../redux/store";
+import {setTitle} from "../../redux/actions/page-actions";
 
 class UserPage extends Component{
-    componentDidMount () {
-        this.props.menuBinder.setTitle(`用户管理`);
+    componentWillMount () {
+        store.dispatch(setTitle(`用户管理`));
     }
     render() {
         return (
             <div>  
                 <h1>用户页</h1>
-                <AlertMenu menuBinder={this.props.menuBinder} >
+                <AlertMenu >
                     <MenuItem href="/" title="首页" iconfont="icon-caidan05"  />
                 </AlertMenu>
             </div>

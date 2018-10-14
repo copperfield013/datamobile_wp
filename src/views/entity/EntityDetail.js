@@ -1,9 +1,15 @@
 import React from 'react';
 import AlertMenu, {MenuItem} from '../common/AlertMenu';
 import Folder from '../common/Folder';
+import store from "../../redux/store";
+import {setTitle} from "../../redux/actions/page-actions";
+import Drawer from "../common/Drawer";
+import EntityHistory from './EntityHistory'
+import {BrowserRouter, Route} from 'react-router-dom';
+
 class EntityDetail extends React.Component{
-    componentWillMount() {
-        this.props.menuBinder.setTitle(`详情-张三`);
+    componentWillMount () {
+        store.dispatch(setTitle(`详情-张三`));
     }
     render() {
         return(
@@ -39,7 +45,7 @@ class EntityDetail extends React.Component{
                             <div>1996-09-30</div>
                         </div>
                     </div>
-                    <div class="entity-field-group">
+                    <div className="entity-field-group">
                         <h3 className="entity-field-group-title">家庭成员</h3>
                         <Folder className="entity-field-group-array">
                             <em>1</em>
@@ -74,8 +80,14 @@ class EntityDetail extends React.Component{
                     </div>
                 </div>
                 <AlertMenu menuBinder={this.props.menuBinder} >
+                    <MenuItem onClick={()=>{this.refs.drawer.toggle(true)}} title="历史" iconfont="icon-history" />
                     <MenuItem href="/" title="首页" iconfont="icon-caidan05"  />
                 </AlertMenu>
+                <Drawer ref="drawer" registMenu={false}>
+                    <BrowserRouter>
+                        <Route exact path="/entity/detail/:menuId/:code" component={EntityHistory} />
+                    </BrowserRouter>
+                </Drawer>
             </div>
         );
     }

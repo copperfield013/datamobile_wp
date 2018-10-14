@@ -4,6 +4,8 @@ import 'weui';
 import 'react-weui/build/packages/react-weui.css';
 import './HomePage.css';
 import AlertMenu,{MenuItem} from "../common/AlertMenu";
+import store from '../../redux/store';
+import {setTitle} from "../../redux/actions/page-actions";
 
 class NavItem1 extends Component{
     constructor() {
@@ -58,8 +60,8 @@ class NavItem2 extends Component{
 
 
 class HomePage extends Component{
-    componentDidMount () {
-        this.props.menuBinder.setTitle('首页');
+    componentWillMount () {
+        store.dispatch(setTitle('首页'));
     }
     render() {
         let container = (
@@ -80,7 +82,7 @@ class HomePage extends Component{
                     <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
                     <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
                 </ul>
-                <AlertMenu menuBinder={this.props.menuBinder} >
+                <AlertMenu>
                     <MenuItem href="/user" title="用户" iconfont="icon-user1"  />
                 </AlertMenu>
             </div>

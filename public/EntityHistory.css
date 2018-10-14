@@ -1,0 +1,111 @@
+.entity-history-container {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+}
+.entity-history-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.entity-history-item {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    margin: 0;
+    padding: 0;
+}
+
+.entity-history-item-time {
+    flex-basis: 5em;
+    text-align: right;
+    margin-top: 34px;
+}
+
+.entity-history-item-text-wrap {
+    flex: 1;
+    position: relative;
+    margin-top: 34px;
+}
+
+.entity-history-item-time>p:first-child {
+    font-size: 0.8em;
+}
+.entity-history-item-time>p:last-child {
+    font-size: 0.5em;
+    color: #666;
+}
+
+span.entity-history-item-line {
+    flex-basis: 20px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    position: relative;
+}
+span.entity-history-item-line:before {
+    content: " ";
+    display: inline-block;
+    height:100%;
+    width: 1px;
+    border-left: 1px solid #bbb;
+    position: absolute;
+    left: 9px;
+}
+
+em.entity-history-item-dot {
+    display: block;
+    left: 3px;
+    width: 14px;
+    height: 14px;
+    top: 43px;
+    line-height: 14px;
+    vertical-align: middle;
+    position: absolute;
+    border-radius: 14px;
+    background-color: #CCF0CC;
+}
+
+.entity-history-item.current em.entity-history-item-dot:before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #32CD32;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+.entity-history-item-text-wrap>em {
+    display: block;
+    border-width: 6px;
+    position: absolute;
+    top: 11px;
+    left: -6px;
+    border-style: solid dashed dashed;
+    border-color: transparent #53a93f transparent transparent;
+    font-size: 0;
+    line-height: 0;
+}
+
+.entity-history-item-text-wrap>a {
+    position: absolute;
+    left: 4px;
+    padding: 1em;
+    border-radius: 3px;
+    background-color: #53a93f;
+    margin-right: 0.5em;
+    color: #fff;
+}
+.entity-history-item-text-wrap>a.active {
+    background-color: #7CFC00;
+}
+.entity-history-item.current .entity-history-item-text-wrap>em {
+    border-color: transparent #32CD32 transparent transparent;
+}
+.entity-history-item.current .entity-history-item-text-wrap>a {
+    background-color: #32CD32;
+}
