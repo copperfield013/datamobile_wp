@@ -31,7 +31,7 @@ class NavItem1 extends Component{
                 {<ul>
                     {
                         this.props.children?this.props.children.map((item, index)=>{
-                            return (<NavItem2 key={`c_${index}`} title={item} menuId={item} />)
+                            return (<NavItem2 key={item.id} title={item.title} menuId={item.id} />)
                         }): ''
                     }
                 </ul>}
@@ -60,27 +60,34 @@ class NavItem2 extends Component{
 
 
 class HomePage extends Component{
+    constructor() {
+        super();
+        this.state = {
+            menus   : []
+        }
+    }
     componentWillMount () {
         store.dispatch(setTitle('首页'));
+    }
+    componentDidMount() {
+        fetch('/api/menu/getMenu').then((res)=>{
+           res.json().then((data)=>{
+               console.log(data);
+               this.setState({
+                  menus  : data.menus
+               });
+           });
+        });
     }
     render() {
         let container = (
             <div id="app">
                 <ul className="nav-list">
-                    <NavItem1 title="Demo" children={[1,2,3]}></NavItem1>
-                    <NavItem1 title="人口" ></NavItem1>
-                    <NavItem1 title="地址" ></NavItem1>
-                    <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
-                    <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
-                    <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
-                    <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
-                    <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
-                    <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
-                    <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
-                    <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
-                    <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
-                    <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
-                    <NavItem1 title="实例" children={['x', 'y', 'z']}></NavItem1>
+                    {this.state.menus.map((item)=>{
+                        return (
+                            <NavItem1 key={item.id} title={item.title} children={item.level2s}></NavItem1>
+                        );
+                    })}
                 </ul>
                 <AlertMenu>
                     <MenuItem href="/user" title="用户" iconfont="icon-user1"  />

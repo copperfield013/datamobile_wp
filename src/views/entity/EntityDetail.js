@@ -8,76 +8,112 @@ import EntityHistory from './EntityHistory'
 import {BrowserRouter, Route} from 'react-router-dom';
 
 class EntityDetail extends React.Component{
+    constructor() {
+        super();
+        this.state = {
+            entity: {
+                title       : '张三',
+                fieldGroups : [
+                    {
+                      id    : 1,
+                      title : '基本信息',
+                      fields: [
+                          {
+                              id   : 1,
+                              title: '姓名',
+                              value: '张三'
+                          },
+                          {
+                              id   : 2,
+                              title: '性别',
+                              value: '男',
+                          },
+                          {
+                              id   : 3,
+                              title: '生日',
+                              value: '1996-09-30',
+                          }
+                          ]
+                    },
+                    {
+                        id    : 2,
+                        title: '家庭成员',
+                        array: [
+                            {
+                                code    : '111',
+                                relation: '父亲',
+                                fields  : [
+                                    {
+                                        id   : 4,
+                                        title: '姓名',
+                                        value: '张大三'
+                                    },
+                                    {
+                                        id   : 5,
+                                        title: '性别',
+                                        value: '男'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        };
+    }
     componentWillMount () {
-        store.dispatch(setTitle(`详情-张三`));
+        store.dispatch(setTitle(`详情-${this.state.entity.title}`));
+    }
+    componentDidMount() {
+        fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`).then((res)=>res.json().then((data)=>{
+            this.setState({
+                entity : data.entity
+            });
+        }));
+    }
+    renderFields(fields) {
+        return fields.map((field)=>
+            <div key={field.id} className="entity-field">
+                <label>{field.title}</label>
+                <div>{field.value}</div>
+            </div>
+        )
+    }
+    renderArray(array) {
+        return array.map((compositeEntity, index)=>
+            <Folder key={`compositeEntity.code-index`} className="entity-field-group-array">
+                <em>{index + 1}</em>
+                {
+                    compositeEntity.relation?
+                        <div className="entity-field">
+                            <label>关系</label>
+                            <div>{compositeEntity.relation}</div>
+                        </div>:''
+                }
+                {compositeEntity.fields.map((field)=>
+                    <div key={field.id} className="entity-field">
+                        <label>{field.title}</label>
+                        <div>{field.value}</div>
+                    </div>
+
+                )}
+            </Folder>
+        );
     }
     render() {
         return(
             <div>
                 <div className="entity-detail">
-                    <div className="entity-field-group">
-                        <h3 className="entity-field-group-title">基本信息</h3>
-                        <div className="entity-field">
-                            <label>姓名</label>
-                            <div>张三</div>
-                        </div>
-                        <div className="entity-field">
-                            <label>性别</label>
-                            <div>男</div>
-                        </div>
-                        <div className="entity-field">
-                            <label>生日</label>
-                            <div>1996-09-30</div>
-                        </div>
-                    </div>
-                    <div className="entity-field-group">
-                        <h3 className="entity-field-group-title">就业信息</h3>
-                        <div className="entity-field">
-                            <label>工作单位</label>
-                            <div>杭州娃哈哈集团有限公司</div>
-                        </div>
-                        <div className="entity-field">
-                            <label>工号</label>
-                            <div>9527</div>
-                        </div>
-                        <div className="entity-field">
-                            <label>入职时间</label>
-                            <div>1996-09-30</div>
-                        </div>
-                    </div>
-                    <div className="entity-field-group">
-                        <h3 className="entity-field-group-title">家庭成员</h3>
-                        <Folder className="entity-field-group-array">
-                            <em>1</em>
-                            <div className="entity-field">
-                                <label>关系</label>
-                                <div>父亲</div>
+                    {
+                        this.state.entity.fieldGroups.map((fieldGroup)=>
+                            <div key={fieldGroup.id} className="entity-field-group">
+                                <h3 className="entity-field-group-title">{fieldGroup.title}</h3>
+                                {fieldGroup.fields != null?
+                                    this.renderFields(fieldGroup.fields)
+                                    : this.renderArray(fieldGroup.array)}
                             </div>
-                            <div className="entity-field">
-                                <label>姓名</label>
-                                <div>张大三</div>
-                            </div>
-                            <div className="entity-field">
-                                <label>性别</label>
-                                <div>男</div>
-                            </div>
-                        </Folder>
-                        <Folder className="entity-field-group-array">
-                            <em>2</em>
-                            <div className="entity-field">
-                                <label>关系</label>
-                                <div>母亲</div>
-                            </div>
-                            <div className="entity-field">
-                                <label>姓名</label>
-                                <div>Mrs.张</div>
-                            </div>
-                            <div className="entity-field">
-                                <label>性别</label>
-                                <div>女</div>
-                            </div>
-                        </Folder>
-                    </div>
+                        )
+                    }
                 </div>
                 <AlertMenu menuBinder={this.props.menuBinder} >
                     <MenuItem onClick={()=>{this.refs.drawer.toggle(true)}} title="历史" iconfont="icon-history" />

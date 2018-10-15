@@ -9,15 +9,9 @@ class EntityPage extends  Component{
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route path="/entity/list/:menuId" render={(props)=>{
-                        return <EntityList menuId={props.match.params.menuId} menuBinder={this.props.menuBinder} />
-                    }} />
-                    <Route path="/entity/detail/:menuId/:code" render={()=>{
-                        return <EntityDetail menuBinder={this.props.menuBinder} />
-                    }} />
-                    <Route path="/entity/update/:menuId/:code" render={()=>{
-                        return <EntityUpdate onMenuIconClick={this.props.onMenuIconClick} />
-                    }} />
+                    <Route path="/entity/list/:menuId" component={EntityList} />
+                    <Route path="/entity/detail/:menuId/:code"  component={EntityDetail} />
+                    <Route path="/entity/update/:menuId/:code" component={EntityUpdate}  />
                 </Switch>
             </BrowserRouter>
         )

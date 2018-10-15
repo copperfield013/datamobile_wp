@@ -5,14 +5,15 @@ import EntitySearch from './EntitySearch';
 import Drawer from '../common/Drawer';
 import store from '../../redux/store';
 import {setTitle} from "../../redux/actions/page-actions";
+import {LoadMore } from 'react-weui';
 class EntityList extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
+            entityLoaded  : false,
             module  : {
                 title   : '测试'
             },
-            menuId  : props.menuId,
             ltmpl   : {
                 id          : 1,
                 criterias   : [],
@@ -22,94 +23,19 @@ class EntityList extends React.Component{
 
             },
             entities    : [
-                {
-                    code    : "1",
-                    title   : "张三",
-                    index   : 0,
-                    fields  : [
-                        {
-                            id      : 1,
-                            title   : "姓名",
-                            value   : "张三",
-                        },
-                        {
-                            id      : 2,
-                            title   : "编码",
-                            value   : "1"
-                        }
-                    ]
-                },
-                {
-                    code    : "2",
-                    title   : "李四",
-                    index   : 1,
-                    fields  : [
-                        {
-                            id      : 1,
-                            title   : "姓名",
-                            value   : "李四",
-                        },
-                        {
-                            id      : 2,
-                            title   : "编码",
-                            value   : "2"
-                        }
-                    ]
-                },
-                {
-                    code    : "3",
-                    title   : "李四",
-                    index   : 2,
-                    fields  : [
-                        {
-                            id      : 1,
-                            title   : "姓名",
-                            value   : "李四",
-                        },
-                        {
-                            id      : 2,
-                            title   : "编码",
-                            value   : "3"
-                        }
-                    ]
-                },
-                {
-                    code    : "4",
-                    title   : "李四",
-                    index   : 3,
-                    fields  : [
-                        {
-                            id      : 1,
-                            title   : "姓名",
-                            value   : "李四",
-                        },
-                        {
-                            id      : 2,
-                            title   : "编码",
-                            value   : "4"
-                        }
-                    ]
-                },
-                {
-                    code    : "5",
-                    title   : "李四",
-                    index   : 4,
-                    fields  : [
-                        {
-                            id      : 1,
-                            title   : "姓名",
-                            value   : "李四",
-                        },
-                        {
-                            id      : 2,
-                            title   : "编码",
-                            value   : "5"
-                        }
-                    ]
-                }
+                /*{code    : "1",title   : "张三",index   : 0,fields  : [{id      : 1,title   : "姓名",value   : "张三"}]}*/
             ]
         };
 
+    }
+
+    componentDidMount() {
+        fetch(`/api/entity/list/${this.props.match.params.menuId}`).then((res)=>res.json().then((data)=>{
+            this.setState({
+                entityLoaded    : true,
+                entities : data.entities
+            });
+        }));
     }
     componentWillMount () {
         store.dispatch(setTitle(`易+(${this.state.module.title}列表)`));
@@ -123,13 +49,14 @@ class EntityList extends React.Component{
                             <span className="entity-list-meta-count">共100条</span>
                         </div>
                         {this.state.entities.map((entity)=>{
-                            return <EntityItem entity={entity} key={entity.code} />
+                            return <EntityItem menuId={this.props.match.params.menuId} entity={entity} key={entity.code} />
                         })}
                     </div>
                 </div>
                 <Drawer drawer={this.props.menuBinder}>
-                    <EntitySearch ltmpl={this.state.ltmpl} menuId={this.state.menuId} criteriaMap={this.state.criteriaMap} />
+                    <EntitySearch ltmpl={this.state.ltmpl} menuId={this.props.match.params.menuId} criteriaMap={this.state.criteriaMap} />
                 </Drawer>
+
             </div>
 
         );
