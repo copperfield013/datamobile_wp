@@ -11,4 +11,15 @@ module.exports = function(app) {
             },
         }
     ));
+    app.use(proxy('/file-server',
+        {
+            target: 'http://localhost:7080/datacenter/',
+            changeOrigin: true,
+            pathRewrite: {
+                '^/file-server' : function(path, req){
+                    return path.replace(/^\/file-server/, '');
+                }
+            }
+        }
+    ))
 }

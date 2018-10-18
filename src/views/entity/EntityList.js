@@ -5,7 +5,8 @@ import EntitySearch from './EntitySearch';
 import Drawer from '../common/Drawer';
 import store from '../../redux/store';
 import {setTitle} from "../../redux/actions/page-actions";
-import {LoadMore } from 'react-weui';
+import Loading from "../common/Loading";
+import DragForLoad from '../common/DragForLoad';
 class EntityList extends React.Component{
     constructor(props) {
         super(props);
@@ -22,9 +23,7 @@ class EntityList extends React.Component{
             criteriaMap : {
 
             },
-            entities    : [
-                /*{code    : "1",title   : "张三",index   : 0,fields  : [{id      : 1,title   : "姓名",value   : "张三"}]}*/
-            ]
+            entities    : null
         };
 
     }
@@ -35,15 +34,19 @@ class EntityList extends React.Component{
                 entityLoaded    : true,
                 entities : data.entities
             });
+            store.dispatch(setTitle(`易+(${this.state.module.title}列表)`));
         }));
     }
     componentWillMount () {
-        store.dispatch(setTitle(`易+(${this.state.module.title}列表)`));
+
     }
     render() {
+        if(this.state.entities == null){
+            return <Loading/>
+        }
         return (
             <div>
-                <div className="entity-list-container" >
+                <div ref="entityListContainer" className="entity-list-container" >
                     <div className="entity-list-wrapper">
                         <div className="entity-list-meta">
                             <span className="entity-list-meta-count">共100条</span>
@@ -52,6 +55,7 @@ class EntityList extends React.Component{
                             return <EntityItem menuId={this.props.match.params.menuId} entity={entity} key={entity.code} />
                         })}
                     </div>
+                    <DragForLoad container={()=>this.refs.entityListContainer} position="bottom" />
                 </div>
                 <Drawer drawer={this.props.menuBinder}>
                     <EntitySearch ltmpl={this.state.ltmpl} menuId={this.props.match.params.menuId} criteriaMap={this.state.criteriaMap} />

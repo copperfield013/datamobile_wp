@@ -6,82 +6,40 @@ import {setTitle} from "../../redux/actions/page-actions";
 import Drawer from "../common/Drawer";
 import EntityHistory from './EntityHistory'
 import {BrowserRouter, Route} from 'react-router-dom';
+import FieldValue from './FieldValue';
+import Loading from "../common/Loading";
 
 class EntityDetail extends React.Component{
     constructor() {
         super();
         this.state = {
-            entity: {
-                title       : '张三',
-                fieldGroups : [
-                    {
-                      id    : 1,
-                      title : '基本信息',
-                      fields: [
-                          {
-                              id   : 1,
-                              title: '姓名',
-                              value: '张三'
-                          },
-                          {
-                              id   : 2,
-                              title: '性别',
-                              value: '男',
-                          },
-                          {
-                              id   : 3,
-                              title: '生日',
-                              value: '1996-09-30',
-                          }
-                          ]
-                    },
-                    {
-                        id    : 2,
-                        title: '家庭成员',
-                        array: [
-                            {
-                                code    : '111',
-                                relation: '父亲',
-                                fields  : [
-                                    {
-                                        id   : 4,
-                                        title: '姓名',
-                                        value: '张大三'
-                                    },
-                                    {
-                                        id   : 5,
-                                        title: '性别',
-                                        value: '男'
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
+            entity: null
         };
     }
     componentWillMount () {
-        store.dispatch(setTitle(`详情-${this.state.entity.title}`));
+
     }
     componentDidMount() {
         fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`).then((res)=>res.json().then((data)=>{
             this.setState({
                 entity : data.entity
             });
+            store.dispatch(setTitle(`详情-${this.state.entity.title}`));
         }));
     }
     renderFields(fields) {
         return fields.map((field)=>
             <div key={field.id} className="entity-field">
                 <label>{field.title}</label>
-                <div>{field.value}</div>
+                <div>
+                    <FieldValue field={field} />
+                </div>
             </div>
         )
     }
     renderArray(array) {
         return array.map((compositeEntity, index)=>
-            <Folder key={`compositeEntity.code-index`} className="entity-field-group-array">
+            <Folder key={`${compositeEntity.code}-${index}`} className="entity-field-group-array">
                 <em>{index + 1}</em>
                 {
                     compositeEntity.relation?
@@ -93,7 +51,9 @@ class EntityDetail extends React.Component{
                 {compositeEntity.fields.map((field)=>
                     <div key={field.id} className="entity-field">
                         <label>{field.title}</label>
-                        <div>{field.value}</div>
+                        <div>
+                            <FieldValue field={field} />
+                        </div>
                     </div>
 
                 )}
@@ -101,6 +61,9 @@ class EntityDetail extends React.Component{
         );
     }
     render() {
+        if(this.state.entity == null){
+            return <Loading/>
+        }
         return(
             <div>
                 <div className="entity-detail">

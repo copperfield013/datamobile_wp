@@ -26,6 +26,14 @@ class Main extends Component{
                 });
             }
         });
+
+    }
+    componentDidMount() {
+
+    }
+    handleScroll(event) {
+        //console.log(event.srcElement.scrollingElement.scrollTop);
+        //console.log(event.srcElement.parentElement.scrollTop);
     }
     render() {
         return (
@@ -36,7 +44,7 @@ class Main extends Component{
                         <Route path="/user" component={UserPage} />} />
                         <Route path="/entity/*" component={EntityPage} />} />
                     </Switch>
-                    <div id="titlebar">
+                    <div id="titlebar" ref="titlebar">
                         <h1>{this.state.title}</h1>
                         {
                             this.state.menuIconClickCallback?
