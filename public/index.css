@@ -106,30 +106,20 @@ span.entity-list-meta-count {
 }
 
 
-
-.drag-for-load.drag-for-load-bottom {
-    height: 60px;
-    line-height: 60px;
-    background-color: #ddd;
-    position: fixed;
-    bottom: 0;
+.load-next-page {
+    display: block;
     width: 100%;
-    z-index: -1;
+    height: 50px;
+    background-color: #dcdcdc;
     text-align: center;
+    line-height: 50px;
+    color: #999;
 }
 
-.drag-for-load.drag-for-load-bottom>p{
-
-}
-.drag-for-load.drag-for-load-bottom>p:before {
-    content: "上拉加载更多";
+.load-prev-page {
+    float: left;
     color: #888;
-}
-.drag-for-load.drag-disable.drag-for-load-bottom {
-    position: relative;
-    z-index: auto;
-}
-
-.drag-for-load.drag-disable.drag-for-load-bottom>p:before {
-    content: "点击加载更多"
+    margin-left: 1em;
+    font-weight: bold;
+    text-decoration: underline;
 }

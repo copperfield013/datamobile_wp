@@ -2,17 +2,67 @@ import React from 'react';
 import {Form, FormCell, CellBody, CellFooter, Switch, Select} from 'react-weui';
 import LinkIcon from '../common/LinkIcon'
 class EntitySearch extends React.Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            reversed    : false
+            reversed    : false,
+            criterias   : props.criterias
         };
+        this.criteriaFields = [];
         this.onChange = this.onChange.bind(this);
+        this.query = this.query.bind(this);
+        this.getSearchFormData = this.getSearchFormData.bind(this);
+        this.renderCriteriaGroup = this.renderCriteriaGroup.bind(this);
+        this.renderCriteriaValue = this.renderCriteriaValue.bind(this);
+    }
+    componentWillUpdate(){
+        this.criteriaFields = [];
     }
     onChange(e) {
         this.setState({
            reversed:  !e.target.checked
         });
+    }
+    query() {
+        if(this.props.query){
+            const criterias = this.getSearchFormData();
+            this.props.query(criterias);
+        }
+    }
+    getSearchFormData(){
+        let formData = new FormData();
+        this.criteriaFields.forEach((criteriaField)=>{
+            formData.append(criteriaField.getName(), criteriaField.getValue());
+        });
+        return formData;
+    }
+    renderCriteriaGroup(criteria){
+        if(criteria != null
+            && criteria.queryShow == 1
+            && criteria.title){
+            return (
+                <div key={criteria.id} className={`entity-criteria-group ${criteria.fieldAvailable? '': 'field-unavailable'}`}>
+                    <label className="criteria-title">{criteria.title}</label>
+                    <div className="criteria-value">
+                        {this.renderCriteriaValue(criteria)}
+                    </div>
+                </div>
+            )
+        }
+    }
+    renderCriteriaValue(criteria){
+        let criteriaField = new CriteriaField(`criteria_${criteria.id}`);
+        switch (criteria.inputType) {
+            case 'text' :
+                let $text = <input ref={criteriaField.getName()} type="text" placeholder={criteria.placeholder} defaultValue={criteria.value} />;
+                criteriaField.setValueGetter(()=>this.refs[criteriaField.getName()].value)
+                this.criteriaFields.push(criteriaField);
+                return (
+                    <span>{$text}</span>
+                );
+            default:
+                return <span>(未知类型:{criteria.inputType})</span>;
+        }
     }
     render() {
         return (
@@ -41,89 +91,43 @@ class EntitySearch extends React.Component{
                     </div>
                     <div className="entity-search-wrapper">
                         <h3>查询条件</h3>
-                        <div className="entity-criteria-group">
-                            <label className="criteria-title">姓名</label>
-                            <div className="criteria-value">
-                                <span>
-                                    <input type="text" />
-                                </span>
-                            </div>
-                        </div>
-                        <div className="entity-criteria-group">
-                            <label className="criteria-title">姓名</label>
-                            <div className="criteria-value">
-                                <span>
-                                    <input type="text" />
-                                </span>
-                            </div>
-                        </div>
-                        <div className="entity-criteria-group">
-                            <label className="criteria-title">姓名</label>
-                            <div className="criteria-value">
-                                <span>
-                                    <input type="text" />
-                                </span>
-                            </div>
-                        </div>
-                        <div className="entity-criteria-group">
-                            <label className="criteria-title">姓名</label>
-                            <div className="criteria-value">
-                                <span>
-                                    <input type="text" />
-                                </span>
-                            </div>
-                        </div>
-                        <div className="entity-criteria-group">
-                            <label className="criteria-title">姓名</label>
-                            <div className="criteria-value">
-                                <span>
-                                    <input type="text" />
-                                </span>
-                            </div>
-                        </div>
-                        <div className="entity-criteria-group">
-                            <label className="criteria-title">姓名</label>
-                            <div className="criteria-value">
-                                <span>
-                                    <input type="text" />
-                                </span>
-                            </div>
-                        </div>
-                        <div className="entity-criteria-group">
-                            <label className="criteria-title">姓名</label>
-                            <div className="criteria-value">
-                                <span>
-                                    <input type="text" />
-                                </span>
-                            </div>
-                        </div>
-                        <div className="entity-criteria-group">
-                            <label className="criteria-title">姓名</label>
-                            <div className="criteria-value">
-                                <span>
-                                    <input type="text" />
-                                </span>
-                            </div>
-                        </div>
-                        <div className="entity-criteria-group">
-                            <label className="criteria-title">姓名</label>
-                            <div className="criteria-value">
-                                <span>
-                                    <input type="text" />
-                                </span>
-                            </div>
-                        </div>
+                        {
+                            this.state.criterias.map((criteria)=>{
+                                return this.renderCriteriaGroup(criteria);
+                            })
+                        }
                     </div>
                 </div>
                 <div className="entity-search-operate-area">
                     <LinkIcon links={['home', 'user']}/>
                     <span>
                         <button className="weui-btn weui-btn_mini weui-btn_plain-primary" type="button" ref="resetButton" id="restButton" >重置</button>
-                        <button className="weui-btn weui-btn_mini weui-btn_primary" type="button" ref="queryButton" id="queryButton" >查询</button>
+                        <button className="weui-btn weui-btn_mini weui-btn_primary" onClick={this.query} type="button" ref="queryButton" id="queryButton" >查询</button>
                     </span>
                 </div>
             </div>
         )
+    }
+}
+
+class CriteriaField{
+    constructor(name){
+        this.name = name;
+        this.valueGetter = null;
+    }
+    getName(){
+        return this.name;
+    }
+    getValue(){
+        if(this.valueGetter){
+            return this.valueGetter();
+        }
+        return '';
+    }
+    setValueGetter(valGetter) {
+        if(typeof valGetter === 'function'){
+            this.valueGetter = valGetter;
+        }
     }
 }
 

@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
-import {BrowserRouter , Route, Switch } from "react-router-dom";
+import {Router , Route, Switch } from "react-router-dom";
 import HomePage from '../home/HomePage';
 import UserPage from '../user/UserPage';
 import EntityPage from '../entity/EntityPage';
 import MenuIcon from '../common/MenuIcon';
 import './Main.css';
-import {setContainer} from '../../redux/actions/page-actions';
+import {setContainer, setHistory} from '../../redux/actions/page-actions';
 import store from '../../redux/store';
+import history from '../../redux/actions/history';
 class Main extends Component{
     constructor() {
         super();
@@ -15,8 +16,9 @@ class Main extends Component{
             title   : '导航页'
         }
     }
-    componentWillMount() {
+    componentDidMount() {
         setContainer(document.body);
+        setHistory(this.refs.router.history);
         store.subscribe(()=>{
             const page = store.getState().page;
             if(page){
@@ -28,16 +30,9 @@ class Main extends Component{
         });
 
     }
-    componentDidMount() {
-
-    }
-    handleScroll(event) {
-        //console.log(event.srcElement.scrollingElement.scrollTop);
-        //console.log(event.srcElement.parentElement.scrollTop);
-    }
     render() {
         return (
-            <BrowserRouter>
+            <Router history={history} ref="router">
                 <div ref="contentContainer" id="contentContainer">
                     <Switch>
                         <Route path="(/)" exact component={HomePage} />} />
@@ -53,7 +48,7 @@ class Main extends Component{
                         }
                     </div>
                 </div>
-            </BrowserRouter>
+            </Router>
             );
     }
 }

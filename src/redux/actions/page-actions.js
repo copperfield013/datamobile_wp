@@ -1,3 +1,6 @@
+import $ from "jquery";
+import history from './history';
+
 export const REGIST_MENU = 'regist_menu';
 export const UNREGIST_MENU = 'unregist_menu';
 export const SET_TITLE = 'set_title';
@@ -59,7 +62,22 @@ const browser = {
     }(),
     language:(navigator.browserLanguage || navigator.language).toLowerCase()
 };
-console.log(browser);
 export function getBrowser() {
     return browser;
+}
+
+let mainHistory = null;
+export function setHistory(history){
+    console.log('setHistory')
+    console.log(history);
+    mainHistory = history;
+}
+
+export function go(path, query){
+    let search = '?';
+    if(query && typeof query === 'object'){
+        search += $.param(query);
+    }
+    console.log(`search=${search}`);
+    history.push(path + search);
 }
