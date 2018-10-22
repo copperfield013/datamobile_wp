@@ -65,6 +65,7 @@ const browser = {
 export function getBrowser() {
     return browser;
 }
+/*
 
 let mainHistory = null;
 export function setHistory(history){
@@ -80,4 +81,4 @@ export function go(path, query){
     }
     console.log(`search=${search}`);
     history.push(path + search);
-}
+}*/

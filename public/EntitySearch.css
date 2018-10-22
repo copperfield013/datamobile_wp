@@ -68,7 +68,7 @@ label.criteria-title {
     background-color: transparent;
     height: 2em;
     line-height: 1.2em;
-    color: #888;
+    color: #999;
     font-size: inherit;
 }
 
@@ -130,4 +130,30 @@ label.criteria-title {
 .entity-search select,
 .entity-search .weui-cell__bd{
     color: #888;
+}
+
+.entity-search-page-info input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    height: 2em;
+    line-height: 1.2em;
+    color: #999;
+    font-size: inherit;
+    text-align: center;
+}
+.entity-search-page-info input:focus {
+    color: #000000;
+}
+
+.entity-search-page-info {
+    display: flex;
+}
+
+.entity-search-page-info>div {
+    text-align: center;
+    background-color: #fff;
+    flex: 1 1 0;
 }

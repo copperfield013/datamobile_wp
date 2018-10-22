@@ -5,7 +5,7 @@ import UserPage from '../user/UserPage';
 import EntityPage from '../entity/EntityPage';
 import MenuIcon from '../common/MenuIcon';
 import './Main.css';
-import {setContainer, setHistory} from '../../redux/actions/page-actions';
+import {setContainer} from '../../redux/actions/page-actions';
 import store from '../../redux/store';
 import history from '../../redux/actions/history';
 class Main extends Component{
@@ -13,12 +13,11 @@ class Main extends Component{
         super();
         this.state = {
             menuIconClickCallback   : null,
-            title   : '导航页'
+            title   : '易+数据融合工具'
         }
     }
     componentDidMount() {
         setContainer(document.body);
-        setHistory(this.refs.router.history);
         store.subscribe(()=>{
             const page = store.getState().page;
             if(page){

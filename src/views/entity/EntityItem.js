@@ -13,6 +13,7 @@ class EntityItem extends Component{
         let entity = this.props.entity;
         return (
             <div className="entity-item">
+               <i className="entity-item-index">{entity.index + 1}</i>
                <div className="entity-item-fields">
                    {entity.fields.map((field)=>{
                       return <div className="entity-item-field-group" key={field.id}>
@@ -27,7 +28,6 @@ class EntityItem extends Component{
                     <a className="btn-remove" onClick={()=>{this.refs.dialog.confirm('确认删除', '删除', this.removeEntity)}}>删除</a>
                     <Dialog ref="dialog" />
                 </div>
-                <i className="entity-item-index">{entity.index + 1}</i>
             </div>
         )
     }

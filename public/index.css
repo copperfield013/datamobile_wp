@@ -86,17 +86,16 @@ html, body, #root {
 }
 
 i.entity-item-index {
-    position: absolute;
-    right: 5px;
-    top: 0;
-    font-style: normal;
+    text-align: left;
+    display: block;
+    flex: 0 0 10px;
     font-size: 10px;
-    color: #999;
+    padding-left: 5px;
+    color: #c0c0c0;
+    overflow: visible;
+    height: 10px;
 }
 
-i.entity-item-index:before {
-    content: "No.";
-}
 
 span.entity-list-meta-count {
     float: right;
@@ -110,16 +109,16 @@ span.entity-list-meta-count {
     display: block;
     width: 100%;
     height: 50px;
-    background-color: #dcdcdc;
+    background-color: #efefef;
     text-align: center;
     line-height: 50px;
-    color: #999;
+    color: #bcbcbc;
 }
 
 .load-prev-page {
     float: left;
-    color: #888;
+    color: #999;
     margin-left: 1em;
-    font-weight: bold;
     text-decoration: underline;
+    font-size: 13px;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, FormCell, CellBody, CellFooter, Switch, Select} from 'react-weui';
+import {Form, FormCell, CellHeader, CellBody, CellFooter, Switch, Select, Input, Label} from 'react-weui';
 import LinkIcon from '../common/LinkIcon'
 class EntitySearch extends React.Component{
     constructor(props) {
@@ -11,7 +11,7 @@ class EntitySearch extends React.Component{
         this.criteriaFields = [];
         this.onChange = this.onChange.bind(this);
         this.query = this.query.bind(this);
-        this.getSearchFormData = this.getSearchFormData.bind(this);
+        this.getSearchCriterias = this.getSearchCriterias.bind(this);
         this.renderCriteriaGroup = this.renderCriteriaGroup.bind(this);
         this.renderCriteriaValue = this.renderCriteriaValue.bind(this);
     }
@@ -24,17 +24,17 @@ class EntitySearch extends React.Component{
         });
     }
     query() {
-        if(this.props.query){
-            const criterias = this.getSearchFormData();
-            this.props.query(criterias);
+        if(this.props.search){
+            const criterias = this.getSearchCriterias();
+            this.props.search(criterias);
         }
     }
-    getSearchFormData(){
-        let formData = new FormData();
+    getSearchCriterias(){
+        let criterias = {};
         this.criteriaFields.forEach((criteriaField)=>{
-            formData.append(criteriaField.getName(), criteriaField.getValue());
+            criterias[criteriaField.getName()] = criteriaField.getValue();
         });
-        return formData;
+        return criterias;
     }
     renderCriteriaGroup(criteria){
         if(criteria != null
@@ -68,6 +68,18 @@ class EntitySearch extends React.Component{
         return (
             <div className="entity-search">
                 <div className="entity-search-container">
+                    <div className="entity-search-wrapper">
+                        <h3>页码/每页条数</h3>
+                        <div className="entity-search-page-info">
+                            <div>
+                                <input type="number" defaultValue={this.props.pageInfo.pageNo} />
+                            </div>
+                            /
+                            <div>
+                                <input type="number"  defaultValue={this.props.pageInfo.pageSize} />
+                            </div>
+                        </div>
+                    </div>
                     <div className="entity-search-wrapper">
                         <h3>顺序字段</h3>
                         <Form select="true">

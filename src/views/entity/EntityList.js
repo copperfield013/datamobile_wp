@@ -4,7 +4,7 @@ import EntityItem from './EntityItem';
 import EntitySearch from './EntitySearch';
 import Drawer from '../common/Drawer';
 import store from '../../redux/store';
-import {setTitle, go} from "../../redux/actions/page-actions";
+import {setTitle} from "../../redux/actions/page-actions";
 import Loading from "../common/Loading";
 import queryString from 'query-string';
 
@@ -12,10 +12,8 @@ import queryString from 'query-string';
 class EntityList extends React.Component{
     constructor(props, context) {
         super(props, context);
-        const query = props.location.query || queryString.parse(props.location.search) || {};
-        console.log(query);
         this.state = {
-            entityLoaded  : false,
+            fetcting  : false,
             module  : {
                 title   : '测试'
             },
@@ -28,31 +26,39 @@ class EntityList extends React.Component{
 
             },
             pageInfo    : {
-                pageNo      : query.pageNo || 1,
-                pageSize    : query.pageSize || 10,
                 totalCount  : NaN
 
             },
-            entities    : null
+            entities    : null,
+            queryCriterias: {}
         };
+        this.refreshStateFromProps = this.refreshStateFromProps.bind(this);
+        this.refreshStateFromProps(props);
         this.hasPrevPage = this.hasPrevPage.bind(this);
         this.hasNextPage = this.hasNextPage.bind(this);
         this.goNextPage = this.goNextPage.bind(this);
         this.goPrevPage = this.goPrevPage.bind(this);
         this.query = this.query.bind(this);
-        this.queryFormData = this.queryFormData.bind(this);
+        this.search = this.search.bind(this);
+        this.getLinkURL = this.getLinkURL.bind(this);
     }
     componentDidMount() {
         this.query();
     }
-    query(param={}, formData = new FormData()) {
+    query(param={}) {
+        if(this.state.fetcting){return}
+        let formData = new FormData();
         formData.append('pageNo', param.pageNo || this.state.pageInfo.pageNo);
         formData.append('pageSize', param.pageSize || this.state.pageInfo.pageSize);
-        this.setState({entities: null});
+        for(let key in this.state.queryCriterias){
+            formData.append(key, this.state.queryCriterias[key]);
+        }
+        this.state.fetcting = true;
         fetch(`/api/entity/list/${this.props.match.params.menuId}`,
             {method: 'POST', body: formData}).then((res)=>res.json().then((data)=>{
             this.setState({
-                entityLoaded    : true,
+                module   : data.module,
+                ltmpl    : data.ltmpl,
                 entities : data.entities,
                 criterias: data.criterias,
                 pageInfo        : {
@@ -60,7 +66,8 @@ class EntityList extends React.Component{
                     totalCount: data.pageInfo.count
                 }
             });
-            store.dispatch(setTitle(`易+(${this.state.module.title}列表)`));
+            store.dispatch(setTitle(`${this.state.ltmpl.title}-列表`));
+            this.state.fetcting = false;
         }));
     }
     hasPrevPage() {
@@ -77,22 +84,67 @@ class EntityList extends React.Component{
     }
     goPrevPage() {
         if(this.hasPrevPage()){
-            this.query({
-                pageNo: this.state.pageInfo.pageNo - 1
-            });
+            this.props.history.push(
+                this.getLinkURL({pageNo:this.state.pageInfo.pageNo - 1})
+            );
         }
     }
     goNextPage() {
+        console.log('goNextPage');
         if(this.hasNextPage()){
-            this.query({
-                pageNo: this.state.pageInfo.pageNo + 1
-            });
+            this.props.history.push(
+                this.getLinkURL({pageNo:this.state.pageInfo.pageNo + 1})
+            );
         }
     }
-    queryFormData(formData) {
-        this.query(undefined, formData);
+    search(criterias) {
+        this.props.history.push(this.getLinkURL(criterias));
+    }
+    getLinkURL(params={}) {
+        let url = `/entity/list/${this.props.match.params.menuId}`;
+        let p = Object.assign({
+            pageNo  :  this.state.pageInfo.pageNo,
+            pageSize: this.state.pageInfo.pageSize
+        }, this.state.queryCriterias, params);
+        let criteriaSearch = queryString.stringify(p);
+        return url + '?' + criteriaSearch;
+    }
+    refreshStateFromProps(props) {
+        const query = props.location.query || queryString.parse(props.location.search) || {};
+        this.state.pageInfo.pageNo = query.pageNo || 1;
+        this.state.pageInfo.pageSize = query.pageSize || 10;
+        this.state.queryCriterias = {};
+        Object.keys(query).forEach((key)=>{
+            if(/^criteria_\d+$/.test(key)){
+                this.state.queryCriterias[key] = query[key];
+            }
+        });
+    }
+    componentWillReceiveProps(props){
+        console.log('componentWillReceiveProps');
+        if(props.location.pathname !== this.props.location.pathname
+            || props.location.search !== this.props.location.search){
+            console.log('setEntityNull');
+            this.state.entities = null;
+            this.refreshStateFromProps(props);
+        }
+    }
+    shouldComponentUpdate(props){
+        console.log(props.location.action);
+        console.log('shouldComponentUpdate');
+        if(this.state.entities == null){
+            return true;
+        }
+        return false;
+    }
+    componentDidUpdate(prop, state) {
+        console.log('componentDidUpdate');
+        if(this.state.entities === null){
+            this.query();
+        }
     }
     render() {
+        console.log('render');
         if(this.state.entities == null){
             return <Loading/>
         }
@@ -125,7 +177,8 @@ class EntityList extends React.Component{
                 <Drawer drawer={this.props.menuBinder}>
                     <EntitySearch ltmpl={this.state.ltmpl}
                                   menuId={this.props.match.params.menuId}
-                                  query={this.queryFormData}
+                                  search={this.search}
+                                  pageInfo={this.state.pageInfo}
                                   criterias={this.state.criterias} />
                 </Drawer>
 
