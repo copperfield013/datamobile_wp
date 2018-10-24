@@ -80,3 +80,21 @@
     max-width: 30%;
     max-height: 100px;
 }
+
+
+input[type="text"].field-input-text {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    height: 2em;
+    line-height: 1.2em;
+    color: #999;
+    font-size: inherit;
+    text-align: right;
+}
+
+input[type="text"].field-input-text:focus {
+    color: #000000;
+}

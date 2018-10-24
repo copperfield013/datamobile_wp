@@ -1,6 +1,3 @@
-import $ from "jquery";
-import history from './history';
-
 export const REGIST_MENU = 'regist_menu';
 export const UNREGIST_MENU = 'unregist_menu';
 export const SET_TITLE = 'set_title';
@@ -38,7 +35,6 @@ export function setTitle(title){
 let $container = null;
 
 export function setContainer($$container){
-    console.log(`设置容器为${$$container}`);
     $container = $$container;
 }
 
@@ -47,12 +43,12 @@ export function getContainer(){
 }
 const browser = {
     versions:function(){
-        let u = navigator.userAgent, app = navigator.appVersion;
+        let u = navigator.userAgent;
         return {
             trident: u.indexOf('Trident') > -1, //IE内核
             presto: u.indexOf('Presto') > -1, //opera内核
             webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') === -1, //火狐内核
             mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
             ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
             android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器

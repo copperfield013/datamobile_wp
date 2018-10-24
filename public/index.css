@@ -122,3 +122,8 @@ span.entity-list-meta-count {
     text-decoration: underline;
     font-size: 13px;
 }
+
+.lock {
+    overflow: hidden !important;
+    position: fixed !important;
+}

@@ -2,17 +2,20 @@ import React from 'react';
 import {PhotoSwipe} from 'react-photoswipe';
 import 'react-photoswipe/lib/photoswipe.css';
 export default class FieldValue extends React.Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             showGallery: false,
             galleryWidth: 0,
             galleryHeight: 0,
             galleryOption: {
                 shareEl     : false
-            }
+            },
+            value   : props.field.value
         }
         this.showFile = this.showFile.bind(this);
+        this.getValue = this.getValue.bind(this);
+        this.setValue = this.setValue.bind(this);
     }
     showFile() {
         const field = this.props.field;
@@ -33,6 +36,16 @@ export default class FieldValue extends React.Component{
             return reg.test(field.value);
         }
         return false;
+    }
+    getValue(){
+        return this.state.value;
+    }
+    setValue(value){
+        if(typeof value !== 'undefined'){
+            this.setState({
+                value: value
+            });
+        }
     }
     render(){
         const field = this.props.field;
@@ -57,7 +70,7 @@ export default class FieldValue extends React.Component{
                     return null;
                 }
             default:
-                return <span field-type={field.type}>{field.value}</span>;
+                return <span field-type={field.type}>{this.state.value}</span>;
         }
     }
 }

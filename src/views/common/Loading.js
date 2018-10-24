@@ -1,5 +1,4 @@
 import React from 'react';
-import {LoadMore} from 'react-weui';
 import {setTitle} from "../../redux/actions/page-actions";
 import store from "../../redux/store";
 

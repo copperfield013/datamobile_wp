@@ -137,8 +137,7 @@ class EntityList extends React.Component{
         }
         return false;
     }
-    componentDidUpdate(prop, state) {
-        console.log('componentDidUpdate');
+    componentDidUpdate(props, state) {
         if(this.state.entities === null){
             this.query();
         }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, FormCell, CellHeader, CellBody, CellFooter, Switch, Select, Input, Label} from 'react-weui';
+import {Form, FormCell, CellBody, CellFooter, Switch, Select} from 'react-weui';
 import LinkIcon from '../common/LinkIcon'
 class EntitySearch extends React.Component{
     constructor(props) {
@@ -38,7 +38,7 @@ class EntitySearch extends React.Component{
     }
     renderCriteriaGroup(criteria){
         if(criteria != null
-            && criteria.queryShow == 1
+            && criteria.queryShow === 1
             && criteria.title){
             return (
                 <div key={criteria.id} className={`entity-criteria-group ${criteria.fieldAvailable? '': 'field-unavailable'}`}>

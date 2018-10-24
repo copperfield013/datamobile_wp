@@ -1,0 +1,111 @@
+.field-input {
+    width: 100%;
+    height: 100%;
+}
+
+.field-input>div {
+    width: 100%;
+    height: 100%;
+}
+
+input[type="text"].field-input-text {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    height: 2em;
+    line-height: 1.2em;
+    color: #999;
+    font-size: inherit;
+    text-align: right;
+}
+
+input[type="text"].field-input-text:focus {
+    color: #000000;
+}
+
+.field-dialog {
+    position: fixed;
+    top: 100vh;
+    height: 100%;
+    left: 5px;
+    right: 0;
+    background-color: #fff;
+    z-index: 1000;
+    border-left: 1px groove #efefef;
+}
+.field-dialog.show{
+    top: 5px;
+    transition: top 0.3s;
+    -moz-transition:top 0.3s; /* Firefox 4 */
+    -webkit-transition:top 0.3s; /* Safari and Chrome */
+    -o-transition:top 0.3s; /* Opera */
+}
+
+.field-dialog-cover {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #ccc;
+    opacity: 0.2;
+}
+
+.field-dialog-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    line-height: 50px;
+    background-color: #2d2d2d;
+}
+
+.field-dialog-header>span {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.field-dialog-header>span[action="cancel"] {
+    float: left;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.field-dialog-header>span[action="complete"] {
+    float: right;
+    color: 	#09bb07;
+    margin-right: 10px;
+}
+
+.field-dialog-body {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f9f9f9;
+}
+
+.field-input-component.input-text {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.field-input-component.input-text>textarea {
+    border: none;
+    font-size: 1em;
+    font-family: 微软雅黑;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    min-height: 8em;
+    resize: none;
+}
+
+.field-input-component.input-text>textarea:focus {
+    border: none;
+}

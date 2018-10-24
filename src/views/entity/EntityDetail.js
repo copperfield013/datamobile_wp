@@ -5,14 +5,16 @@ import store from "../../redux/store";
 import {setTitle} from "../../redux/actions/page-actions";
 import Drawer from "../common/Drawer";
 import EntityHistory from './EntityHistory'
-import {BrowserRouter, Route} from 'react-router-dom';
-import FieldValue from './FieldValue';
+import FieldValue from '../field/FieldValue';
 import Loading from "../common/Loading";
+import queryString from 'query-string';
 
 class EntityDetail extends React.Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        console.log(props.history);
         this.state = {
+            entityListURL: props.location.pathname,
             entity: null
         };
     }
@@ -20,9 +22,17 @@ class EntityDetail extends React.Component{
 
     }
     componentDidMount() {
-        fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`).then((res)=>res.json().then((data)=>{
+        let query = queryString.parse(this.props.location.search);
+        let formData = new FormData();
+        if(query.hid){
+            formData.append('historyId', query.hid);
+        }
+
+        fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`,
+            {method: 'POST', body: formData}).then((res)=>res.json().then((data)=>{
             this.setState({
-                entity : data.entity
+                entity : data.entity,
+                history: data.history
             });
             store.dispatch(setTitle(`详情-${this.state.entity.title}`));
         }));
@@ -81,11 +91,14 @@ class EntityDetail extends React.Component{
                 <AlertMenu menuBinder={this.props.menuBinder} >
                     <MenuItem onClick={()=>{this.refs.drawer.toggle(true)}} title="历史" iconfont="icon-history" />
                     <MenuItem href="/" title="首页" iconfont="icon-caidan05"  />
+                    {
+                        this.state.entityListURL?
+                            <MenuItem href={this.state.entityListURL} title="返回列表" iconfont="icon-list"  />
+                            : null
+                    }
                 </AlertMenu>
                 <Drawer ref="drawer" registMenu={false}>
-                    <BrowserRouter>
-                        <Route exact path="/entity/detail/:menuId/:code" component={EntityHistory} />
-                    </BrowserRouter>
+                    <EntityHistory data={this.state.history} code={this.props.match.params.code} menuId={this.props.match.params.menuId} />
                 </Drawer>
             </div>
         );
