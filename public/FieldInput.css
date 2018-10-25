@@ -2,6 +2,9 @@
     width: 100%;
     height: 100%;
 }
+.field-input:active {
+    background-color: #ccc;
+}
 
 .field-input>div {
     width: 100%;
@@ -33,6 +36,7 @@ input[type="text"].field-input-text:focus {
     right: 0;
     background-color: #fff;
     z-index: 1000;
+    text-align: left;
     border-left: 1px groove #efefef;
 }
 .field-dialog.show{
@@ -108,4 +112,117 @@ input[type="text"].field-input-text:focus {
 
 .field-input-component.input-text>textarea:focus {
     border: none;
+}
+
+.input-select-search {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.input-select-search>input {
+    width: 95%;
+    height: 90%;
+    border: none;
+    font-size: 1em;
+    font-family: 微软雅黑;
+    padding: 0 0.6em;
+    display: none;
+}
+
+span.search-icon {
+    position: absolute;
+    left: 0;
+    height: 90%;
+    display: inline-block;
+    right: 0;
+    text-align: center;
+    top: 0;
+}
+
+.search-icon>i.iconfont.icon-search {
+    margin-right: 5px;
+}
+
+
+
+
+.field-input-component.input-select {
+    background-color: inherit;
+}
+
+.input-select-search>input:focus+.search-icon {
+    display: none;
+}
+
+.input-select-list {
+    position: absolute;
+    bottom: 0;
+    top: 55px;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+}
+
+.input-select-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.input-select-list-wrapper>div {
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    font-size: 1em;
+    justify-content: left;
+    height: auto;
+}
+.input-select-list-wrapper>div:active {
+    background-color: #ececec;
+}
+
+.input-select-list-wrapper>div>label {
+    flex: 1 1 0;
+    line-height: 1.5em;
+    color: #000;
+    text-align: left;
+    display: block;
+    padding: 10px;
+}
+
+.input-select-list-wrapper>div.selected:after {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 1.5em;
+    justify-content: center;
+    align-items: center;
+    color: #09bb07;
+    margin-right: 5px;
+    font-size: 1.5em;
+    text-align: center;
+    content: "\e63a";
+    font-family: "iconfont" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+.input-date>input {
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    border: none;
+    height: 3em;
+    line-height: 3em;
+    text-align: center;
+    margin-top: 1em;
 }

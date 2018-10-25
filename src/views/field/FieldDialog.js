@@ -86,9 +86,11 @@ class FieldDialog extends React.Component{
                     <span onClick={this.complete} action="complete">完成</span>
                 </div>
                 <div className="field-dialog-body">
+
                     {
                         React.createElement(this.props.input, {
                             ref     : 'input',
+                            field   : this.props.field,
                             fieldValue   : this.state.fieldValue
                         })
                     }

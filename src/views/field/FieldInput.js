@@ -3,6 +3,7 @@ import FieldValue from "./FieldValue";
 import FieldDialog from "./FieldDialog";
 import InputText from "./InputText";
 import InputSelect from "./InputSelect";
+import InputDate from "./InputDate";
 
 class FieldInput extends React.Component{
     constructor() {
@@ -27,6 +28,9 @@ class FieldInput extends React.Component{
                 case 'select':
                     input = InputSelect;
                     break;
+                case 'date':
+                    input = InputDate;
+                    break;
             }
             return (
                 <div className={`field-input field-input-${field.type}`}>
@@ -36,6 +40,7 @@ class FieldInput extends React.Component{
                     {input?
                         <FieldDialog ref="dialog"
                                      input={input}
+                                     field={this.props.field}
                                      onComplete={(value)=>this.refs.value.setValue(value)}
                                      getContainer={this.props.getContainer}
                         />
