@@ -4,6 +4,8 @@ import FieldDialog from "./FieldDialog";
 import InputText from "./InputText";
 import InputSelect from "./InputSelect";
 import InputDate from "./InputDate";
+import InputDateTime from "./InputDateTime";
+import InputCaselect from './InputCaselect';
 
 class FieldInput extends React.Component{
     constructor() {
@@ -20,31 +22,51 @@ class FieldInput extends React.Component{
     render() {
         if(this.props.field){
             let field = this.props.field;
+            let dialog = null;
             let input = null;
-            switch (field.type) {
-                case 'text' :
-                    input = InputText;
-                    break;
-                case 'select':
-                    input = InputSelect;
-                    break;
-                case 'date':
-                    input = InputDate;
-                    break;
+            if(field.available){
+                switch (field.type) {
+                    //文本框
+                    case 'text' :
+                        input = InputText;
+                        break;
+                    //普通下拉选项
+                    case 'select':
+                        input = InputSelect;
+                        break;
+                    //日期选择
+                    case 'date':
+                        dialog = <InputDate
+                                ref="dialog"
+                                onComplete={(value)=>this.refs.value.setValue(value)}/>;
+                        break;
+                    //日期时间选择
+                    case 'datetime':
+                        dialog = <InputDateTime
+                            ref="dialog"
+                            onComplete={(value)=>this.refs.value.setValue(value)}/>;
+                        break;
+                    //级联属性
+                    case 'caselect':
+                        input = InputCaselect;
+                        break
+                }
             }
             return (
                 <div className={`field-input field-input-${field.type}`}>
-                    <div onClick={this.showDialog}>
+                    <div className={`field-input-value`} onClick={this.showDialog}>
                         <FieldValue ref="value" field={field} />
                     </div>
-                    {input?
-                        <FieldDialog ref="dialog"
-                                     input={input}
-                                     field={this.props.field}
-                                     onComplete={(value)=>this.refs.value.setValue(value)}
-                                     getContainer={this.props.getContainer}
-                        />
-                        : null}
+                    {dialog?
+                        dialog
+                        :input?
+                            <FieldDialog ref="dialog"
+                                         input={input}
+                                         field={this.props.field}
+                                         onComplete={(value)=>this.refs.value.setValue(value)}
+                                         getContainer={this.props.getContainer}
+                            />
+                            : null}
                 </div>
             );
         }

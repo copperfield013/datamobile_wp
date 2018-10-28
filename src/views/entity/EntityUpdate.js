@@ -39,11 +39,12 @@ class EntityUpdate extends React.Component{
     }
     renderFields(fields) {
         return fields.map((field)=>
-            <div key={field.id} className="entity-field">
+            <div key={field.id} className={`entity-field ${field.available? '': 'entity-field-unavailable'}`}>
                 <label>{field.title}</label>
                 <div>
                     <FieldInput field={field} />
                 </div>
+                {field.available? null: <span><i className={`iconfont icon-warning`}></i></span>}
             </div>
         )
     }
@@ -59,11 +60,12 @@ class EntityUpdate extends React.Component{
                         </div>:''
                 }
                 {compositeEntity.fields.map((field)=>
-                    <div key={field.id} className="entity-field">
+                    <div key={field.id} className={`entity-field ${field.available? '': 'entity-field-unavailable'}`}>
                         <label>{field.title}</label>
                         <div>
                             <FieldInput field={field}/>
                         </div>
+                        {field.available? null: <span><i className={`iconfont icon-warning`}></i></span>}
                     </div>
 
                 )}

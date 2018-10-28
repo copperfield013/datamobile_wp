@@ -1,15 +1,20 @@
 import React from 'react';
 import Input from "./Input";
+import ContentEditable from "react-contenteditable";
 
 class InputText extends Input{
     getValue() {
-        return this.refs.textarea.value;
+        return this.refs.textarea.htmlEl.textContent;
     }
     render() {
         return (
             <div className={`field-input-component input-text`}>
-                <textarea ref="textarea" defaultValue={this.props.fieldValue.getValue()}>
-                </textarea>
+                <ContentEditable
+                    ref="textarea"
+                    className={`textarea`}
+                    html={this.props.fieldValue.getValue()} // innerHTML of the editable div
+                    disabled={false} // use true to disable edition
+                />
             </div>
         )
     }
