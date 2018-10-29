@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2999d83-372d-4513-83f7-99db13043583" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/chevron-active.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/chevron.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/chevron.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/field/InputCaselect.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/EntityDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/EntityDetail.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/FieldInput.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/FieldInput.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/entity/EntityDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/entity/EntityDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/entity/EntityUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/entity/EntityUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/field/FieldInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/FieldInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/field/InputDate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/InputDate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/field/InputDateTime.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/InputDateTime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/field/InputText.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/InputText.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/field/InputCaselect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/InputCaselect.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -72,7 +61,7 @@
     <session id="801880363">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="22" />
+          <entry key="project.closed" value="23" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
@@ -83,30 +72,30 @@
           <entry key="project.open.time.19" value="2" />
           <entry key="project.open.time.20" value="2" />
           <entry key="project.open.time.21" value="1" />
-          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.26" value="4" />
           <entry key="project.open.time.34" value="1" />
-          <entry key="project.opened" value="24" />
+          <entry key="project.opened" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="EntityListPage" value="344" />
-          <entry key="css" value="1459" />
+          <entry key="css" value="1464" />
           <entry key="html" value="58" />
-          <entry key="js" value="44459" />
+          <entry key="js" value="52425" />
           <entry key="json" value="45" />
-          <entry key="txt" value="683" />
+          <entry key="txt" value="889" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1459" />
+          <entry key="CSS" value="1464" />
           <entry key="HTML" value="58" />
           <entry key="JSON" value="45" />
           <entry key="JSX Harmony" value="344" />
-          <entry key="JavaScript" value="44308" />
-          <entry key="PLAIN_TEXT" value="834" />
+          <entry key="JavaScript" value="52274" />
+          <entry key="PLAIN_TEXT" value="1040" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -117,8 +106,8 @@
           <entry key="InputDateTime" value="1" />
           <entry key="babelrc" value="1" />
           <entry key="css" value="42" />
-          <entry key="html" value="14" />
-          <entry key="js" value="175" />
+          <entry key="html" value="15" />
+          <entry key="js" value="179" />
           <entry key="json" value="13" />
           <entry key="md" value="1" />
           <entry key="png" value="1" />
@@ -128,11 +117,11 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="42" />
-          <entry key="HTML" value="14" />
+          <entry key="HTML" value="15" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="14" />
           <entry key="JSX Harmony" value="3" />
-          <entry key="JavaScript" value="172" />
+          <entry key="JavaScript" value="176" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="TypeScript" value="6" />
         </counts>
@@ -149,8 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/FieldInput.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="404" column="51" lean-forward="true" selection-start-line="404" selection-start-column="51" selection-end-line="404" selection-end-column="51" />
+            <state relative-caret-position="155">
+              <caret line="422" column="19" selection-start-line="422" selection-start-column="19" selection-end-line="422" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -158,20 +147,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/field/InputSelect.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/field/InputText.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="64" lean-forward="true" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+            <state relative-caret-position="92">
+              <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -182,7 +159,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/field/FieldInput.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
+            <state relative-caret-position="-23">
               <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -194,20 +171,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/field/InputCaselect.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="102" column="43" lean-forward="true" selection-start-line="102" selection-start-column="43" selection-end-line="102" selection-end-column="43" />
+            <state relative-caret-position="248">
+              <caret line="256" column="103" lean-forward="true" selection-start-line="256" selection-start-column="103" selection-end-line="256" selection-end-column="103" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/entity/EntityUpdate.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="41" column="109" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="109" />
             </state>
           </provider>
         </entry>
@@ -227,8 +195,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/field/FieldValue.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="43" column="41" lean-forward="true" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+            <state relative-caret-position="943">
+              <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -244,35 +212,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>entity-criteria-group-container</find>
-      <find>\n\.tag em\{display\:block\; border\-width\:20px\; position\:absolute\; bottom\:\-40px\; left\:100px\;border\-style\:solid dashed dashed\; border\-color\:\#09F transparent transparent\;font\-size\:0\; line\-height\:0\;\}\n</find>
-      <find>setT</find>
-      <find>index</find>
-      <find>#71BF74</find>
-      <find>flex</find>
-      <find>menuId</find>
-      <find>canUpdate</find>
-      <find>onChange</find>
-      <find>parse</find>
-      <find>parse`</find>
-      <find>refreshStateFromProps</find>
-      <find>keys</find>
-      <find>queryCriteris</find>
-      <find>entityLoaded</find>
-      <find>fetcting</find>
-      <find>entityLoaded`</find>
-      <find>active</find>
-      <find>.match.params</find>
-      <find>query</find>
-      <find>queryString</find>
-      <find>fetch</find>
-      <find>lock</find>
-      <find>ava</find>
       <find>entity-field</find>
       <find>setState</find>
       <find>textarea</find>
       <find>red</find>
       <find>field</find>
+      <find>activeLevel</find>
+      <find>fieldId</find>
+      <find>selectLe</find>
+      <find>setSelectedOption</find>
+      <find>this.state.options</find>
+      <find>selectOption</find>
+      <find>onOptionSelected</find>
+      <find>activeItem</find>
+      <find>$options</find>
+      <find>level</find>
+      <find>setLevelOptionGroupId</find>
+      <find>getTitle</find>
+      <find>showOptionList</find>
+      <find>load</find>
+      <find>loadOptionList</find>
+      <find>value</find>
+      <find>then</find>
+      <find>showOptions</find>
+      <find>filterOptions</find>
+      <find>filter</find>
+      <find>input</find>
+      <find>text</find>
+      <find>searchKeyword</find>
+      <find>searchBar</find>
+      <find>setOptionGroupId</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -328,15 +297,15 @@
         <option value="$PROJECT_DIR$/src/views/field/FieldDialog.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/views/field/InputDate.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/src/views/entity/EntityUpdate.js" />
         <option value="$PROJECT_DIR$/public/EntityDetail.css" />
         <option value="$PROJECT_DIR$/src/views/entity/EntityDetail.js" />
         <option value="$PROJECT_DIR$/src/views/field/InputDateTime.js" />
         <option value="$PROJECT_DIR$/src/views/field/FieldInput.js" />
         <option value="$PROJECT_DIR$/src/views/field/InputSelect.js" />
-        <option value="$PROJECT_DIR$/public/FieldInput.css" />
         <option value="$PROJECT_DIR$/src/views/field/InputText.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/FieldInput.css" />
+        <option value="$PROJECT_DIR$/src/views/entity/EntityUpdate.js" />
         <option value="$PROJECT_DIR$/src/views/field/InputCaselect.js" />
       </list>
     </option>
@@ -396,13 +365,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
               <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
@@ -414,6 +387,13 @@
               <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
@@ -426,6 +406,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -500,7 +481,8 @@
       <workItem from="1540531875677" duration="95000" />
       <workItem from="1540532027768" duration="2864000" />
       <workItem from="1540535436363" duration="7198000" />
-      <workItem from="1540712420596" duration="20124000" />
+      <workItem from="1540712420596" duration="20402000" />
+      <workItem from="1540777744676" duration="32463000" />
     </task>
     <task id="LOCAL-00001" summary="实体列表路由">
       <created>1539103156420</created>
@@ -593,11 +575,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540492419387</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="1、级联属性caselect表单&#10;2、修复iOS的InputDialog无法滚动的bug&#10;3、InputText用EditableContentDiv替换textarea，解决高度自适应的问题&#10;4、日期控件InputDate以及日期时间控件InputDateTime">
+      <created>1540743649684</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1540743649684</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="316336000" />
+    <option name="totallyTimeSpent" value="349077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -701,30 +690,10 @@
     <MESSAGE value="实体列表查询支持history.push的链接跳转（包括分页和文本条件）" />
     <MESSAGE value="实体编辑页及字段表单" />
     <MESSAGE value="select表单" />
-    <option name="LAST_COMMIT_MESSAGE" value="select表单" />
+    <MESSAGE value="1、级联属性caselect表单&#10;2、修复iOS的InputDialog无法滚动的bug&#10;3、InputText用EditableContentDiv替换textarea，解决高度自适应的问题&#10;4、日期控件InputDate以及日期时间控件InputDateTime" />
+    <option name="LAST_COMMIT_MESSAGE" value="1、级联属性caselect表单&#10;2、修复iOS的InputDialog无法滚动的bug&#10;3、InputText用EditableContentDiv替换textarea，解决高度自适应的问题&#10;4、日期控件InputDate以及日期时间控件InputDateTime" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.babelrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="39" column="48" lean-forward="true" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/setupProxy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="54" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/main/Main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
@@ -913,9 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="15" column="66" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -923,13 +889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
           <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="90" selection-start-line="7" selection-start-column="90" selection-end-line="7" selection-end-column="90" />
         </state>
       </provider>
     </entry>
@@ -964,31 +923,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="41">
           <caret line="131" column="33" lean-forward="true" selection-start-line="131" selection-start-column="33" selection-end-line="131" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/images/icon_nav_cell.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityUpdate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="41" column="109" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/_react-contenteditable@3.1.1@react-contenteditable/lib/react-contenteditable.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1002,16 +941,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/field/InputText.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="10" column="64" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/field/FieldValue.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="43" column="41" lean-forward="true" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+        <state relative-caret-position="943">
+          <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="49" lean-forward="true" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/FieldInput.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="422" column="19" selection-start-line="422" selection-start-column="19" selection-end-line="422" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/_react-weui@1.1.3@react-weui/build/packages/components/searchbar/searchbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="95" column="32" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/field/FieldInput.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
+        <state relative-caret-position="-23">
           <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -1019,27 +989,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/FieldInput.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="404" column="51" lean-forward="true" selection-start-line="404" selection-start-column="51" selection-end-line="404" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/field/InputSelect.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        <state relative-caret-position="92">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/field/InputText.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/_react-weui@1.1.3@react-weui/build/packages/components/searchbar/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="64" lean-forward="true" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+        <state relative-caret-position="138">
+          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/_react-weui@1.1.3@react-weui/build/packages/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="60" column="49" selection-start-line="60" selection-start-column="49" selection-end-line="60" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityUpdate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="34" column="37" lean-forward="true" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1048,8 +1032,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/field/InputCaselect.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="102" column="43" lean-forward="true" selection-start-line="102" selection-start-column="43" selection-end-line="102" selection-end-column="43" />
+        <state relative-caret-position="248">
+          <caret line="256" column="103" lean-forward="true" selection-start-line="256" selection-start-column="103" selection-end-line="256" selection-end-column="103" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

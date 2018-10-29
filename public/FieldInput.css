@@ -356,6 +356,7 @@ span.search-icon {
     position: relative;
     background-color: #f5f5f5;
     margin: 5px 0;
+    border-left: 1px solid #d4d4d4;
     border-top: 1px solid #d4d4d4;
     border-bottom: 1px solid #d4d4d4;
     color: #d0d0d0;
@@ -367,6 +368,7 @@ span.input-caselect-item>span:first-child {
     white-space: nowrap;
     text-overflow: ellipsis;
     min-width: 3em;
+    line-height: 1;
 }
 
 .input-caselect-item > span.chevron {
@@ -400,10 +402,31 @@ span.input-caselect-item.active {
     color: #000;
     border-bottom: 2px solid #09bb07;
     padding-bottom: 4px;
-    border-right: none;
 }
 span.input-caselect-item.active>span.chevron:after{
     border-left: 11px solid #fff;
 }
 
+.input-caselect-list-wrapper>div:after {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 1.5em;
+    justify-content: center;
+    align-items: center;
+    color: #d4d4d4;
+    margin-right: 10px;
+    font-size: 1em;
+    text-align: center;
+    content: "\e74f";
+    font-family: "iconfont" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
 /*******caselect end***************/
+
+.weui-search-bar {
+    background-color: #f4f4f4 !important;
+}
