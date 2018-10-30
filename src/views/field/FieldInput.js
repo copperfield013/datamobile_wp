@@ -8,8 +8,15 @@ import InputDateTime from "./InputDateTime";
 import InputCaselect from './InputCaselect';
 
 class FieldInput extends React.Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        this.state = {
+            field: props.field,
+            hiddenValue: props.value
+        }
+        if(props.name && props.inputMap){
+            props.inputMap.put(props.name, this);
+        }
         this.showDialog = this.showDialog.bind(this);
     }
     showDialog() {
@@ -19,7 +26,36 @@ class FieldInput extends React.Component{
             dialog.showWith(value);
         }
     }
+    getName(){
+        return this.props.name;
+    }
+    getValue(){
+        if(this.props.hidden === true){
+            return this.state.hiddenValue || '';
+        }
+        if(this.refs.value){
+            return this.refs.value.getValue();
+        }else{
+            return this.state.field.value || '';
+        }
+    }
+    getField() {
+        return this.state.field;
+    }
+    isModified(){
+        if(this.refs.value){
+            return this.refs.value.isModified();
+        }else{
+            return false;
+        }
+    }
+    isStrict(){
+        return !!this.props.strict || false;
+    }
     render() {
+        if(this.props.hidden === true){
+            return null;
+        }
         if(this.props.field){
             let field = this.props.field;
             let dialog = null;

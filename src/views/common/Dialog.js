@@ -10,24 +10,7 @@ const defaultState = {
 export default class Dialog extends React.Component{
     constructor() {
         super();
-        const _this = this;
-        this.state = {...defaultState,
-                buttons  : [
-                    {
-                        type: 'default',
-                        label: '取消',
-                        onClick: ()=>{
-                            _this.hideDialogAndDo(_this.state.onCanceled);
-                        }
-                    },
-                    {
-                        type: 'primary',
-                        label: '确定',
-                        onClick: ()=>{
-                            _this.hideDialogAndDo(_this.state.onConfirmed);
-                        }
-                    }
-                ]};
+        this.state = {...defaultState};
     }
     hideDialogAndDo(callback) {
         if(typeof callback === 'function'){
@@ -41,12 +24,46 @@ export default class Dialog extends React.Component{
             title = defaultState.title,
             onConfirmed = defaultState.onConfirmed,
             onCanceled = defaultState.onCanceled) {
+        const _this = this;
         this.setState({
             show    : true,
             title: title,
             content: content,
-            onConfirmed: onConfirmed,
-            onCanceled: onCanceled
+            buttons: [
+                {
+                    type: 'default',
+                    label: '取消',
+                    onClick: ()=>{
+                        _this.hideDialogAndDo(onCanceled);
+                    }
+                },
+                {
+                    type: 'primary',
+                    label: '确定',
+                    onClick: ()=>{
+                        _this.hideDialogAndDo(onConfirmed);
+                    }
+                }
+            ]
+        });
+    }
+    alert(content = defaultState.content,
+            title = defaultState.title,
+            onConfirmed = defaultState.onConfirmed) {
+        const _this = this;
+        this.setState({
+            show    : true,
+            title: title,
+            content: content,
+            buttons: [
+                {
+                    type: 'primary',
+                    label: '确定',
+                    onClick: ()=>{
+                        _this.hideDialogAndDo(onConfirmed);
+                    }
+                }
+            ]
         });
     }
     render() {

@@ -136,9 +136,11 @@ class InputCaselect extends Input{
                             if(options[i].title === defValue){
                                 levelItem.setSelectedOption(options[i]);
                                 _this.initLevelItemFrom(level + 1, options[i].id, valueItems);
+                                return ;
                             }
                         }
                     }
+                    _this.activateLevel(1);
                 });
             });
         }else{

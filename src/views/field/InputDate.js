@@ -36,7 +36,12 @@ class InputDate extends Input{
         if(fieldValue){
             let value = fieldValue.getValue();
             if(typeof value === 'string'){
-                value = moment(value, this.format).toDate();
+                let m = moment(value, this.format);
+                if(m.isValid()){
+                    value = m.toDate();
+                }else{
+                    value = new Date();
+                }
             }
             this.setState({
                isOpen   : true,

@@ -11,7 +11,8 @@ export default class FieldValue extends React.Component{
             galleryOption: {
                 shareEl     : false
             },
-            value   : props.field.value
+            value   : props.field.value,
+            modified   : false
         }
         this.showFile = this.showFile.bind(this);
         this.getValue = this.getValue.bind(this);
@@ -29,6 +30,9 @@ export default class FieldValue extends React.Component{
             });
         }
     }
+    isModified() {
+        return this.state.modified;
+    }
     isPhotoFile() {
         const field = this.props.field;
         if(field && typeof field.value === 'string'){
@@ -38,12 +42,13 @@ export default class FieldValue extends React.Component{
         return false;
     }
     getValue(){
-        return this.state.value;
+        return this.state.value || '';
     }
     setValue(value){
         if(typeof value !== 'undefined'){
             this.setState({
-                value: value
+                value: value,
+                modified: true
             });
         }
     }

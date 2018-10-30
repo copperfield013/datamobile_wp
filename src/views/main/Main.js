@@ -17,6 +17,13 @@ class Main extends Component{
         }
     }
     componentDidMount() {
+        console.log('bind onbeforeunload')
+        window.addEventListener("pagehide", function(){
+            //window.alert('页面要关闭了');
+        }, false);
+        window.onscroll = function () {
+            console.log(document.body.parentElement.scrollTop);
+        }
         setContainer(document.body);
         store.subscribe(()=>{
             const page = store.getState().page;
