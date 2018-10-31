@@ -1,14 +1,14 @@
 import {
     REGIST_MENU,
     UNREGIST_MENU,
-    SET_TITLE
+    SET_TITLE,
+    SHOW_SHEET,
+    HIDE_SHEET
 } from '../actions/page-actions';
 
 export default function(state={}, action){
     switch (action.type) {
         case REGIST_MENU:
-            console.log(111);
-            console.log(state);
             let res = {
                 ...state,
                 onMenuClick: action.payload.onMenuClick
@@ -32,6 +32,23 @@ export default function(state={}, action){
                 }
             }
             return state;
+        }
+        case SHOW_SHEET: {
+            if(action.payload && Array.isArray(action.payload.menus) && action.payload.menus.length > 0){
+                return {
+                    ...state,
+                    globalSheetMenus    : action.payload.menus,
+                    globalSheetCallback : action.payload.callback,
+                    showGlobalSheet : true
+                }
+            }
+            return state;
+        }
+        case HIDE_SHEET: {
+            return {
+                ...state,
+                showGlobalSheet : false
+            }
         }
         default:
             return state;

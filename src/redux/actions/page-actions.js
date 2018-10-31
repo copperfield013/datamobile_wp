@@ -1,6 +1,8 @@
 export const REGIST_MENU = 'regist_menu';
 export const UNREGIST_MENU = 'unregist_menu';
 export const SET_TITLE = 'set_title';
+export const SHOW_SHEET = 'show_sheet';
+export const HIDE_SHEET = 'hide_sheet';
 
 /**
  * 注册页面顶部的菜单按钮回调
@@ -61,20 +63,139 @@ const browser = {
 export function getBrowser() {
     return browser;
 }
-/*
 
-let mainHistory = null;
-export function setHistory(history){
-    console.log('setHistory')
-    console.log(history);
-    mainHistory = history;
+
+/**
+ * 显示全局的选项菜单
+ * @param menus
+ * @param callback
+ * @returns {{type: string, payload: {menus: *, callback: callback}}}
+ */
+export function showSheet(menus, callback=function(){}){
+    return {
+        type: SHOW_SHEET,
+        payload: {menus, callback }
+    }
 }
 
-export function go(path, query){
-    let search = '?';
-    if(query && typeof query === 'object'){
-        search += $.param(query);
+export function hideSheet(){
+    return {
+        type: HIDE_SHEET,
+        payload: {}
     }
-    console.log(`search=${search}`);
-    history.push(path + search);
-}*/
+}
+
+
+
+let registedElementMap = new Map();
+class Node{
+    constructor(value){
+        this.value = value;
+        this.prev = null;
+        this.next = null;
+    }
+    setNext(node){
+        if(node instanceof Node){
+            this.next = node;
+            node.prev = this;
+        }
+    }
+    hasNext(){
+        return this.next != null;
+    }
+}
+class LinkedList{
+    constructor(array){
+        this.first = null;
+        this.current = null;
+        this.last = null;
+        if(array instanceof HTMLCollection || Array.isArray(array)){
+            for (let i = 0; i < array.length; i++){
+                this.addNode(array[i]);
+            }
+        }
+    }
+    addNode(item){
+        let node = item;
+        if(!(item instanceof Node)){
+            node = new Node(item);
+        }
+        if(this.last == null){
+            this.first = this.last = this.current = node;
+        }else{
+            this.last.setNext(node);
+            this.last = node;
+        }
+    }
+    setCurrent(node){
+        this.current = node;
+    }
+    iterate(func){
+        let item = this.current;
+        while(item != null){
+            let result = func(item);
+            if(result instanceof Node){
+                return result;
+            }else if(result === false){
+                return null;
+            }else{
+                item = item.next;
+            }
+        }
+    }
+    iterateInvert(func){
+        let item = this.current;
+        while(item != null){
+            let result = func(item);
+            if(result instanceof Node){
+                return result;
+            }else if(result === false){
+                return null;
+            }else{
+                item = item.prev;
+            }
+        }
+    }
+}
+
+export function registScrollElementsFixed(key, elements){
+    if(key && (elements instanceof HTMLCollection || Array.isArray(elements)) && elements.length > 0){
+        registedElementMap.set(key, new LinkedList(elements));
+    }
+}
+
+let originScrollTop = 0;
+export function scrollTrigged(scrollTop){
+    let subscroll = scrollTop - originScrollTop;
+    originScrollTop = scrollTop;
+    registedElementMap.forEach((list, key)=>{
+        let theNode = null;
+        if(subscroll > 0){
+            theNode = list.iterate((current)=>{
+                if(current.next === null){
+                    return false;
+                }
+                if(scrollTop + 41 >= current.next.value.offsetTop + current.next.value.offsetHeight){
+                    return current.next;
+                }else if(scrollTop + 41 <= current.next.value.offsetTop){
+                    return current;
+                }
+            })
+        }else if(subscroll < 0){
+            theNode = list.iterateInvert((current)=>{
+                if(current.prev == null){
+                    return false;
+                }
+                if(scrollTop + 41 < current.value.offsetTop ){
+                    return current.prev;
+                }
+            })
+        }
+        if(theNode != null){
+            list.current.value.classList.remove('fixed');
+            list.setCurrent(theNode);
+            theNode.value.classList.add('fixed');
+        }
+
+    });
+}

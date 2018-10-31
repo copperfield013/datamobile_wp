@@ -24,6 +24,7 @@
     right: 9px;
     width: 7em;
     display: none;
+    z-index: 100;
 }
 
 .alertmenu-menu.shown-alertmenu:before {

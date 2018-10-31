@@ -1,18 +1,48 @@
 .entity-field-group {
     margin: 10px 0;
-    padding: 10px 0;
     display: flex;
     flex-direction: column;
 }
 
-.entity-field-group>h3.entity-field-group-title {
+.entity-field-group>div.entity-field-group-title {
     font-size: 0.9em;
     font-weight: normal;
     color: #888;
     text-indent: 1em;
-    height: 2em;
-    line-height: 2em;
-    background-color: #f6f6f6;
+    height: 3em;
+    line-height: 3em;
+    background-color: inherit;
+}
+.entity-field-group>div.entity-field-group-title>div{
+    background-color: #fff;
+    border-bottom: 1px solid #f4f4f4;
+    height: 3em;
+    display: flex;
+}
+.entity-field-group>div.entity-field-group-title.fixed>div{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 41px;
+}
+
+.entity-field-group>div.entity-field-group-title>div>h3 {
+    display: block;
+    flex: 1 1 0;
+}
+
+.entity-field-group>div.entity-field-group-title>div>span {
+    display: block;
+    text-align: center;
+    text-indent: 0;
+    flex: 0 0 40px;
+}
+.entity-field-group>div.entity-field-group-title>div>span:active {
+    background-color: #eee;
+}
+.entity-field-group>div.entity-field-group-title>div>span>i {
+    font-size: 25px;
+    color: #666;
 }
 
 .entity-field-group .entity-field {

@@ -2,7 +2,7 @@ import React from 'react';
 import AlertMenu, {MenuItem} from '../common/AlertMenu';
 import Folder from '../common/Folder';
 import store from "../../redux/store";
-import {setTitle} from "../../redux/actions/page-actions";
+import {registScrollElementsFixed, setTitle} from "../../redux/actions/page-actions";
 import Drawer from "../common/Drawer";
 import EntityHistory from './EntityHistory'
 import FieldValue from '../field/FieldValue';
@@ -32,7 +32,8 @@ class EntityDetail extends React.Component{
             {method: 'POST', body: formData}).then((res)=>res.json().then((data)=>{
             this.setState({
                 entity : data.entity,
-                history: data.history
+                history: data.history,
+                registScroll: true
             });
             store.dispatch(setTitle(`详情-${this.state.entity.title}`));
         }));
@@ -72,17 +73,26 @@ class EntityDetail extends React.Component{
             </Folder>
         );
     }
+    componentDidUpdate(props, state){
+        if(state.registScroll){
+            let t = this.$entityDetail.getElementsByClassName('entity-field-group-title');
+            console.log(t);
+            registScrollElementsFixed('EntityDetail', t);
+        }
+    }
     render() {
         if(this.state.entity == null){
             return <Loading/>
         }
         return(
             <div>
-                <div className="entity-detail">
+                <div ref={(instance)=>this.$entityDetail = instance}  className="entity-detail">
                     {
                         this.state.entity.fieldGroups.map((fieldGroup)=>
                             <div key={fieldGroup.id} className="entity-field-group">
-                                <h3 className="entity-field-group-title">{fieldGroup.title}</h3>
+                                <div className="entity-field-group-title">
+                                    <div><h3>{fieldGroup.title}</h3></div>
+                                </div>
                                 {fieldGroup.fields != null?
                                     this.renderFields(fieldGroup.fields)
                                     : this.renderArray(fieldGroup.array)}

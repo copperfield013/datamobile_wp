@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2999d83-372d-4513-83f7-99db13043583" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/views/field/FieldInputMap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/field/Sheet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/dialog-actions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/dialog-reducer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/common/Dialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/common/Dialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/EntityDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/EntityDetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/actions/history.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/actions/page-actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/page-actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/page-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/page-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/common/AlertMenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/common/AlertMenu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/common/Drawer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/common/Drawer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/entity/EntityDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/entity/EntityDetail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/entity/EntityUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/entity/EntityUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/field/FieldInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/FieldInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/field/FieldValue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/FieldValue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/field/InputCaselect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/InputCaselect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/field/InputDate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/InputDate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/field/FieldInputMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/FieldInputMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/field/Sheet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/Sheet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/main/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/main/Main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -70,7 +70,7 @@
     <session id="801880363">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="24" />
+          <entry key="project.closed" value="25" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
@@ -78,34 +78,34 @@
           <entry key="project.open.time.16" value="3" />
           <entry key="project.open.time.17" value="4" />
           <entry key="project.open.time.18" value="2" />
-          <entry key="project.open.time.19" value="2" />
+          <entry key="project.open.time.19" value="3" />
           <entry key="project.open.time.20" value="2" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.26" value="4" />
           <entry key="project.open.time.34" value="1" />
-          <entry key="project.opened" value="26" />
+          <entry key="project.opened" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="EntityListPage" value="344" />
-          <entry key="css" value="1464" />
+          <entry key="css" value="1499" />
           <entry key="html" value="58" />
-          <entry key="js" value="56999" />
+          <entry key="js" value="62554" />
           <entry key="json" value="45" />
-          <entry key="txt" value="893" />
+          <entry key="txt" value="915" />
           <entry key="xpath" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1464" />
+          <entry key="CSS" value="1499" />
           <entry key="HTML" value="58" />
           <entry key="JSON" value="45" />
           <entry key="JSX Harmony" value="344" />
-          <entry key="JavaScript" value="56848" />
-          <entry key="PLAIN_TEXT" value="1044" />
+          <entry key="JavaScript" value="62403" />
+          <entry key="PLAIN_TEXT" value="1066" />
           <entry key="XPath" value="9" />
         </counts>
       </usages-collector>
@@ -116,9 +116,9 @@
           <entry key="InputDate" value="1" />
           <entry key="InputDateTime" value="1" />
           <entry key="babelrc" value="1" />
-          <entry key="css" value="42" />
-          <entry key="html" value="16" />
-          <entry key="js" value="203" />
+          <entry key="css" value="46" />
+          <entry key="html" value="18" />
+          <entry key="js" value="217" />
           <entry key="json" value="13" />
           <entry key="md" value="1" />
           <entry key="png" value="1" />
@@ -127,12 +127,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="42" />
-          <entry key="HTML" value="16" />
+          <entry key="CSS" value="46" />
+          <entry key="HTML" value="18" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="14" />
           <entry key="JSX Harmony" value="3" />
-          <entry key="JavaScript" value="200" />
+          <entry key="JavaScript" value="214" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="TypeScript" value="6" />
         </counts>
@@ -147,70 +147,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/field/FieldInput.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="18" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/field/InputSelect.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="57" lean-forward="true" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/field/InputCaselect.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="152" column="72" lean-forward="true" selection-start-line="152" selection-start-column="72" selection-end-line="152" selection-end-column="72" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/entity/EntityDetail.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/field/InputDate.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/entity/EntityUpdate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="57" column="45" lean-forward="true" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+            <state relative-caret-position="168">
+              <caret line="173" column="36" selection-start-line="173" selection-start-column="36" selection-end-line="181" selection-end-column="42" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -219,19 +159,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/views/main/Main.js">
+        <entry file="file://$PROJECT_DIR$/src/views/entity/EntityDetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="24" column="63" lean-forward="true" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/field/Sheet.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="33" column="41" lean-forward="true" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+            <state relative-caret-position="283">
+              <caret line="93" column="74" lean-forward="true" selection-start-line="93" selection-start-column="74" selection-end-line="93" selection-end-column="74" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -240,19 +171,43 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/field/FieldInputMap.js">
+        <entry file="file://$PROJECT_DIR$/src/redux/reducers/page-reducer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+            <state relative-caret-position="352">
+              <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#108#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/entity/EntityPage.js">
+        <entry file="file://$PROJECT_DIR$/public/EntityDetail.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+            <state relative-caret-position="421">
+              <caret line="153" column="1" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/main/Main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="66" column="48" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/field/FieldInputMap.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -268,11 +223,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>selectLe</find>
-      <find>setSelectedOption</find>
-      <find>this.state.options</find>
-      <find>selectOption</find>
-      <find>onOptionSelected</find>
       <find>activeItem</find>
       <find>$options</find>
       <find>level</find>
@@ -298,6 +248,11 @@
       <find>hist</find>
       <find>field</find>
       <find>modifield</find>
+      <find>history</find>
+      <find>fixed</find>
+      <find>componentDidUpdate</find>
+      <find>h3</find>
+      <find>showGlobalSheet</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -312,15 +267,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/views/main/LinkIcon.js" />
-        <option value="$PROJECT_DIR$/src/views/common/Folder.js" />
         <option value="$PROJECT_DIR$/src/redux/reducers/index.js" />
         <option value="$PROJECT_DIR$/src/redux/actions/dialog-actions.js" />
         <option value="$PROJECT_DIR$/src/redux/reducers/reducers.js" />
         <option value="$PROJECT_DIR$/src/redux/reducers/dialog-reducer.js" />
         <option value="$PROJECT_DIR$/src/redux/store.js" />
         <option value="$PROJECT_DIR$/src/views/common/MenuIcon.js" />
-        <option value="$PROJECT_DIR$/src/redux/reducers/page-reducer.js" />
         <option value="$PROJECT_DIR$/src/views/user/UserPage.js" />
         <option value="$PROJECT_DIR$/src/views/common/Drawer.js" />
         <option value="$PROJECT_DIR$/src/views/common/AlertMenu.js" />
@@ -335,7 +287,6 @@
         <option value="$PROJECT_DIR$/src/views/entity/EntityItem.js" />
         <option value="$PROJECT_DIR$/public/EntitySearch.css" />
         <option value="$PROJECT_DIR$/src/views/common/Loading.js" />
-        <option value="$PROJECT_DIR$/src/redux/actions/page-actions.js" />
         <option value="$PROJECT_DIR$/src/views/entity/EntitySearch.js" />
         <option value="$PROJECT_DIR$/src/views/entity/EntityList.js" />
         <option value="$PROJECT_DIR$/src/views/entity/EntityHistory.js" />
@@ -345,12 +296,9 @@
         <option value="$PROJECT_DIR$/src/views/field/Input.js" />
         <option value="$PROJECT_DIR$/src/views/field/FieldDialog.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/public/EntityDetail.css" />
-        <option value="$PROJECT_DIR$/src/views/entity/EntityDetail.js" />
         <option value="$PROJECT_DIR$/src/views/field/InputDateTime.js" />
         <option value="$PROJECT_DIR$/src/views/field/InputSelect.js" />
         <option value="$PROJECT_DIR$/src/views/field/InputText.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/FieldInput.css" />
         <option value="$PROJECT_DIR$/src/views/field/FieldValue.js" />
         <option value="$PROJECT_DIR$/src/views/field/InputDate.js" />
@@ -359,10 +307,17 @@
         <option value="$PROJECT_DIR$/src/views/field/InputCaselect.js" />
         <option value="$PROJECT_DIR$/src/views/field/FieldInput.js" />
         <option value="$PROJECT_DIR$/src/views/entity/Select.js" />
-        <option value="$PROJECT_DIR$/src/views/field/FieldInputMap.js" />
         <option value="$PROJECT_DIR$/src/views/field/Sheet.js" />
+        <option value="$PROJECT_DIR$/src/views/common/AlertMenu.css" />
+        <option value="$PROJECT_DIR$/src/views/common/Drawer.css" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/EntityDetail.css" />
         <option value="$PROJECT_DIR$/src/views/entity/EntityUpdate.js" />
+        <option value="$PROJECT_DIR$/src/views/field/FieldInputMap.js" />
+        <option value="$PROJECT_DIR$/src/redux/actions/page-actions.js" />
+        <option value="$PROJECT_DIR$/src/redux/reducers/page-reducer.js" />
         <option value="$PROJECT_DIR$/src/views/main/Main.js" />
+        <option value="$PROJECT_DIR$/src/views/entity/EntityDetail.js" />
       </list>
     </option>
   </component>
@@ -573,7 +528,8 @@
       <workItem from="1540535436363" duration="7198000" />
       <workItem from="1540712420596" duration="20402000" />
       <workItem from="1540777744676" duration="32754000" />
-      <workItem from="1540863923372" duration="22465000" />
+      <workItem from="1540863923372" duration="22575000" />
+      <workItem from="1540956955830" duration="21763000" />
     </task>
     <task id="LOCAL-00001" summary="实体列表路由">
       <created>1539103156420</created>
@@ -680,11 +636,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540832566814</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="1、实现实体修改页中，已有字段的保存">
+      <created>1540914739089</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1540914739089</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371833000" />
+    <option name="totallyTimeSpent" value="393706000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -712,12 +675,12 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19345239" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2001488" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32840723" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49925596" weight="0.32840723" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3295082" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -725,9 +688,10 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.23973727" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5029762" side_tool="true" visible="true" weight="0.18390805" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49702382" weight="0.24958949" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5052083" side_tool="true" weight="0.24794745" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49479166" weight="0.24794745" />
       <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.32840723" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -790,41 +754,14 @@
     <MESSAGE value="select表单" />
     <MESSAGE value="1、级联属性caselect表单&#10;2、修复iOS的InputDialog无法滚动的bug&#10;3、InputText用EditableContentDiv替换textarea，解决高度自适应的问题&#10;4、日期控件InputDate以及日期时间控件InputDateTime" />
     <MESSAGE value="1、完成级联属性caselect表单" />
-    <option name="LAST_COMMIT_MESSAGE" value="1、完成级联属性caselect表单" />
+    <MESSAGE value="1、实现实体修改页中，已有字段的保存" />
+    <option name="LAST_COMMIT_MESSAGE" value="1、实现实体修改页中，已有字段的保存" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />
     <find-history />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/_react-router-dom@4.3.1@react-router-dom/es/BrowserRouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="36" column="52" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/_react-router@4.3.1@react-router/es/Route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="56" column="34" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/actions/history.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/common/AlertMenu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -855,20 +792,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/field/InputBody.js" />
-    <entry file="file://$PROJECT_DIR$/src/views/common/Drawer.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/actions/page-actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-46">
-          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/EntitySearch.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -880,13 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="128" column="1" selection-start-line="128" selection-start-column="1" selection-end-line="128" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/common/Drawer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="12" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -915,13 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="15" column="66" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/EntityDetail.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -979,9 +888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -996,40 +902,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/reducers/dialog-reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="40" selection-start-column="40" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/actions/dialog-actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/dialog-reducer.js" />
+    <entry file="file://$PROJECT_DIR$/src/redux/actions/dialog-actions.js" />
     <entry file="file://$PROJECT_DIR$/src/views/entity/EntityItem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1037,30 +918,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
           <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/field/InputSelect.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="57" lean-forward="true" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1080,8 +937,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/field/FieldInput.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="18" selection-end-column="9" />
+        <state relative-caret-position="207">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="18" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/field/InputSelect.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1090,35 +957,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/field/InputCaselect.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="152" column="72" lean-forward="true" selection-start-line="152" selection-start-column="72" selection-end-line="152" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/field/FieldInputMap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/field/Sheet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="33" column="41" lean-forward="true" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
+        <state relative-caret-position="3450">
+          <caret line="152" column="72" selection-start-line="152" selection-start-column="72" selection-end-line="152" selection-end-column="72" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1127,7 +967,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/field/InputDate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
+        <state relative-caret-position="391">
           <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -1135,20 +975,135 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityUpdate.js">
+    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/actions/history.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/common/Drawer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/common/Drawer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/common/AlertMenu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/field/Sheet.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
-          <caret line="57" column="45" lean-forward="true" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="7" column="89" selection-start-line="7" selection-start-column="89" selection-end-line="7" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/field/FieldInputMap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/EntityDetail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="153" column="1" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/actions/page-actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/page-reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/main/Main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="24" column="63" lean-forward="true" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
+        <state relative-caret-position="69">
+          <caret line="66" column="48" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityUpdate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="173" column="36" selection-start-line="173" selection-start-column="36" selection-end-line="181" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="93" column="74" lean-forward="true" selection-start-line="93" selection-start-column="74" selection-end-line="93" selection-end-column="74" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

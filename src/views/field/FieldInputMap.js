@@ -11,7 +11,6 @@ export default class FieldInputMap{
      * @param fieldInput
      */
     put(name, fieldInput){
-        console.log(`name${name}`);
         if(name && typeof name === 'string'){
             if(!this.map.has(name)){
                 if(fieldInput instanceof FieldInput){

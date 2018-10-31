@@ -2,7 +2,7 @@ import React from 'react';
 import AlertMenu, {MenuItem} from '../common/AlertMenu';
 import Folder from '../common/Folder';
 import store from "../../redux/store";
-import {setTitle} from "../../redux/actions/page-actions";
+import {setTitle, registScrollElementsFixed, showSheet} from "../../redux/actions/page-actions";
 import FieldInput from '../field/FieldInput';
 import Loading from "../common/Loading";
 import FieldInputMap from "../field/FieldInputMap";
@@ -70,7 +70,8 @@ class EntityUpdate extends React.Component{
         fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`,
             {method: 'POST', body: formData}).then((res)=>res.json().then((data)=>{
             this.setState({
-                entity : data.entity
+                entity : data.entity,
+                registScroll: true
             });
             store.dispatch(setTitle(`修改-${this.state.entity.title}`));
         }));
@@ -129,22 +130,62 @@ class EntityUpdate extends React.Component{
             </Folder>
         );
     }
+    componentDidUpdate(props, state){
+        console.log(`registScroll=${state.registScroll}`);
+        if(state.registScroll){
+            let t = this.$entityUpdate.getElementsByClassName('entity-field-group-title');
+            registScrollElementsFixed('EntityUpdate', t);
+        }
+    }
+    showFieldGroupMenu(fieldGroup) {
+        store.dispatch(showSheet([
+            {
+                label   : '新建',
+                onClick : ()=>{
+                    console.log('新建====');
+                }
+            },
+            {
+                label   : '移除',
+                onClick : ()=>{
+                    console.log('移除====');
+                }
+            },
+            {
+                label   : '选择',
+                onClick : ()=>{
+                    console.log('选择====');
+                }
+            }
+        ]));
+    }
     render() {
         if(this.state.entity == null){
             return <Loading/>
         }
         return(
             <div>
-                <div className="entity-update">
+                <div ref={(instance)=>this.$entityUpdate = instance} className="entity-update">
                     {
-                        this.state.entity.fieldGroups.map((fieldGroup)=>
-                            <div key={fieldGroup.id} className="entity-field-group">
-                                <h3 className="entity-field-group-title">{fieldGroup.title}</h3>
-                                {fieldGroup.fields != null?
-                                    this.renderFields(fieldGroup)
-                                    : this.renderArray(fieldGroup)}
-                            </div>
-                        )
+                        this.state.entity.fieldGroups.map((fieldGroup)=>{
+                            let isArray = fieldGroup.fields == null;
+                            return (
+                                <div key={fieldGroup.id} className="entity-field-group">
+                                    <div className="entity-field-group-title">
+                                        <div>
+                                            <h3>{fieldGroup.title}</h3>
+                                            {isArray?
+                                                <span onClick={()=>this.showFieldGroupMenu(fieldGroup)}><i className="iconfont icon-horizontal-menu"></i></span>
+                                                : null}
+
+                                        </div>
+                                    </div>
+                                    {!isArray?
+                                        this.renderFields(fieldGroup)
+                                        : this.renderArray(fieldGroup)}
+                                </div>
+                            )
+                        })
                     }
                 </div>
                 <AlertMenu menuBinder={this.props.menuBinder} >

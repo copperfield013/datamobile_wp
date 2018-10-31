@@ -1,5 +1,6 @@
 import React from 'react';
-import {ActionSheet} from 'react-weui';
+import store from '../../redux/store';
+import {showSheet} from '../../redux/actions/page-actions';
 
 
 export default class Sheet extends React.Component{
@@ -7,25 +8,11 @@ export default class Sheet extends React.Component{
         super(props);
         this.state = {
             modified: false,
-            shown   : false,
             value   : props.defaultValue,
-            menus: [],
-            actions: [
-                {
-                    label: '取消',
-                    onClick: ()=>this.setState({shown: false})
-                }
-            ]
-        }
-        if(Array.isArray(props.options)){
-            for(let i in props.options){
-                this.state.menus.push({
-                    label: props.options[i],
-                    onClick: this.selectOption.bind(this, props.options[i])
-                })
-            }
+            menus: props.options
         }
         let _this = this;
+        this.showSheet = this.showSheet.bind(this);
         this.filedInputAdapter = {
             getName(){
                 return props.name;
@@ -47,23 +34,20 @@ export default class Sheet extends React.Component{
     selectOption(option) {
         this.setState({
             value: option,
-            shown: false,
             modified: true
         })
+    }
+    showSheet() {
+        store.dispatch(showSheet(this.state.menus, (label)=>{
+            this.selectOption(label);
+        }));
     }
     render(){
         return (
             <div className={`field-input field-input-sheet`}>
-                <div className={`field-input-value`} onClick={()=>this.setState({shown: true})}>
+                <div className={`field-input-value`} onClick={this.showSheet}>
                     <span>{this.state.value}</span>
                 </div>
-                <ActionSheet
-                    menus={this.state.menus}
-                    actions={this.state.actions}
-                    show={this.state.shown}
-                    type="ios"
-                    onRequestClose={()=>this.setState({shown: false})}
-                />
             </div>
         )
     }
