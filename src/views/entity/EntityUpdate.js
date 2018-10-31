@@ -137,12 +137,34 @@ class EntityUpdate extends React.Component{
             registScrollElementsFixed('EntityUpdate', t);
         }
     }
+    createEntityComposite(fieldDescs){
+        let entity =  {
+            code    : '',
+            fields  : []
+        };
+        for(let i in fieldDescs){
+            let field = fieldDescs[i];
+            entity.fields.push({
+                "optionKey": field.optionKey,
+                "available": field.available,
+                "id": field.id,
+                "title": field.title,
+                "type": field.type,
+                "value": '',
+                "fieldId": field.fieldId
+            });
+        }
+        return entity;
+    }
     showFieldGroupMenu(fieldGroup) {
         store.dispatch(showSheet([
             {
                 label   : '新建',
                 onClick : ()=>{
                     console.log('新建====');
+                    let newEntityComposite = this.createEntityComposite(fieldGroup.descs);
+                    fieldGroup.array = [...fieldGroup.array, newEntityComposite];
+                    this.setState({entity  : this.state.entity});
                 }
             },
             {
