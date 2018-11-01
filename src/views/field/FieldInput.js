@@ -43,6 +43,9 @@ class FieldInput extends React.Component{
         return this.state.field;
     }
     isModified(){
+        if(this.modifield === true){
+            return true;
+        }
         if(this.refs.value){
             return this.refs.value.isModified();
         }else{
@@ -51,6 +54,11 @@ class FieldInput extends React.Component{
     }
     isStrict(){
         return !!this.props.strict || false;
+    }
+    componentWillUnmount(){
+        if(this.props.name && this.props.inputMap){
+            this.props.inputMap.remove(this.props.name, this);
+        }
     }
     render() {
         if(this.props.hidden === true){

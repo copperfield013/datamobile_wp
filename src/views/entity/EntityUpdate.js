@@ -7,18 +7,20 @@ import FieldInput from '../field/FieldInput';
 import Loading from "../common/Loading";
 import FieldInputMap from "../field/FieldInputMap";
 import Dialog from '../common/Dialog';
-import Sheet from '../field/Sheet';
+import InputSheet from '../field/InputSheet';
 
 class EntityUpdate extends React.Component{
     constructor(props) {
         super(props);
         console.log(props.history);
         this.state = {
-            entityListURL: props.location.pathname,
+            entityListURL: `/entity/list/${props.match.params.menuId}`,
             entity: null,
             saveSucceed: false
         };
+        this.mode = props.match.params.code? 'update': 'create';
         this.inputMap = new FieldInputMap();
+        this.removeEntities = [];
         this.submitUpdate = this.submitUpdate.bind(this);
         this.reloadPage = this.reloadPage.bind(this);
     }
@@ -29,7 +31,6 @@ class EntityUpdate extends React.Component{
         if(this.state.entity && this.state.entity.code){
             formData.append('唯一编码', this.state.entity.code);
         }
-        console.log(1111);
         let modifiedFieldCount = 0;
         this.inputMap.forEach((input)=>{
             let modified = input.isModified();
@@ -41,21 +42,25 @@ class EntityUpdate extends React.Component{
                 formData.append(input.getName(), input.getValue());
             }
         });
-        if(modifiedFieldCount > 0){
-            this.refs.dialog.confirm(`共修改了${modifiedFieldCount}个字段`, '确认保存？', ()=>{
+        if(modifiedFieldCount > 0 || this.removeEntities.length > 0){
+            this.dialog.confirm(`共修改了${modifiedFieldCount}个字段，删除了${this.removeEntities.length}条多值属性/关联`, '确认保存？', ()=>{
                 fetch(`/api/entity/update/${this.props.match.params.menuId}`,
                     {method: 'POST', body: formData}).then((res)=>res.json().then((data)=>{
                         if(data.status === 'suc'){
-                            _this.refs.dialog.alert('保存成功', '', ()=>{
-                                _this.props.history.go(0);
+                            _this.dialog.alert('保存成功', '', ()=>{
+                                if(this.mode === 'update'){
+                                    _this.props.history.go(0);
+                                }else{
+                                    _this.props.history.push(`/entity/detail/${this.props.match.params.menuId}/${data.code}`);
+                                }
                             });
                         }else{
-                            _this.refs.dialog.alert('保存失败');
+                            _this.dialog.alert('保存失败');
                         }
                 }));
             })
         }else{
-            this.refs.dialog.alert('没有修改数据');
+            this.dialog.alert('没有修改数据');
         }
     }
     reloadPage(){
@@ -65,22 +70,48 @@ class EntityUpdate extends React.Component{
 
     }
     componentDidMount() {
-        let formData = new FormData();
-
-        fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`,
-            {method: 'POST', body: formData}).then((res)=>res.json().then((data)=>{
-            this.setState({
-                entity : data.entity,
-                registScroll: true
-            });
-            store.dispatch(setTitle(`修改-${this.state.entity.title}`));
-        }));
+        if(this.mode === 'update'){
+            fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`,
+                {method: 'POST'}).then((res)=>res.json().then((data)=>{
+                this.setState({
+                    entity : data.entity,
+                    registScroll: true
+                });
+                store.dispatch(setTitle(`修改-${this.state.entity.title}`));
+            }));
+        }else{
+            fetch(`/api/entity/dtmpl/${this.props.match.params.menuId}`,
+                {method: 'POST'}).then((res)=>res.json().then((data)=>{
+                this.setState({
+                    entity : data.entity,
+                    registScroll: true
+                });
+                store.dispatch(setTitle(`创建-${data.module.title}`));
+            }));
+        }
     }
     generateArrayFieldName(desc, index){
         if(desc && desc.format){
             return desc.format.replace('ARRAY_INDEX_REPLACEMENT', index);
         }
         return null;
+    }
+    showArrayEntityMenu(array, compositeEntity){
+        if(array && compositeEntity){
+            store.dispatch(showSheet(['删除'], ()=>{
+                this.dialog.confirm('确认删除？', '', ()=>{
+                    let index = array.indexOf(compositeEntity);
+                    if(index >= 0){
+                        array.splice(index, 1);
+                        this.setState({entity: this.state.entity});
+                        if(compositeEntity.code){
+                            //删除的compositeEntity是原本存在的
+                            this.removeEntities.push(compositeEntity);
+                        }
+                    }
+                });
+            }));
+        }
     }
     renderFields(fieldGroup) {
         return fieldGroup.fields.map((field)=>
@@ -96,24 +127,27 @@ class EntityUpdate extends React.Component{
     renderArray(fieldGroup) {
         return fieldGroup.array.map((compositeEntity, index)=>
             <Folder key={`${compositeEntity.code}-${index}`} className="entity-field-group-array">
-                <em>{index + 1}</em>
+                <FieldInput hidden={true}
+                            strict={true}
+                            name={`${fieldGroup.composite.name}[${index}].唯一编码`}
+                            inputMap={this.inputMap}
+                            value={compositeEntity.code}/>
+                <div className="entity-item-header">
+                    <em>{index + 1}</em>
+                    <span onClick={()=>this.showArrayEntityMenu(fieldGroup.array, compositeEntity)}><i className="iconfont icon-menu2"></i></span>
+                </div>
                 {
-                    compositeEntity.relation?
+                    fieldGroup.composite && fieldGroup.composite.relationKey?
                         <div className="entity-field">
                             <label>关系</label>
                             <div>
-                                <Sheet
+                                <InputSheet
                                     name={`${fieldGroup.composite.name}[${index}].$$label$$`}
                                     inputMap={this.inputMap}
                                     options={fieldGroup.composite.relationSubdomain}
                                     defaultValue={compositeEntity.relation}
                                 />
                             </div>
-                            <FieldInput hidden={true}
-                                        strict={true}
-                                        name={`${fieldGroup.composite.name}[${index}].唯一编码`}
-                                        inputMap={this.inputMap}
-                                        value={compositeEntity.code}/>
                         </div>
                         :null
                 }
@@ -133,8 +167,12 @@ class EntityUpdate extends React.Component{
     componentDidUpdate(props, state){
         console.log(`registScroll=${state.registScroll}`);
         if(state.registScroll){
-            let t = this.$entityUpdate.getElementsByClassName('entity-field-group-title');
-            registScrollElementsFixed('EntityUpdate', t);
+            this.setState({
+                registScroll: false
+            }, ()=>{
+                let t = this.$entityUpdate.getElementsByClassName('entity-field-group-title');
+                registScrollElementsFixed('EntityUpdate', t);
+            })
         }
     }
     createEntityComposite(fieldDescs){
@@ -168,12 +206,6 @@ class EntityUpdate extends React.Component{
                 }
             },
             {
-                label   : '移除',
-                onClick : ()=>{
-                    console.log('移除====');
-                }
-            },
-            {
                 label   : '选择',
                 onClick : ()=>{
                     console.log('选择====');
@@ -197,7 +229,14 @@ class EntityUpdate extends React.Component{
                                         <div>
                                             <h3>{fieldGroup.title}</h3>
                                             {isArray?
-                                                <span onClick={()=>this.showFieldGroupMenu(fieldGroup)}><i className="iconfont icon-horizontal-menu"></i></span>
+                                                <span onClick={()=>this.showFieldGroupMenu(fieldGroup)}>
+                                                    <i className="iconfont icon-horizontal-menu"></i>
+                                                    <FieldInput hidden={true}
+                                                                strict={true}
+                                                                name={`${fieldGroup.composite.name}.$$flag$$`}
+                                                                inputMap={this.inputMap}
+                                                                value={true}/>
+                                                </span>
                                                 : null}
 
                                         </div>
@@ -210,7 +249,7 @@ class EntityUpdate extends React.Component{
                         })
                     }
                 </div>
-                <AlertMenu menuBinder={this.props.menuBinder} >
+                <AlertMenu>
                     <MenuItem onClick={()=>{this.submitUpdate()}} title="保存" iconfont="icon-save" />
                     <MenuItem href="/" title="首页" iconfont="icon-caidan05"  />
                     {
@@ -219,7 +258,7 @@ class EntityUpdate extends React.Component{
                             : null
                     }
                 </AlertMenu>
-                <Dialog ref="dialog" />
+                <Dialog ref={(instance)=>this.dialog = instance} />
             </div>
         );
     }

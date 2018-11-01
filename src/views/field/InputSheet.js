@@ -3,7 +3,7 @@ import store from '../../redux/store';
 import {showSheet} from '../../redux/actions/page-actions';
 
 
-export default class Sheet extends React.Component{
+export default class InputSheet extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -12,6 +12,9 @@ export default class Sheet extends React.Component{
             menus: props.options
         }
         let _this = this;
+        if(!this.state.value && this.state.menus.length == 1){
+            this.state.value = this.state.menus[0];
+        }
         this.showSheet = this.showSheet.bind(this);
         this.filedInputAdapter = {
             getName(){
@@ -41,6 +44,11 @@ export default class Sheet extends React.Component{
         store.dispatch(showSheet(this.state.menus, (label)=>{
             this.selectOption(label);
         }));
+    }
+    componentWillUnmount(){
+        if(this.props.name && this.props.inputMap){
+            this.props.inputMap.remove(this.props.name, this);
+        }
     }
     render(){
         return (

@@ -7,6 +7,8 @@ import store from '../../redux/store';
 import {setTitle} from "../../redux/actions/page-actions";
 import Loading from "../common/Loading";
 import queryString from 'query-string';
+import {MenuItem} from "../common/AlertMenu";
+import AlertMenu from "../common/AlertMenu";
 
 
 class EntityList extends React.Component{
@@ -173,7 +175,13 @@ class EntityList extends React.Component{
                         }
                     </div>
                 </div>
-                <Drawer drawer={this.props.menuBinder}>
+                <AlertMenu>
+                    <MenuItem onClick={()=>{this.refs.drawer.toggle(true)}} title="查询条件" iconfont="icon-search" />
+                    <MenuItem href={`/entity/create/${this.props.match.params.menuId}`} title="创建" iconfont="icon-new" />
+                    <MenuItem href="/" title="首页" iconfont="icon-home"  />
+                    <MenuItem href="/user" title="用户页" iconfont="icon-user"  />
+                </AlertMenu>
+                <Drawer ref="drawer" registMenu={false}>
                     <EntitySearch ltmpl={this.state.ltmpl}
                                   menuId={this.props.match.params.menuId}
                                   search={this.search}

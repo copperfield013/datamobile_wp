@@ -11,6 +11,7 @@ class EntityPage extends  Component{
                 <Switch>
                     <Route path="/entity/list/:menuId" component={EntityList} />
                     <Route path="/entity/detail/:menuId/:code"  component={EntityDetail} />
+                    <Route path="/entity/create/:menuId" component={EntityUpdate}  />
                     <Route path="/entity/update/:menuId/:code" component={EntityUpdate}  />
                 </Switch>
             </BrowserRouter>

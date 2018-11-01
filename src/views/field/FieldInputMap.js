@@ -26,6 +26,14 @@ export default class FieldInputMap{
             }
         }
     }
+    remove(name, fieldInput){
+        if(name && fieldInput){
+            let exists = this.map.get(name);
+            if(exists === fieldInput){
+                this.map.delete(name);
+            }
+        }
+    }
     forEach(func){
         this.map.forEach(func);
     }

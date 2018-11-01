@@ -94,16 +94,31 @@
     border-left: 4px solid #53a93f;
 }
 
-.entity-field-group-array > em {
-    text-align: left;
-    display: block;
+.entity-field-group-array > div.entity-item-header {
+    display: flex;
     flex: 0 0 10px;
     font-size: 10px;
-    padding-left: 5px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.entity-field-group-array > div.entity-item-header>em {
+    display: block;
+    float: left;
+    margin-left: 5px;
     color: #c0c0c0;
     overflow: visible;
-    height: 10px;
+    flex: 1 1 0;
 }
+.entity-field-group-array > div.entity-item-header>span {
+    flex: 0 0 40px;
+    text-align: center;
+    display: block;
+}
+.entity-field-group-array > div.entity-item-header>span:active{
+    background-color: #eee;
+}
+
 
 .field-file-value img{
     max-width: 30%;

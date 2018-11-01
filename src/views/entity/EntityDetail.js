@@ -14,7 +14,7 @@ class EntityDetail extends React.Component{
         super(props);
         console.log(props.history);
         this.state = {
-            entityListURL: props.location.pathname,
+            entityListURL: `/entity/list/${props.match.params.menuId}`,
             entity: null
         };
     }
@@ -74,10 +74,14 @@ class EntityDetail extends React.Component{
         );
     }
     componentDidUpdate(props, state){
+        console.log(`registScroll=${state.registScroll}`);
         if(state.registScroll){
-            let t = this.$entityDetail.getElementsByClassName('entity-field-group-title');
-            console.log(t);
-            registScrollElementsFixed('EntityDetail', t);
+            this.setState({
+                registScroll: false
+            }, ()=>{
+                let t = this.$entityDetail.getElementsByClassName('entity-field-group-title');
+                registScrollElementsFixed('EntityDetail', t);
+            })
         }
     }
     render() {
@@ -102,6 +106,8 @@ class EntityDetail extends React.Component{
                 </div>
                 <AlertMenu menuBinder={this.props.menuBinder} >
                     <MenuItem onClick={()=>{this.refs.drawer.toggle(true)}} title="历史" iconfont="icon-history" />
+                    <MenuItem href={`/entity/update/${this.props.match.params.menuId}/${this.props.match.params.code}`}
+                              title="修改" iconfont="icon-edit" />
                     <MenuItem href="/" title="首页" iconfont="icon-caidan05"  />
                     {
                         this.state.entityListURL?

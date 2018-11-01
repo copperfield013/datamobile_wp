@@ -111,7 +111,6 @@ class EntitySearch extends React.Component{
                     </div>
                 </div>
                 <div className="entity-search-operate-area">
-                    <LinkIcon links={['home', 'user']}/>
                     <span>
                         <button className="weui-btn weui-btn_mini weui-btn_plain-primary" type="button" ref="resetButton" id="restButton" >重置</button>
                         <button className="weui-btn weui-btn_mini weui-btn_primary" onClick={this.query} type="button" ref="queryButton" id="queryButton" >查询</button>

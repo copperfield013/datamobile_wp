@@ -47,7 +47,8 @@ export default function(state={}, action){
         case HIDE_SHEET: {
             return {
                 ...state,
-                showGlobalSheet : false
+                showGlobalSheet : false,
+                globalSheetMenus: []
             }
         }
         default:

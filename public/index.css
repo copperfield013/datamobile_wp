@@ -34,13 +34,14 @@ html, body, #root {
     display: flex;
     flex-direction: row;
     justify-content: left;
+    align-items: center;
     padding: 0.5em 1em;
     border-bottom: 1px solid #efefef;
 }
 
 .entity-item-field-group > label {
     display: inline-block;
-    width: 30%;
+    flex: 0 0 35%;
 }
 
 .entity-item-field-group > label:after {
@@ -48,8 +49,10 @@ html, body, #root {
 }
 
 .entity-item-field-group > span {
-    width: 70%;
-    display: inline-block;
+    flex: 0 0 65%;
+    display: block;
+    overflow: hidden;
+    word-break: break-word;
 }
 
 .entity-operate-btn-area {
