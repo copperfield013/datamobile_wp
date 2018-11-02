@@ -1,0 +1,60 @@
+.search-bar {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.search-bar-box {
+    display: flex;
+    flex: 1 1 0;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+i.search-bar-icon.iconfont.icon-search {
+    flex: 0 0 2em;
+    font-size: 0.8em;
+}
+
+input.search-bar-input {
+    flex: 1 1;
+    border: none;
+    outline: none;  /*清除选中效果的默认蓝色边框 */
+    -webkit-appearance:none;  /*清除浏览器默认的样式 */
+    color: #999;
+    padding-right: 30px;
+    font-size: 14px;
+}
+input.search-bar-input:focus{
+    color: #000;
+}
+
+input.search-bar-input:focus+.search-bar-clear{
+    display: block;
+}
+.search-bar-clear {
+    position: absolute;
+    font-size: 18px;
+    width: 30px;
+    right: 0;
+}
+.search-bar-cancel {
+    flex: 0 0 3em;
+    font-size: 15px;
+    color: #09bb07;
+}
+
+label.search-bar-label {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    display: block;
+}
+
+label.search-bar-label>* {
+    font-size: 14px;
+}
+
+label.search-bar-label>i {
+    margin-right: 5px;
+}

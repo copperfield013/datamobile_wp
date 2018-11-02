@@ -51,19 +51,28 @@ export default class Dialog extends React.Component{
             title = defaultState.title,
             onConfirmed = defaultState.onConfirmed) {
         const _this = this;
-        this.setState({
-            show    : true,
-            title: title,
-            content: content,
-            buttons: [
-                {
-                    type: 'primary',
-                    label: '确定',
-                    onClick: ()=>{
-                        _this.hideDialogAndDo(onConfirmed);
+        return new Promise((resolve)=>{
+            this.setState({
+                show    : true,
+                title: title,
+                content: content,
+                buttons: [
+                    {
+                        type: 'primary',
+                        label: '确定',
+                        onClick: ()=>{
+                            _this.hideDialogAndDo(()=>{
+                                if(onConfirmed){
+                                    if(onConfirmed() === false){
+                                        return false;
+                                    }
+                                }
+                                return resolve();
+                            });
+                        }
                     }
-                }
-            ]
+                ]
+            });
         });
     }
     render() {

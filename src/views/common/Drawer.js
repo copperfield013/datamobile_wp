@@ -37,7 +37,9 @@ class Drawer extends React.Component{
                 $container.style.top = `${-this.mainContainerScrollTop}px`;
             }else{
                 $container.style.top = null;
-                this.mainContainer.scrollTo(0, this.mainContainerScrollTop);
+                if(this.mainContainer){
+                    this.mainContainer.scrollTo(0, this.mainContainerScrollTop);
+                }
             }
         }
         this.refs.toolbar.classList.toggle('shown-toolbar', toShow);

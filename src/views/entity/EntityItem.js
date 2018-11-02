@@ -36,7 +36,17 @@ class EntityItem extends Component{
      * 发送请求从服务端移除当前实体
      */
     removeEntity() {
-        console.log(`删除实体[code=${this.props.entity.code}]`);
+        fetch(`/api/entity/remove/${this.props.menuId}/${this.props.entity.code}`, {
+            method: 'DELETE'
+        }).then((res)=>res.json().then((data)=>{
+           if(data.status === 'suc'){
+               this.refs.dialog.alert('删除成功').then(()=>{
+                   if(typeof this.props.removeMethod === 'function'){
+                        this.props.removeMethod();
+                   }
+               });
+           }
+        }));
     }
 
 }

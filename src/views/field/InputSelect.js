@@ -1,16 +1,16 @@
 import React from 'react';
 import Input from './Input';
+import SearchBar from "../common/SearchBar";
 
 class InputSelect extends Input{
     constructor(props) {
         super(props);
         this.state = {
             multiple    : props.multiple === true,
-            options     : []
+            options     : [],
+            keyword     : ''
         };
         this.selectOption = this.selectOption.bind(this);
-        this.activeSearchText = this.activeSearchText.bind(this);
-        this.onBlurSearchText = this.onBlurSearchText.bind(this);
     }
     selectOption(option, e) {
         if(e.currentTarget){
@@ -42,20 +42,8 @@ class InputSelect extends Input{
             }));
         }
     }
-    activeSearchText() {
-        this.refs.searchIcon.style.display = 'none';
-        this.refs.searchText.style.display = 'block';
-        this.refs.searchText.focus();
-    }
-    onBlurSearchText() {
-        let text = this.refs.searchText.value;
-        if(!text){
-            this.refs.searchIcon.style.display = 'block';
-            this.refs.searchText.style.display = 'none';
-        }
-    }
-    filter(keyword) {
-        
+    onSearch(keyword) {
+        this.setState({keyword: keyword});
     }
     render() {
         if(!this.state.options){
@@ -64,13 +52,17 @@ class InputSelect extends Input{
             console.log(this.state.options);
             return (
                 <div className={`field-input-component input-select`}>
-                    <div className={`input-select-search`}>
-                        <input onBlur={this.onBlurSearchText} ref="searchText" type="search"/>
-                        <span ref="searchIcon" onClick={this.activeSearchText} className={`search-icon`}><i className={`iconfont icon-search`}></i>搜索</span>
+                    <div className={`input-caselect-search`}>
+                        <SearchBar ref={(ins)=>this.searchBar = ins} onChange={this.onSearch.bind(this)} />
                     </div>
                     <div className={`input-select-list`}>
                         <div className={`input-select-list-wrapper`}>
                             {this.state.options.map((option, index)=>{
+                                if(this.state.keyword && option.title){
+                                    if(option.title.indexOf(this.state.keyword) < 0){
+                                        return null;
+                                    }
+                                }
                                 return <div key={index} onClick={(e)=>this.selectOption(option, e)}>
                                     <label>{option.title}</label>
                                 </div>

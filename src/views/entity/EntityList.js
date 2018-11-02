@@ -67,9 +67,11 @@ class EntityList extends React.Component{
                     ...data.pageInfo,
                     totalCount: data.pageInfo.count
                 }
+            }, function(){
+                store.dispatch(setTitle(`${this.state.ltmpl.title}-列表`));
+                this.state.fetcting = false;
+                this.refs.drawer.toggle(false);
             });
-            store.dispatch(setTitle(`${this.state.ltmpl.title}-列表`));
-            this.state.fetcting = false;
         }));
     }
     hasPrevPage() {
@@ -131,14 +133,6 @@ class EntityList extends React.Component{
             this.refreshStateFromProps(props);
         }
     }
-    shouldComponentUpdate(props){
-        console.log(props.location.action);
-        console.log('shouldComponentUpdate');
-        if(this.state.entities == null){
-            return true;
-        }
-        return false;
-    }
     componentDidUpdate(props, state) {
         if(this.state.entities === null){
             this.query();
@@ -163,8 +157,15 @@ class EntityList extends React.Component{
                             </div>
                             <span className="entity-list-meta-count">第{this.state.pageInfo.pageNo}页，共{this.state.pageInfo.totalCount}条</span>
                         </div>
-                        {this.state.entities.map((entity)=>{
-                            return <EntityItem menuId={this.props.match.params.menuId} entity={entity} key={entity.code} />
+                        {this.state.entities.map((entity, index)=>{
+                            return <EntityItem menuId={this.props.match.params.menuId} entity={entity}
+                                               removeMethod={()=>{
+                                                   console.log(this.state.entities);
+                                                   this.state.entities.splice(this.state.entities.indexOf(entity), 1);
+                                                   console.log(this.state.entities);
+                                                   this.setState({entities: this.state.entities});
+                                               }}
+                                               key={entity.code} />
                         })}
                     </div>
                     <div className="load-next-page" onClick={this.goNextPage}>

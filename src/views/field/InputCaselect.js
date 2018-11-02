@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from './Input';
-import {Toast, SearchBar} from 'react-weui';
-
+import {Toast} from 'react-weui';
+import SearchBar from '../common/SearchBar';
 let SPLITER = '->';
 class InputCaselect extends Input{
     constructor(props) {
@@ -110,7 +110,7 @@ class InputCaselect extends Input{
                 activeLevel: level,
                 showLoading: true
                 });
-            this.refs.searchBar.setState({text:levelItem.getCriteriKeyword()});
+            this.searchBar.setValue(levelItem.getCriteriKeyword());
             this.iterateLevelItem((item)=>{
                 if(item !== levelItem){
                     item.inactivate();
@@ -186,15 +186,7 @@ class InputCaselect extends Input{
                     })}
                 </div>
                 <div className={`input-caselect-search`}>
-                    <SearchBar
-                        ref="searchBar"
-                        onChange={this.onSearch.bind(this)}
-                        placeholder="搜索"
-                        onSubmit={()=>{}}
-                        lang={{
-                            cancel: '取消'
-                        }}
-                    />
+                    <SearchBar ref={(ins)=>this.searchBar = ins} onChange={this.onSearch.bind(this)} />
                 </div>
                 <div ref="list" className={`input-caselect-list`}>
                     <div ref="lcontainer" className={`input-caselect-list-container`}>
@@ -228,7 +220,7 @@ class CaselectLevelItem extends React.Component{
         this.loadOptionList = this.loadOptionList.bind(this);
     }
     activate() {
-        if(!this.state.active){
+        if(this.state.optionGroupId && !this.state.active){
             this.setState({active: true});
             (this.props.onActivate || function(){})(this);
         }
