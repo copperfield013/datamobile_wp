@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, #root {
     background-color: #f8f8f8;
     min-height: 100%;
@@ -130,3 +131,156 @@ span.entity-list-meta-count {
     overflow: hidden !important;
     position: fixed !important;
 }
+
+
+/**************login start*********/
+.login {
+    position: fixed;
+    width: 100%;
+    top: 41px;
+    bottom: 0;
+    background: -webkit-linear-gradient(135deg, #6ECAB8, #3F85C7); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(135deg, #6ECAB8, #3F85C7); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(135deg, #6ECAB8, #3F85C7); /* Firefox 3.6 - 15 */
+    background: linear-gradient(135deg, #6ECAB8, #3F85C7); /* 标准的语法 */
+    display: flex;
+    flex-direction: column;
+}
+
+.login .welcome:before {
+    content: "Welcome";
+}
+
+.login .welcome {
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    vertical-align: bottom;
+    margin: 15% 0;
+}
+
+.login .login-inp {
+    display: flex;
+    width: 80%;
+    margin: 10px auto;
+    background: rgba(255, 255, 255, 0.1) none repeat scroll 0 0;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.2) inset;
+}
+
+.login .login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login .login-inp>input {
+    background: rgba(255, 255, 255, 0) none repeat scroll 0 0;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    flex: 1 1 0;
+    font-size: 17px;
+    line-height: 20px;
+    margin-right: 20px;
+    color: rgba(255,255,255,0.6);
+    font-family: 微软雅黑;
+}
+.login .login-inp>input::-webkit-input-placeholder{
+    color: rgba(255,255,255,0.3);
+}
+.login .login-inp>input:-moz-placeholder{
+    color: rgba(255,255,255,0.3);
+}
+.login .login-inp>input::-moz-placeholder{
+    color: rgba(255,255,255,0.3);
+}
+.login .login-inp>input:-ms-input-placeholder{
+    color: rgba(255,255,255,0.3);
+}
+
+.login .login-inp>i {
+    flex: 0 0 2em;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+    color: rgba(255,255,255,0.6);
+}
+
+.login .login-inp.submit {
+    background-color: rgba(63,133,199,1);
+    border: none;
+    height: 40px;
+    margin-top: 30px;
+}
+
+.login .login-inp.submit>span {
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    color: rgba(255,255,255, 0.8);
+    font-size: 20px;
+    letter-spacing: 15px;
+}
+.login .login-inp.submit:active {
+    background-color: rgba(63,133,199,0.5);
+}
+
+.login .login-txt {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.login .login-txt>a {
+    color: rgba(255,255,255,0.2);
+}
+
+.login .error-msg {
+    color: rgba(220,0,0,0.6);
+    font-size: 12px;
+    text-align: center;
+}
+.login input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px rgba(113,190,195,1) inset;
+}
+
+/**************login end*********/
+
+
+/**************404 start*********/
+@font-face{
+    font-family: tech2;
+    src: url('2tech.ttf');
+}
+.page-not-found-main {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 80px;
+    font-size: 60px;
+}
+.page-not-found-main>span {
+    font-family: tech2;
+}
+
+.page-not-found-main>p {
+    font-size: 16px;
+}
+.page-not-found-to-home{
+    text-align: center;
+}
+.page-not-found-to-home>a {
+    background-color: rgba(70,140,255, 0.6);
+    color: #efefef;
+    padding: 5px 30px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 50px;
+    text-align: center;
+}
+.page-not-found-to-home>a:active{
+    background-color: rgba(100,170,255, 0.6);
+}
+
+/**************404 end*********/

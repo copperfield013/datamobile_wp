@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter , Route, Switch } from "react-router-dom";
+import {BrowserRouter , Route, Switch, Redirect} from "react-router-dom";
 import HomePage from '../home/HomePage';
 import UserPage from '../user/UserPage';
 import EntityPage from '../entity/EntityPage';
@@ -8,6 +8,7 @@ import './Main.css';
 import {setContainer, scrollTrigged, hideSheet} from '../../redux/actions/page-actions';
 import store from '../../redux/store';
 import {ActionSheet} from "react-weui";
+import Login from './Login';
 class Main extends Component{
     constructor() {
         super();
@@ -78,6 +79,10 @@ class Main extends Component{
                     showGlobalSheet : page.showGlobalSheet,
                     globalSheetMenus    : globalSheetMenus
                 });
+                if(page.redirect && page.redirect.redirected === false){
+                    page.redirect.redirected = true;
+                    this.refs.router.history.replace(page.redirect.url);
+                }
             }
         });
 
@@ -88,8 +93,10 @@ class Main extends Component{
                 <div ref="contentContainer" id="contentContainer">
                     <Switch>
                         <Route path="(/)" exact component={HomePage} />} />
+                        <Route path="/login" exact component={Login} />} />
                         <Route path="/user" component={UserPage} />} />
                         <Route path="/entity/*" component={EntityPage} />} />
+                        <Route path="" render={()=><Redirect to="/login"/>}/>
                     </Switch>
                     <div id="titlebar" ref="titlebar">
                         <h1>{this.state.title}</h1>

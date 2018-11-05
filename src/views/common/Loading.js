@@ -1,18 +1,25 @@
 import React from 'react';
-import {setTitle} from "../../redux/actions/page-actions";
-import store from "../../redux/store";
 
 export default class Loading extends React.Component{
-    constructor() {
-        super();
-    }
+
     componentDidMount() {
-        store.dispatch(setTitle(`加载中...`));
     }
     render() {
         return (
-            <div>
-
+            <div className={`common-loading ${this.props.show === true? 'common-loading-loading': ''}`}>
+                <div className="common-loading-mask"></div>
+                <div className="common-loading-toast">
+                    <div className="loadEffect">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <p className="common-loading-content">Loading...</p></div>
             </div>
         )
     }

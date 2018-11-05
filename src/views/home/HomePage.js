@@ -6,6 +6,7 @@ import './HomePage.css';
 import AlertMenu,{MenuItem} from "../common/AlertMenu";
 import store from '../../redux/store';
 import {setTitle} from "../../redux/actions/page-actions";
+import utils from '../../utils/Utils';
 
 class NavItem1 extends Component{
     constructor() {
@@ -70,12 +71,11 @@ class HomePage extends Component{
         store.dispatch(setTitle('首页'));
     }
     componentDidMount() {
-        fetch('/api/menu/getMenu').then((res)=>{
-           res.json().then((data)=>{
-               console.log(data);
-               this.setState({
-                  menus  : data.menus
-               });
+        console.log('2222222');
+        utils.fetch('/api/menu/getMenu').then((data)=>{
+           console.log(data);
+           this.setState({
+              menus  : data.menus
            });
         });
     }

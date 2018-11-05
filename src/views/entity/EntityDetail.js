@@ -8,6 +8,7 @@ import EntityHistory from './EntityHistory'
 import FieldValue from '../field/FieldValue';
 import Loading from "../common/Loading";
 import queryString from 'query-string';
+import utils from "../../utils/Utils";
 
 class EntityDetail extends React.Component{
     constructor(props) {
@@ -28,15 +29,15 @@ class EntityDetail extends React.Component{
             formData.append('historyId', query.hid);
         }
 
-        fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`,
-            {method: 'POST', body: formData}).then((res)=>res.json().then((data)=>{
-            this.setState({
-                entity : data.entity,
-                history: data.history,
-                registScroll: true
+        utils.fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`,formData)
+            .then((data)=>{
+                this.setState({
+                    entity : data.entity,
+                    history: data.history,
+                    registScroll: true
+                });
+                store.dispatch(setTitle(`详情-${this.state.entity.title}`));
             });
-            store.dispatch(setTitle(`详情-${this.state.entity.title}`));
-        }));
     }
     renderFields(fields) {
         return fields.map((field)=>

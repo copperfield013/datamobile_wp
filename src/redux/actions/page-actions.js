@@ -3,6 +3,7 @@ export const UNREGIST_MENU = 'unregist_menu';
 export const SET_TITLE = 'set_title';
 export const SHOW_SHEET = 'show_sheet';
 export const HIDE_SHEET = 'hide_sheet';
+export const REDIRECT = 'redirect';
 
 /**
  * 注册页面顶部的菜单按钮回调
@@ -198,4 +199,13 @@ export function scrollTrigged(scrollTop){
         }
 
     });
+}
+
+export function redirect(url){
+    if(url){
+        return {
+            type: REDIRECT,
+            payload: {url}
+        }
+    }
 }

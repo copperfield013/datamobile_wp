@@ -1,8 +1,10 @@
 import React from 'react';
 import Input from './Input';
-import {Toast} from 'react-weui';
+import Loading from '../common/Loading';
 import SearchBar from '../common/SearchBar';
-let SPLITER = '->';
+import utils from '../../utils/Utils';
+
+const SPLITER = '->';
 class InputCaselect extends Input{
     constructor(props) {
         super(props);
@@ -158,7 +160,7 @@ class InputCaselect extends Input{
         if(activeItem){
             let showOptions = function(){
                 activeItem.loadOptionList().then((options)=>{
-                    _this.showOptionList(options)
+                    _this.showOptionList(options);
                 });
             };
             if(text){
@@ -201,7 +203,7 @@ class InputCaselect extends Input{
                         </div>
                     </div>
                 </div>
-                <Toast icon="loading" show={this.state.showLoading}>Loading...</Toast>
+                <Loading icon="loading" show={this.state.showLoading}>Loading...</Loading>
             </div>
         )
 
@@ -246,11 +248,9 @@ class CaselectLevelItem extends React.Component{
     }
     setOptionGroupId(optionGroupId) {
         let _this = this;
-        return new Promise(function(resolve, reject){
+        return new Promise(function(resolve){
             if(_this.state.optionGroupId !== optionGroupId){
                 _this.setState({optionGroupId: optionGroupId, options: null, criteria: null}, resolve);
-            }else{
-                reject();
             }
         });
 
@@ -261,7 +261,7 @@ class CaselectLevelItem extends React.Component{
         }
     }
     setCriteria(criteria){
-        return new Promise((resolve, reject)=>{
+        return new Promise((resolve)=>{
             this.setState({criteria}, function(){
                 resolve(criteria);
             });
@@ -285,10 +285,10 @@ class CaselectLevelItem extends React.Component{
     }
     loadOptionList() {
         let _this = this;
-        return new Promise((resolve, reject)=>{
+        return new Promise((resolve)=>{
             if(_this.state.options == null) {
                 if(_this.state.optionGroupId){
-                    fetch(`/api/field/cas_ops/${_this.state.optionGroupId}`).then((res)=>res.json().then((data)=>{
+                    utils.fetch(`/api/field/cas_ops/${_this.state.optionGroupId}`).then((data)=>{
                         if(data.options != null){
                             _this.setState({options:data.options}, function(){
                                 _this.loadOptionList().then((options)=>{
@@ -296,7 +296,7 @@ class CaselectLevelItem extends React.Component{
                                 })
                             });
                         }
-                    }));
+                    });
                 }
             }else{
                 let fOptions = _this.state.options;

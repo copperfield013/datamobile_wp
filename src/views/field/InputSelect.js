@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from './Input';
 import SearchBar from "../common/SearchBar";
+import utils from '../../utils/Utils';
 
 class InputSelect extends Input{
     constructor(props) {
@@ -34,12 +35,11 @@ class InputSelect extends Input{
         if(this.props.field && this.props.field.fieldId){
             let formData = new FormData();
             formData.append("fieldIds", this.props.field.fieldId);
-            fetch(`/api/field/options`,
-                {method: 'POST', body: formData}).then((res)=>res.json().then((data)=>{
+            utils.fetch(`/api/field/options`,formData).then((data)=>{
                 this.setState({
                     options: data.optionsMap[data.keyPrefix + this.props.field.fieldId]
                 });
-            }));
+            });
         }
     }
     onSearch(keyword) {

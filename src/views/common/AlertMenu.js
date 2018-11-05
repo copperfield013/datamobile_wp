@@ -1,7 +1,8 @@
 import React from 'react';
 import './AlertMenu.css';
 import store from '../../redux/store';
-import {registMenu, unregistMenu, getContainer} from '../../redux/actions/page-actions';
+import tokenStore from '../../utils/TokenStore';
+import {registMenu, unregistMenu, getContainer, redirect} from '../../redux/actions/page-actions';
 /**
  * 用于在页面右侧创建一个抽屉式的模态工具页面
  * 该组件需要一个参数drawer，drawer的值是一个对象，对象内有两个属性
@@ -14,6 +15,7 @@ class AlertMenu extends React.Component{
     constructor() {
         super();
         this.toggle = this.toggle.bind(this);
+        this.logout = this.logout.bind(this);
     }
     componentDidMount() {
         console.log(222);
@@ -40,13 +42,17 @@ class AlertMenu extends React.Component{
         console.log(333);
         store.dispatch(unregistMenu(this.toggle));
     }
+    logout(){
+        tokenStore.setToken(null);
+        store.dispatch(redirect('/login'));
+    }
     render() {
         return (
             <div>
                 <div className="alertmenu-menu" ref="menu">
                     <div>
                         {this.props.children}
-                        <MenuItem href="/" title="退出" iconfont="icon-exit" />
+                        <MenuItem onClick={this.logout} title="退出" iconfont="icon-exit" />
                     </div>
                 </div>
             </div>

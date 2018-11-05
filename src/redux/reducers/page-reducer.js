@@ -3,7 +3,7 @@ import {
     UNREGIST_MENU,
     SET_TITLE,
     SHOW_SHEET,
-    HIDE_SHEET
+    HIDE_SHEET, REDIRECT
 } from '../actions/page-actions';
 
 export default function(state={}, action){
@@ -49,6 +49,15 @@ export default function(state={}, action){
                 ...state,
                 showGlobalSheet : false,
                 globalSheetMenus: []
+            }
+        }
+        case REDIRECT: {
+            return {
+                ...state,
+                redirect : {
+                    redirected  : false,
+                    url     : action.payload.url
+                }
             }
         }
         default:

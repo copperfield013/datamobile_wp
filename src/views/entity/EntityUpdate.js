@@ -8,6 +8,7 @@ import Loading from "../common/Loading";
 import FieldInputMap from "../field/FieldInputMap";
 import Dialog from '../common/Dialog';
 import InputSheet from '../field/InputSheet';
+import utils from "../../utils/Utils";
 
 class EntityUpdate extends React.Component{
     constructor(props) {
@@ -44,20 +45,19 @@ class EntityUpdate extends React.Component{
         });
         if(modifiedFieldCount > 0 || this.removeEntities.length > 0){
             this.dialog.confirm(`共修改了${modifiedFieldCount}个字段，删除了${this.removeEntities.length}条多值属性/关联`, '确认保存？', ()=>{
-                fetch(`/api/entity/update/${this.props.match.params.menuId}`,
-                    {method: 'POST', body: formData}).then((res)=>res.json().then((data)=>{
-                        if(data.status === 'suc'){
-                            _this.dialog.alert('保存成功', '', ()=>{
-                                if(this.mode === 'update'){
-                                    _this.props.history.go(0);
-                                }else{
-                                    _this.props.history.push(`/entity/detail/${this.props.match.params.menuId}/${data.code}`);
-                                }
-                            });
-                        }else{
-                            _this.dialog.alert('保存失败');
-                        }
-                }));
+                utils.fetch(`/api/entity/update/${this.props.match.params.menuId}`,formData).then((data)=>{
+                    if(data.status === 'suc'){
+                        _this.dialog.alert('保存成功', '', ()=>{
+                            if(this.mode === 'update'){
+                                _this.props.history.go(0);
+                            }else{
+                                _this.props.history.push(`/entity/detail/${this.props.match.params.menuId}/${data.code}`);
+                            }
+                        });
+                    }else{
+                        _this.dialog.alert('保存失败');
+                    }
+                });
             })
         }else{
             this.dialog.alert('没有修改数据');
@@ -71,23 +71,22 @@ class EntityUpdate extends React.Component{
     }
     componentDidMount() {
         if(this.mode === 'update'){
-            fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`,
-                {method: 'POST'}).then((res)=>res.json().then((data)=>{
-                this.setState({
-                    entity : data.entity,
-                    registScroll: true
+            utils.fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`)
+                .then((data)=>{
+                    this.setState({
+                        entity : data.entity,
+                        registScroll: true
+                    });
+                    store.dispatch(setTitle(`修改-${this.state.entity.title}`));
                 });
-                store.dispatch(setTitle(`修改-${this.state.entity.title}`));
-            }));
         }else{
-            fetch(`/api/entity/dtmpl/${this.props.match.params.menuId}`,
-                {method: 'POST'}).then((res)=>res.json().then((data)=>{
+            utils.fetch(`/api/entity/dtmpl/${this.props.match.params.menuId}`).then((data)=>{
                 this.setState({
                     entity : data.entity,
                     registScroll: true
                 });
                 store.dispatch(setTitle(`创建-${data.module.title}`));
-            }));
+            });
         }
     }
     generateArrayFieldName(desc, index){

@@ -1,0 +1,102 @@
+.common-loading{
+    display: none;
+}
+.common-loading.common-loading-loading{
+    display: block;
+}
+
+.common-loading-mask {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.common-loading-toast {
+    position: fixed;
+    z-index: 5000;
+    width: 7.6em;
+    min-height: 7.6em;
+    top: 180px;
+    left: 50%;
+    margin-left: -3.8em;
+    background: rgba(17, 17, 17, 0.7);
+    text-align: center;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+
+.loadEffect{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    margin: 15px auto;
+}
+.loadEffect span{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    position: absolute;
+    -webkit-animation: load 1.04s ease infinite;
+}
+@-webkit-keyframes load{
+    0%{
+        -webkit-transform: scale(1.2);
+        opacity: 1;
+    }
+    100%{
+        -webkit-transform: scale(.3);
+        opacity: 0.5;
+    }
+}
+.loadEffect span:nth-child(1){
+    left: 0;
+    top: 50%;
+    margin-top: -5px;
+    -webkit-animation-delay:0.13s;
+}
+.loadEffect span:nth-child(2){
+    left: 7px;
+    top: 7px;
+    -webkit-animation-delay:0.26s;
+}
+.loadEffect span:nth-child(3){
+    left: 50%;
+    top: 0;
+    margin-left: -5px;
+    -webkit-animation-delay:0.39s;
+}
+.loadEffect span:nth-child(4){
+    top: 7px;
+    right: 7px;
+    -webkit-animation-delay:0.52s;
+}
+.loadEffect span:nth-child(5){
+    right: 0;
+    top: 50%;
+    margin-top: -5px;
+    -webkit-animation-delay:0.65s;
+}
+.loadEffect span:nth-child(6){
+    right: 7px;
+    bottom: 7px;
+    -webkit-animation-delay:0.78s;
+}
+.loadEffect span:nth-child(7){
+    bottom: 0;
+    left: 50%;
+    margin-left: -5px;
+    -webkit-animation-delay:0.91s;
+}
+.loadEffect span:nth-child(8){
+    bottom: 7px;
+    left: 7px;
+    -webkit-animation-delay:1.04s;
+}
+
+

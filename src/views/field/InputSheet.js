@@ -12,7 +12,7 @@ export default class InputSheet extends React.Component{
             menus: props.options
         }
         let _this = this;
-        if(!this.state.value && this.state.menus.length == 1){
+        if(!this.state.value && this.state.menus.length === 1){
             this.state.value = this.state.menus[0];
         }
         this.showSheet = this.showSheet.bind(this);

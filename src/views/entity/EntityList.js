@@ -9,6 +9,7 @@ import Loading from "../common/Loading";
 import queryString from 'query-string';
 import {MenuItem} from "../common/AlertMenu";
 import AlertMenu from "../common/AlertMenu";
+import utils from "../../utils/Utils";
 
 
 class EntityList extends React.Component{
@@ -56,8 +57,7 @@ class EntityList extends React.Component{
             formData.append(key, this.state.queryCriterias[key]);
         }
         this.state.fetcting = true;
-        fetch(`/api/entity/list/${this.props.match.params.menuId}`,
-            {method: 'POST', body: formData}).then((res)=>res.json().then((data)=>{
+        utils.fetch(`/api/entity/list/${this.props.match.params.menuId}`,formData).then((data)=>{
             this.setState({
                 module   : data.module,
                 ltmpl    : data.ltmpl,
@@ -72,7 +72,7 @@ class EntityList extends React.Component{
                 this.state.fetcting = false;
                 this.refs.drawer.toggle(false);
             });
-        }));
+        });
     }
     hasPrevPage() {
         if(this.state.pageInfo.totalCount){

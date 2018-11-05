@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Dialog from '../common/Dialog';
+import utils from "../../utils/Utils";
 
 class EntityItem extends Component{
     constructor() {
@@ -36,7 +37,7 @@ class EntityItem extends Component{
      * 发送请求从服务端移除当前实体
      */
     removeEntity() {
-        fetch(`/api/entity/remove/${this.props.menuId}/${this.props.entity.code}`, {
+        utils.fetch(`/api/entity/remove/${this.props.menuId}/${this.props.entity.code}`, {
             method: 'DELETE'
         }).then((res)=>res.json().then((data)=>{
            if(data.status === 'suc'){
