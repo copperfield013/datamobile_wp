@@ -9,7 +9,10 @@ import FieldInputMap from "../field/FieldInputMap";
 import Dialog from '../common/Dialog';
 import InputSheet from '../field/InputSheet';
 import utils from "../../utils/Utils";
+import ArrayEntityItemList from "../field/ArrayEntityItemList";
 
+const ENTITY_SOURCE_SELECTED = 'selected';
+const ENTITY_SOURCE_CREATE = 'create';
 class EntityUpdate extends React.Component{
     constructor(props) {
         super(props);
@@ -32,6 +35,19 @@ class EntityUpdate extends React.Component{
         if(this.state.entity && this.state.entity.code){
             formData.append('唯一编码', this.state.entity.code);
         }
+        let createEntitiesCount = 0,
+            selectedEntitiesCount = 0;
+        this.state.entity.fieldGroups.forEach((fieldGroup)=>{
+            if(fieldGroup.array){
+                fieldGroup.array.forEach((compositeEntity)=>{
+                    if(compositeEntity.source === ENTITY_SOURCE_CREATE){
+                        createEntitiesCount++;
+                    }else if(compositeEntity.source === ENTITY_SOURCE_SELECTED){
+                        selectedEntitiesCount++;
+                    }
+                });
+            }
+        });
         let modifiedFieldCount = 0;
         this.inputMap.forEach((input)=>{
             let modified = input.isModified();
@@ -43,8 +59,11 @@ class EntityUpdate extends React.Component{
                 formData.append(input.getName(), input.getValue());
             }
         });
-        if(modifiedFieldCount > 0 || this.removeEntities.length > 0){
-            this.dialog.confirm(`共修改了${modifiedFieldCount}个字段，删除了${this.removeEntities.length}条多值属性/关联`, '确认保存？', ()=>{
+        if(modifiedFieldCount > 0 || this.removeEntities.length > 0
+        || createEntitiesCount > 0 || selectedEntitiesCount > 0){
+            this.dialog.confirm(`共修改了${modifiedFieldCount}个字段，创建了${createEntitiesCount}条多值属性/关联，`
+                +`新选择了${selectedEntitiesCount}条多值属性/关联，`
+                +`删除了${this.removeEntities.length}条多值属性/关联`, '确认保存？', ()=>{
                 utils.fetch(`/api/entity/update/${this.props.match.params.menuId}`,formData).then((data)=>{
                     if(data.status === 'suc'){
                         _this.dialog.alert('保存成功', '', ()=>{
@@ -103,7 +122,7 @@ class EntityUpdate extends React.Component{
                     if(index >= 0){
                         array.splice(index, 1);
                         this.setState({entity: this.state.entity});
-                        if(compositeEntity.code){
+                        if(!compositeEntity.source){
                             //删除的compositeEntity是原本存在的
                             this.removeEntities.push(compositeEntity);
                         }
@@ -125,7 +144,7 @@ class EntityUpdate extends React.Component{
     }
     renderArray(fieldGroup) {
         return fieldGroup.array.map((compositeEntity, index)=>
-            <Folder key={`${compositeEntity.code}-${index}`} className="entity-field-group-array">
+            <Folder key={`${compositeEntity.code}-${index}`} className={`entity-field-group-array source-${compositeEntity.source}`}>
                 <FieldInput hidden={true}
                             strict={true}
                             name={`${fieldGroup.composite.name}[${index}].唯一编码`}
@@ -174,11 +193,17 @@ class EntityUpdate extends React.Component{
             })
         }
     }
-    createEntityComposite(fieldDescs){
+    createEntityComposite(fieldDescs, loadedEntity){
         let entity =  {
-            code    : '',
             fields  : []
         };
+        if(loadedEntity){
+            entity.source = ENTITY_SOURCE_SELECTED;
+        }else{
+            loadedEntity = {};
+            entity.source = ENTITY_SOURCE_CREATE;
+        }
+        entity.code  = loadedEntity['唯一编码'] || '';
         for(let i in fieldDescs){
             let field = fieldDescs[i];
             entity.fields.push({
@@ -187,30 +212,63 @@ class EntityUpdate extends React.Component{
                 "id": field.id,
                 "title": field.title,
                 "type": field.type,
-                "value": '',
+                "value": loadedEntity[field.fieldName] || '',
                 "fieldId": field.fieldId
             });
         }
         return entity;
     }
     showFieldGroupMenu(fieldGroup) {
-        store.dispatch(showSheet([
-            {
-                label   : '新建',
-                onClick : ()=>{
-                    console.log('新建====');
-                    let newEntityComposite = this.createEntityComposite(fieldGroup.descs);
-                    fieldGroup.array = [...fieldGroup.array, newEntityComposite];
-                    this.setState({entity  : this.state.entity});
-                }
-            },
-            {
+        let _this = this;
+        let menus = [];
+        menus.push({
+            label   : '新建',
+            onClick : ()=>{
+                console.log('新建====');
+                let newEntityComposite = this.createEntityComposite(fieldGroup.descs);
+                fieldGroup.array = [...fieldGroup.array, newEntityComposite];
+                this.setState({entity  : this.state.entity});
+            }
+        });
+        if(fieldGroup.stmplId){
+            let excepts = [];
+            fieldGroup.array.forEach((entity)=>excepts.push(entity.code));
+            let fieldNames = [];
+            fieldGroup.descs.forEach((desc)=>fieldNames.push(desc.fieldName));
+            menus.push({
                 label   : '选择',
                 onClick : ()=>{
                     console.log('选择====');
+                    this.setState({
+                       stmplData    : {
+                           stmplId  : fieldGroup.stmplId,
+                           excepts  : excepts,
+                           onComplete: (code, req)=>{
+                               console.log(code);
+                               req(fieldNames).then((data)=>{
+                                   console.log(data);
+                                   if(data.entities){
+                                       let entityComposites = [];
+                                       for(let code in data.entities){
+                                           let newEntityComposite = this.createEntityComposite(fieldGroup.descs, data.entities[code]);
+                                           entityComposites.push(newEntityComposite);
+                                       }
+                                       fieldGroup.array = [...fieldGroup.array, ...entityComposites];
+                                       this.setState({entity  : this.state.entity});
+                                   }
+                               })
+                               this.setState({stmplData: null});
+
+                           },
+                           onCancel : ()=>{
+                               this.setState({stmplData: null});
+                           }
+                       }
+                    });
                 }
-            }
-        ]));
+            })
+        }
+        store.dispatch(showSheet(menus));
     }
     render() {
         if(this.state.entity == null){
@@ -258,6 +316,15 @@ class EntityUpdate extends React.Component{
                     }
                 </AlertMenu>
                 <Dialog ref={(instance)=>this.dialog = instance} />
+                {this.state.stmplData?
+                    <ArrayEntityItemList stmplId={this.state.stmplData.stmplId}
+                                         menuId={this.props.match.params.menuId}
+                                         excepts={this.state.stmplData.excepts}
+                                         onComplete={this.state.stmplData.onComplete}
+                                         onCancel={this.state.stmplData.onCancel}
+
+                    />
+                    :null}
             </div>
         );
     }

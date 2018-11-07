@@ -147,6 +147,7 @@ span.entity-list-meta-count {
     flex-direction: column;
 }
 
+
 .login .welcome:before {
     content: "Welcome";
 }
@@ -158,6 +159,13 @@ span.entity-list-meta-count {
     vertical-align: bottom;
     margin: 15% 0;
 }
+
+@media screen and (max-height: 665px) {
+    .login .welcome {
+        margin: 20px 0;
+    }
+}
+
 
 .login .login-inp {
     display: flex;

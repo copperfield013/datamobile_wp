@@ -167,3 +167,10 @@ input[type="text"].field-input-text:focus {
     margin-right: 10px;
     font-weight: bold;
 }
+
+.entity-field-group>.entity-field-group-array.source-selected {
+    border-left-color:  #40E0D0;
+}
+.entity-field-group>.entity-field-group-array.source-create {
+    border-left-color:  #FF6A6A;
+}

@@ -110,6 +110,7 @@ input[type="text"].field-input-text:focus {
     min-height: 8em;
     -webkit-user-modify: read-write-plaintext-only;
     user-modify: read-write-plaintext-only;
+    outline: none;
 }
 
 .field-input-component.input-text>div.textarea:focus {

@@ -1,0 +1,53 @@
+.array-entity-item-list-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.array-entity-item-list {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.array-entity-item-list-header {
+    position: absolute;
+    top: 0;
+    height: 30px;
+    width: 100%;
+    background-color: #fff;
+}
+
+.array-entity-item-list-container {
+    position: absolute;
+    top: 35px;
+    width: 100%;
+    bottom: 0;
+    overflow: auto;
+}
+
+span.selected-mark {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+}
+span.selected-mark>span{
+    width: 0;
+    height: 0;
+    border-top: 40px solid #09bb07;
+    border-left: 40px solid transparent;
+    font-size: 0;
+    position: relative;
+    top: 15px;
+    right: 5px;
+}
+span.selected-mark>i {
+    right: 2px;
+    position: absolute;
+    color: #fff;
+    font-size: 15px;
+    top: 0;
+}
