@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2999d83-372d-4513-83f7-99db13043583" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/ArrayEntityItemList.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/Chooser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/common/DialogPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/field/ArrayEntityItemList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/EntityDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/EntityDetail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/FieldInput.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/FieldInput.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/page-actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/page-actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/common/DragForLoad.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/entity/EntityItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/entity/EntityItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/entity/EntityUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/entity/EntityUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/field/FieldDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/FieldDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupProxy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/common/DialogPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/common/DialogPage.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -71,7 +60,7 @@
     <session id="801880363">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="31" />
+          <entry key="project.closed" value="32" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
@@ -79,14 +68,14 @@
           <entry key="project.open.time.16" value="4" />
           <entry key="project.open.time.17" value="4" />
           <entry key="project.open.time.18" value="2" />
-          <entry key="project.open.time.19" value="3" />
+          <entry key="project.open.time.19" value="4" />
           <entry key="project.open.time.20" value="3" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="3" />
           <entry key="project.open.time.26" value="4" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.34" value="3" />
-          <entry key="project.opened" value="33" />
+          <entry key="project.opened" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -94,9 +83,9 @@
           <entry key="EntityListPage" value="344" />
           <entry key="css" value="1846" />
           <entry key="html" value="77" />
-          <entry key="js" value="77702" />
+          <entry key="js" value="77962" />
           <entry key="json" value="45" />
-          <entry key="txt" value="1214" />
+          <entry key="txt" value="1278" />
           <entry key="xpath" value="9" />
         </counts>
       </usages-collector>
@@ -106,8 +95,8 @@
           <entry key="HTML" value="77" />
           <entry key="JSON" value="45" />
           <entry key="JSX Harmony" value="344" />
-          <entry key="JavaScript" value="77551" />
-          <entry key="PLAIN_TEXT" value="1365" />
+          <entry key="JavaScript" value="77811" />
+          <entry key="PLAIN_TEXT" value="1429" />
           <entry key="XPath" value="9" />
         </counts>
       </usages-collector>
@@ -121,7 +110,7 @@
           <entry key="babelrc" value="1" />
           <entry key="css" value="58" />
           <entry key="html" value="25" />
-          <entry key="js" value="286" />
+          <entry key="js" value="288" />
           <entry key="json" value="13" />
           <entry key="md" value="1" />
           <entry key="png" value="1" />
@@ -135,7 +124,7 @@
           <entry key="Image" value="1" />
           <entry key="JSON" value="14" />
           <entry key="JSX Harmony" value="4" />
-          <entry key="JavaScript" value="283" />
+          <entry key="JavaScript" value="285" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="TypeScript" value="6" />
         </counts>
@@ -149,41 +138,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/common/DialogPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="67" column="55" selection-start-line="67" selection-start-column="55" selection-end-line="67" selection-end-column="55" />
+            <state relative-caret-position="170">
+              <caret line="51" column="45" lean-forward="true" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="293" column="32" selection-start-line="293" selection-start-column="32" selection-end-line="293" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/field/ArrayEntityItemList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="89" column="9" lean-forward="true" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
+            <state relative-caret-position="138">
+              <caret line="87" column="15" selection-start-line="87" selection-start-column="15" selection-end-line="87" selection-end-column="15" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/entity/EntityItem.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -200,8 +171,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/actions/page-actions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="165" column="1" lean-forward="true" selection-start-line="165" selection-start-column="1" selection-end-line="165" selection-end-column="1" />
+            <state relative-caret-position="362">
+              <caret line="165" column="1" selection-start-line="165" selection-start-column="1" selection-end-line="165" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -218,8 +189,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/entity/EntityUpdate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="195" column="44" lean-forward="true" selection-start-line="195" selection-start-column="44" selection-end-line="195" selection-end-column="44" />
+            <state relative-caret-position="4232">
+              <caret line="195" column="44" selection-start-line="195" selection-start-column="44" selection-end-line="195" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -227,7 +198,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/EntityDetail.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
+            <state relative-caret-position="3910">
               <caret line="170" column="63" lean-forward="true" selection-start-line="170" selection-start-column="63" selection-end-line="170" selection-end-column="63" />
             </state>
           </provider>
@@ -253,8 +224,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>em</find>
-      <find>dialog</find>
       <find>showFieldGroupMenu</find>
       <find>code</find>
       <find>push</find>
@@ -283,6 +252,8 @@
       <find>selected</find>
       <find>ENTITY_SOURCE_CREATE</find>
       <find>create</find>
+      <find>mainContainerScrollTop</find>
+      <find>mainContainer</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -297,7 +268,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/redux/actions/history.js" />
         <option value="$PROJECT_DIR$/public/EntitySearch.css" />
         <option value="$PROJECT_DIR$/src/views/entity/EntityHistory.js" />
         <option value="$PROJECT_DIR$/src/views/field/InputBody.js" />
@@ -344,10 +314,11 @@
         <option value="$PROJECT_DIR$/public/FieldInput.css" />
         <option value="$PROJECT_DIR$/src/redux/actions/page-actions.js" />
         <option value="$PROJECT_DIR$/public/index.css" />
-        <option value="$PROJECT_DIR$/src/views/common/DialogPage.js" />
         <option value="$PROJECT_DIR$/public/EntityDetail.css" />
         <option value="$PROJECT_DIR$/src/views/entity/EntityUpdate.js" />
         <option value="$PROJECT_DIR$/src/views/field/ArrayEntityItemList.js" />
+        <option value="$PROJECT_DIR$/src/views/common/DialogPage.js" />
+        <option value="$PROJECT_DIR$/src/setupProxy.js" />
       </list>
     </option>
   </component>
@@ -422,73 +393,6 @@
               <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
               <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="redux" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="redux" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="redux" type="462c0819:PsiDirectoryNode" />
-              <item name="reducers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="field" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -578,7 +482,8 @@
       <workItem from="1541327235103" duration="637000" />
       <workItem from="1541381982998" duration="24672000" />
       <workItem from="1541481010020" duration="24876000" />
-      <workItem from="1541563791147" duration="11880000" />
+      <workItem from="1541563791147" duration="12158000" />
+      <workItem from="1541644551608" duration="4058000" />
     </task>
     <task id="LOCAL-00001" summary="实体列表路由">
       <created>1539103156420</created>
@@ -727,11 +632,18 @@
       <option name="project" value="LOCAL" />
       <updated>1541432728541</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="1、重新封装DialogPage&#10;2、实体修改页中，多值属性/关系可以从已存在的实体中选择">
+      <created>1541602054358</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1541602054358</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="493684000" />
+    <option name="totallyTimeSpent" value="498020000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -844,20 +756,14 @@
     <MESSAGE value="1、实体的多值属性/关联允许添加和删除&#10;2、实体列表的菜单更换为下拉菜单，并且新增添加实体按钮" />
     <MESSAGE value="1、制作SearchBar组件，并引入到InputCaselect和InputSelect中&#10;2、实体删除功能" />
     <MESSAGE value="1、完成登录功能&#10;2、封装fetch方法，传递token到后台进行验证" />
-    <option name="LAST_COMMIT_MESSAGE" value="1、完成登录功能&#10;2、封装fetch方法，传递token到后台进行验证" />
+    <MESSAGE value="1、重新封装DialogPage&#10;2、实体修改页中，多值属性/关系可以从已存在的实体中选择" />
+    <option name="LAST_COMMIT_MESSAGE" value="1、重新封装DialogPage&#10;2、实体修改页中，多值属性/关系可以从已存在的实体中选择" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />
     <find-history />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/views/field/InputDateTime.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/reducers/dialog-reducer.js" />
     <entry file="file://$PROJECT_DIR$/src/redux/actions/dialog-actions.js" />
     <entry file="file://$PROJECT_DIR$/src/views/field/FieldValue.js">
@@ -964,9 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -984,13 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="53" column="24" lean-forward="true" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/setupProxy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="23" column="6" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1018,9 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3450">
           <caret line="154" column="8" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1045,9 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1541">
           <caret line="77" column="40" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1112,9 +1002,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1128,6 +1015,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6739">
+          <caret line="293" column="32" selection-start-line="293" selection-start-column="32" selection-end-line="293" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="989">
+          <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityUpdate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4232">
+          <caret line="195" column="44" selection-start-line="195" selection-start-column="44" selection-end-line="195" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/EntityDetail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3910">
+          <caret line="170" column="63" lean-forward="true" selection-start-line="170" selection-start-column="63" selection-end-line="170" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/Chooser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="759">
@@ -1135,52 +1050,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.css">
+    <entry file="file://$PROJECT_DIR$/src/views/field/ArrayEntityItemList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="293" column="32" selection-start-line="293" selection-start-column="32" selection-end-line="293" selection-end-column="32" />
+        <state relative-caret-position="138">
+          <caret line="87" column="15" selection-start-line="87" selection-start-column="15" selection-end-line="87" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/common/DialogPage.js">
+    <entry file="file://$PROJECT_DIR$/src/setupProxy.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="67" column="55" selection-start-line="67" selection-start-column="55" selection-end-line="67" selection-end-column="55" />
+        <state relative-caret-position="276">
+          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/FieldInput.css">
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="422" column="40" selection-start-line="422" selection-start-column="40" selection-end-line="422" selection-end-column="40" />
+        <state relative-caret-position="207">
+          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/actions/page-actions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="165" column="1" lean-forward="true" selection-start-line="165" selection-start-column="1" selection-end-line="165" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/EntityDetail.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="170" column="63" lean-forward="true" selection-start-line="170" selection-start-column="63" selection-end-line="170" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityUpdate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="195" column="44" lean-forward="true" selection-start-line="195" selection-start-column="44" selection-end-line="195" selection-end-column="44" />
+        <state relative-caret-position="362">
+          <caret line="165" column="1" selection-start-line="165" selection-start-column="1" selection-end-line="165" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1191,13 +1088,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/field/ArrayEntityItemList.js">
+    <entry file="file://$PROJECT_DIR$/public/FieldInput.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="89" column="9" lean-forward="true" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="155">
+          <caret line="422" column="40" selection-start-line="422" selection-start-column="40" selection-end-line="422" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/common/DialogPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="51" column="45" lean-forward="true" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
         </state>
       </provider>
     </entry>

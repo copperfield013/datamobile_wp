@@ -4,9 +4,7 @@ class DialogPage extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            show        : props.show === true,
-            mainContainerScrollTop : 0,
-            mainContainer     : null,
+            show        : props.show === true
         }
         this.hide = this.hide.bind(this);
         this.cancel = this.cancel.bind(this);

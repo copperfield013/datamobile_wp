@@ -1,8 +1,9 @@
 const proxy = require('http-proxy-middleware');
+const DATACENTER_URL = 'http://localhost:7080/datacenter';
 module.exports = function(app) {
     app.use(proxy('/api',
         {
-            target: 'http://localhost:7080/datacenter/api',
+            target: `${DATACENTER_URL}/api`,
             changeOrigin: true,
             pathRewrite: {
                 '^/api' : function(path, req){
@@ -13,7 +14,7 @@ module.exports = function(app) {
     ));
     app.use(proxy('/file-server',
         {
-            target: 'http://localhost:7080/datacenter/',
+            target: `${DATACENTER_URL}`,
             changeOrigin: true,
             pathRewrite: {
                 '^/file-server' : function(path, req){
