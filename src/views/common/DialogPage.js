@@ -52,6 +52,10 @@ class DialogPage extends React.Component{
         let $container = this.getContainer();
         if($container){
             $container.classList.remove('lock');
+            $container.style.top = null;
+            if( this.mainContainer && this.mainContainerScrollTop){
+                this.mainContainer.scrollTo(0, this.mainContainerScrollTop);
+            }
         }
     }
     render() {

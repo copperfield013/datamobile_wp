@@ -6,6 +6,7 @@ import InputSelect from "./InputSelect";
 import InputDate from "./InputDate";
 import InputDateTime from "./InputDateTime";
 import InputCaselect from './InputCaselect';
+import InputMultipleSelect from './InputMultipleSelect';
 
 class FieldInput extends React.Component{
     constructor(props) {
@@ -78,6 +79,9 @@ class FieldInput extends React.Component{
                     case 'select':
                         input = InputSelect;
                         break;
+                    case 'label':
+                        //input = InputMultipleSelect;
+                        break
                     //日期选择
                     case 'date':
                         dialog = <InputDate
