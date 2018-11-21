@@ -1,6 +1,7 @@
 import React from 'react';
 import store from '../../redux/store';
 import {showSheet} from '../../redux/actions/page-actions';
+import Utils from "../../utils/Utils";
 
 
 export default class InputSheet extends React.Component{
@@ -16,6 +17,7 @@ export default class InputSheet extends React.Component{
             this.state.value = this.state.menus[0];
         }
         this.showSheet = this.showSheet.bind(this);
+        this.uuid = Utils.uuid(5, 62);
         this.filedInputAdapter = {
             getName(){
                 return props.name;
@@ -28,6 +30,9 @@ export default class InputSheet extends React.Component{
             },
             isModified(){
                 return _this.state.modified;
+            },
+            getUUID() {
+                return this.uuid;
             }
         }
         if(props.name && props.inputMap){

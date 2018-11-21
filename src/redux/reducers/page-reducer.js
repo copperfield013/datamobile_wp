@@ -48,7 +48,8 @@ export default function(state={}, action){
             return {
                 ...state,
                 showGlobalSheet : false,
-                globalSheetMenus: []
+                globalSheetMenus: [],
+                globalSheetCallback: null
             }
         }
         case REDIRECT: {

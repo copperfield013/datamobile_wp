@@ -29,11 +29,15 @@ class Main extends Component{
             for(let i in globalSheetMenus){
                 if(typeof globalSheetMenus[i] === 'string'){
                     globalSheetMenus[i] = {
-                        label   : globalSheetMenus[i],
-                        onClick : ()=>{
-                            if(page.globalSheetCallback){
-                                page.globalSheetCallback(globalSheetMenus[i].label);
-                            }
+                        label   : globalSheetMenus[i]
+                    }
+                    if(page.globalSheetCallback){
+                        globalSheetMenus[i].onClick = ()=>{
+                            page.globalSheetCallback(globalSheetMenus[i].label);
+                            store.dispatch(hideSheet());
+                        }
+                    }else{
+                        globalSheetMenus[i].onClick = ()=>{
                             store.dispatch(hideSheet());
                         }
                     }

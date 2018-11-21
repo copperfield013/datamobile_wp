@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2999d83-372d-4513-83f7-99db13043583" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/views/field/InputMultipleSelect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/Assert.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/common/DialogPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/common/DialogPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/page-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/page-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/entity/EntityDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/entity/EntityDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/entity/EntityUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/entity/EntityUpdate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/field/FieldInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/FieldInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/field/FieldInputMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/FieldInputMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/field/InputSheet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/field/InputSheet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/main/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/main/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/main/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/main/Main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -61,22 +68,23 @@
     <session id="801880363">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="32" />
+          <entry key="project.closed" value="39" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
-          <entry key="project.open.time.15" value="2" />
-          <entry key="project.open.time.16" value="4" />
-          <entry key="project.open.time.17" value="4" />
+          <entry key="project.open.time.15" value="3" />
+          <entry key="project.open.time.16" value="6" />
+          <entry key="project.open.time.17" value="5" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.19" value="4" />
           <entry key="project.open.time.20" value="3" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="3" />
-          <entry key="project.open.time.26" value="4" />
-          <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.26" value="5" />
+          <entry key="project.open.time.27" value="2" />
           <entry key="project.open.time.34" value="3" />
-          <entry key="project.opened" value="34" />
+          <entry key="project.open.time.42" value="1" />
+          <entry key="project.opened" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -84,9 +92,9 @@
           <entry key="EntityListPage" value="344" />
           <entry key="css" value="1846" />
           <entry key="html" value="77" />
-          <entry key="js" value="78010" />
+          <entry key="js" value="82556" />
           <entry key="json" value="45" />
-          <entry key="txt" value="1296" />
+          <entry key="txt" value="1333" />
           <entry key="xpath" value="9" />
         </counts>
       </usages-collector>
@@ -96,8 +104,8 @@
           <entry key="HTML" value="77" />
           <entry key="JSON" value="45" />
           <entry key="JSX Harmony" value="344" />
-          <entry key="JavaScript" value="77859" />
-          <entry key="PLAIN_TEXT" value="1447" />
+          <entry key="JavaScript" value="82405" />
+          <entry key="PLAIN_TEXT" value="1484" />
           <entry key="XPath" value="9" />
         </counts>
       </usages-collector>
@@ -110,8 +118,8 @@
           <entry key="InputDateTime" value="1" />
           <entry key="babelrc" value="1" />
           <entry key="css" value="58" />
-          <entry key="html" value="25" />
-          <entry key="js" value="291" />
+          <entry key="html" value="26" />
+          <entry key="js" value="318" />
           <entry key="json" value="13" />
           <entry key="md" value="1" />
           <entry key="png" value="1" />
@@ -121,11 +129,11 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="58" />
-          <entry key="HTML" value="25" />
+          <entry key="HTML" value="26" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="14" />
           <entry key="JSX Harmony" value="4" />
-          <entry key="JavaScript" value="288" />
+          <entry key="JavaScript" value="315" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="TypeScript" value="6" />
         </counts>
@@ -140,64 +148,43 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/common/DialogPage.js">
+        <entry file="file://$PROJECT_DIR$/src/views/field/FieldInput.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+            <state relative-caret-position="237">
+              <caret line="56" column="15" lean-forward="true" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/entity/EntityUpdate.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="115" column="74" selection-start-line="115" selection-start-column="74" selection-end-line="115" selection-end-column="74" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/field/InputSheet.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/views/field/FieldInput.js">
+        <entry file="file://$PROJECT_DIR$/src/views/main/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="82" column="53" selection-start-line="82" selection-start-column="53" selection-end-line="82" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/field/InputMultipleSelect.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="59" column="52" lean-forward="true" selection-start-line="59" selection-start-column="52" selection-end-line="59" selection-end-column="52" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/field/InputSelect.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="12" column="10" lean-forward="true" selection-end-line="78" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/field/ArrayEntityItemList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="87" column="15" selection-start-line="87" selection-start-column="15" selection-end-line="87" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/FieldInput.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="422" column="40" selection-start-line="422" selection-start-column="40" selection-end-line="422" selection-end-column="40" />
+            <state relative-caret-position="293">
+              <caret line="48" column="66" lean-forward="true" selection-start-line="48" selection-start-column="66" selection-end-line="48" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -205,35 +192,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/actions/page-actions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="165" column="1" selection-start-line="165" selection-start-column="1" selection-end-line="165" selection-end-column="1" />
+            <state relative-caret-position="294">
+              <caret line="83" column="24" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/ArrayEntityItemList.css">
+        <entry file="file://$PROJECT_DIR$/src/redux/reducers/page-reducer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+            <state relative-caret-position="-6">
+              <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/EntityDetail.css">
+        <entry file="file://$PROJECT_DIR$/src/utils/Utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3910">
-              <caret line="170" column="63" lean-forward="true" selection-start-line="170" selection-start-column="63" selection-end-line="170" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/Chooser.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+            <state relative-caret-position="176">
+              <caret line="56" column="54" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -249,15 +227,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>showFieldGroupMenu</find>
-      <find>code</find>
-      <find>push</find>
-      <find>history</find>
-      <find>searchBar</find>
-      <find>drawer</find>
-      <find>remove</find>
-      <find>selectOption</find>
-      <find>Toas</find>
       <find>showLoading</find>
       <find>red</find>
       <find>fetch</find>
@@ -279,6 +248,15 @@
       <find>create</find>
       <find>mainContainerScrollTop</find>
       <find>mainContainer</find>
+      <find>api</find>
+      <find>redirect</find>
+      <find>save</find>
+      <find>inputm</find>
+      <find>putField</find>
+      <find>putFieldInput</find>
+      <find>form</find>
+      <find>$$flag</find>
+      <find>FieldInput</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -293,7 +271,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/views/entity/EntityHistory.js" />
         <option value="$PROJECT_DIR$/src/views/field/InputBody.js" />
         <option value="$PROJECT_DIR$/src/views/field/InputDialog.js" />
         <option value="$PROJECT_DIR$/src/views/field/Input.js" />
@@ -307,7 +284,6 @@
         <option value="$PROJECT_DIR$/src/views/common/AlertMenu.css" />
         <option value="$PROJECT_DIR$/src/views/common/Drawer.css" />
         <option value="$PROJECT_DIR$/src/views/field/Sheet.js" />
-        <option value="$PROJECT_DIR$/src/views/field/FieldInputMap.js" />
         <option value="$PROJECT_DIR$/src/views/entity/EntitySearch.js" />
         <option value="$PROJECT_DIR$/src/views/common/Drawer.js" />
         <option value="$PROJECT_DIR$/public/SearchBar.css" />
@@ -316,20 +292,13 @@
         <option value="$PROJECT_DIR$/public/Loading.css" />
         <option value="$PROJECT_DIR$/src/views/entity/EntityPage.js" />
         <option value="$PROJECT_DIR$/src/views/common/PageNotFound.js" />
-        <option value="$PROJECT_DIR$/src/redux/reducers/page-reducer.js" />
         <option value="$PROJECT_DIR$/src/views/home/HomePage.js" />
         <option value="$PROJECT_DIR$/src/views/entity/EntityList.js" />
-        <option value="$PROJECT_DIR$/src/views/entity/EntityDetail.js" />
-        <option value="$PROJECT_DIR$/src/utils/Utils.js" />
-        <option value="$PROJECT_DIR$/src/views/main/Main.js" />
         <option value="$PROJECT_DIR$/src/views/common/AlertMenu.js" />
-        <option value="$PROJECT_DIR$/src/views/main/Login.js" />
         <option value="$PROJECT_DIR$/src/views/field/InputSelect.js" />
         <option value="$PROJECT_DIR$/src/views/field/InputCaselect.js" />
         <option value="$PROJECT_DIR$/src/utils/TokenStore.js" />
-        <option value="$PROJECT_DIR$/src/views/field/InputSheet.js" />
         <option value="$PROJECT_DIR$/src/views/common/Loading.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/views/entity/EntityItem.js" />
         <option value="$PROJECT_DIR$/public/ArrayEntityItemList.css" />
         <option value="$PROJECT_DIR$/src/utils/Chooser.js" />
@@ -338,12 +307,21 @@
         <option value="$PROJECT_DIR$/src/redux/actions/page-actions.js" />
         <option value="$PROJECT_DIR$/public/index.css" />
         <option value="$PROJECT_DIR$/public/EntityDetail.css" />
-        <option value="$PROJECT_DIR$/src/views/entity/EntityUpdate.js" />
         <option value="$PROJECT_DIR$/src/views/field/ArrayEntityItemList.js" />
         <option value="$PROJECT_DIR$/src/setupProxy.js" />
         <option value="$PROJECT_DIR$/src/views/common/DialogPage.js" />
         <option value="$PROJECT_DIR$/src/views/field/InputMultipleSelect.js" />
+        <option value="$PROJECT_DIR$/src/views/main/Login.js" />
+        <option value="$PROJECT_DIR$/src/views/entity/EntityDetail.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/src/utils/Utils.js" />
+        <option value="$PROJECT_DIR$/src/views/field/InputSheet.js" />
+        <option value="$PROJECT_DIR$/src/utils/Assert.js" />
+        <option value="$PROJECT_DIR$/src/views/field/FieldInputMap.js" />
         <option value="$PROJECT_DIR$/src/views/field/FieldInput.js" />
+        <option value="$PROJECT_DIR$/src/views/entity/EntityUpdate.js" />
+        <option value="$PROJECT_DIR$/src/redux/reducers/page-reducer.js" />
+        <option value="$PROJECT_DIR$/src/views/main/Main.js" />
       </list>
     </option>
   </component>
@@ -402,6 +380,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -423,7 +402,33 @@
               <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
               <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="redux" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="redux" type="462c0819:PsiDirectoryNode" />
+              <item name="reducers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
@@ -432,11 +437,17 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="field" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="datamobile_wp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="datamobile_wp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -521,7 +532,14 @@
       <workItem from="1541381982998" duration="24672000" />
       <workItem from="1541481010020" duration="24876000" />
       <workItem from="1541563791147" duration="12158000" />
-      <workItem from="1541644551608" duration="8157000" />
+      <workItem from="1541644551608" duration="8250000" />
+      <workItem from="1541732927041" duration="1171000" />
+      <workItem from="1542343264317" duration="8197000" />
+      <workItem from="1542373901204" duration="302000" />
+      <workItem from="1542374989391" duration="460000" />
+      <workItem from="1542616791380" duration="2071000" />
+      <workItem from="1542673328015" duration="5088000" />
+      <workItem from="1542761675177" duration="19984000" />
     </task>
     <task id="LOCAL-00001" summary="实体列表路由">
       <created>1539103156420</created>
@@ -684,15 +702,21 @@
       <option name="project" value="LOCAL" />
       <updated>1541687811136</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="解决弹出框Cancel后滚动条位置变化的问题">
+      <created>1541694530690</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1541694530690</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="502119000" />
+    <option name="totallyTimeSpent" value="539485000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2001488" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -803,35 +827,14 @@
     <MESSAGE value="1、完成登录功能&#10;2、封装fetch方法，传递token到后台进行验证" />
     <MESSAGE value="1、重新封装DialogPage&#10;2、实体修改页中，多值属性/关系可以从已存在的实体中选择" />
     <MESSAGE value="变量化后台服务URL" />
-    <option name="LAST_COMMIT_MESSAGE" value="变量化后台服务URL" />
+    <MESSAGE value="解决弹出框Cancel后滚动条位置变化的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决弹出框Cancel后滚动条位置变化的问题" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />
     <find-history />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/redux/actions/dialog-actions.js" />
-    <entry file="file://$PROJECT_DIR$/src/views/field/FieldValue.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="77" column="79" lean-forward="true" selection-start-line="77" selection-start-column="23" selection-end-line="77" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/field/InputDate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/store.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -857,13 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/field/FieldInputMap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="31" column="38" lean-forward="true" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/entity/EntitySearch.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-18">
@@ -881,13 +877,6 @@
     <entry file="file://$PROJECT_DIR$/src/views/app/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1587" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/common/SearchBar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/SearchBar.css">
@@ -928,74 +917,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/reducers/page-reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="53" column="24" lean-forward="true" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="38" column="74" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="74" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/main/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="40" column="48" lean-forward="true" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/field/InputCaselect.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3450">
-          <caret line="154" column="8" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/common/AlertMenu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="966">
           <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/main/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1541">
-          <caret line="77" column="40" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/field/InputSheet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/TokenStore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1028,30 +953,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="7" column="89" selection-start-line="7" selection-start-column="89" selection-end-line="7" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/field/FieldDialog.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/Utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1196">
-          <caret line="54" column="73" selection-start-line="54" selection-start-column="73" selection-end-line="54" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1069,37 +974,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityUpdate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4232">
-          <caret line="195" column="44" selection-start-line="195" selection-start-column="44" selection-end-line="195" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/EntityDetail.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3910">
-          <caret line="170" column="63" lean-forward="true" selection-start-line="170" selection-start-column="63" selection-end-line="170" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/Chooser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/field/ArrayEntityItemList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="87" column="15" selection-start-line="87" selection-start-column="15" selection-end-line="87" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/setupProxy.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -1114,31 +988,117 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/actions/page-actions.js">
+    <entry file="file://$PROJECT_DIR$/src/views/common/DialogPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="165" column="1" selection-start-line="165" selection-start-column="1" selection-end-line="165" selection-end-column="1" />
+        <state relative-caret-position="138">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/ArrayEntityItemList.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
+        <state relative-caret-position="828">
           <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/EntityDetail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3910">
+          <caret line="170" column="63" selection-start-line="170" selection-start-column="63" selection-end-line="170" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/Assert.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/main/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="874">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/field/ArrayEntityItemList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1886">
+          <caret line="87" column="15" selection-start-line="87" selection-start-column="15" selection-end-line="87" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/FieldInput.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
+        <state relative-caret-position="9706">
           <caret line="422" column="40" selection-start-line="422" selection-start-column="40" selection-end-line="422" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/common/DialogPage.js">
+    <entry file="file://$PROJECT_DIR$/src/utils/Chooser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+        <state relative-caret-position="759">
+          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/field/InputCaselect.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="182" column="45" lean-forward="true" selection-start-line="182" selection-start-column="45" selection-end-line="182" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/field/InputDate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-713">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/field/InputDateTime.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/field/InputMultipleSelect.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="52" column="29" lean-forward="true" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/common/SearchBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1149,23 +1109,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/field/InputMultipleSelect.js">
+    <entry file="file://$PROJECT_DIR$/src/views/field/InputText.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="59" column="52" lean-forward="true" selection-start-line="59" selection-start-column="52" selection-end-line="59" selection-end-column="52" />
+        <state relative-caret-position="138">
+          <caret line="6" column="53" lean-forward="true" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/TokenStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="43" lean-forward="true" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/field/FieldInputMap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="58" column="49" lean-forward="true" selection-start-line="58" selection-start-column="49" selection-end-line="58" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/Utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="56" column="54" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/field/FieldInput.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="82" column="53" selection-start-line="82" selection-start-column="53" selection-end-line="82" selection-end-column="53" />
+        <state relative-caret-position="237">
+          <caret line="56" column="15" lean-forward="true" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/entity/EntityUpdate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="115" column="74" selection-start-line="115" selection-start-column="74" selection-end-line="115" selection-end-column="74" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/field/InputSheet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers/page-reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/actions/page-actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="83" column="24" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/main/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="48" column="66" lean-forward="true" selection-start-line="48" selection-start-column="66" selection-end-line="48" selection-end-column="66" />
         </state>
       </provider>
     </entry>

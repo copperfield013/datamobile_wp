@@ -6,7 +6,7 @@ import InputSelect from "./InputSelect";
 import InputDate from "./InputDate";
 import InputDateTime from "./InputDateTime";
 import InputCaselect from './InputCaselect';
-import InputMultipleSelect from './InputMultipleSelect';
+import Utils from "../../utils/Utils";
 
 class FieldInput extends React.Component{
     constructor(props) {
@@ -15,10 +15,11 @@ class FieldInput extends React.Component{
             field: props.field,
             hiddenValue: props.value
         }
-        if(props.name && props.inputMap){
-            props.inputMap.put(props.name, this);
-        }
+        this.uuid = Utils.uuid(5, 62);
         this.showDialog = this.showDialog.bind(this);
+    }
+    getUUID() {
+        return this.uuid;
     }
     showDialog() {
         let value = this.refs.value;
@@ -55,11 +56,6 @@ class FieldInput extends React.Component{
     }
     isStrict(){
         return !!this.props.strict || false;
-    }
-    componentWillUnmount(){
-        if(this.props.name && this.props.inputMap){
-            this.props.inputMap.remove(this.props.name, this);
-        }
     }
     render() {
         if(this.props.hidden === true){
@@ -101,7 +97,7 @@ class FieldInput extends React.Component{
                 }
             }
             return (
-                <div className={`field-input field-input-${field.type}`}>
+                <div uuid={this.getUUID()} className={`field-input field-input-${field.type}`}>
                     <div className={`field-input-value`} onClick={this.showDialog}>
                         <FieldValue ref="value" field={field} />
                     </div>

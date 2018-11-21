@@ -5,7 +5,6 @@ import store from "../../redux/store";
 import {setTitle, registScrollElementsFixed, showSheet} from "../../redux/actions/page-actions";
 import FieldInput from '../field/FieldInput';
 import Loading from "../common/Loading";
-import FieldInputMap from "../field/FieldInputMap";
 import Dialog from '../common/Dialog';
 import InputSheet from '../field/InputSheet';
 import utils from "../../utils/Utils";
@@ -22,19 +21,46 @@ class EntityUpdate extends React.Component{
             entity: null,
             saveSucceed: false
         };
+        this.form = null;
         this.mode = props.match.params.code? 'update': 'create';
-        this.inputMap = new FieldInputMap();
-        this.removeEntities = [];
+        this.removeEntities = []
+        this.fieldInputMap = new Map();
         this.submitUpdate = this.submitUpdate.bind(this);
         this.reloadPage = this.reloadPage.bind(this);
     }
 
     submitUpdate(){
-        let _this = this;
+        let _update = this;
+
         let formData = new FormData();
-        if(this.state.entity && this.state.entity.code){
-            formData.append('唯一编码', this.state.entity.code);
+
+        //1、获得form下面的所有field-input
+        let fieldInputs = [];
+        let $formFieldInputs = this.form.getElementsByClassName('field-input');
+        for(let i = 0; i < $formFieldInputs.length; i++){
+            let $input = $formFieldInputs[i];
+            let fieldInput = _update.getFieldInput($input);
+            if(fieldInput instanceof FieldInput){
+                fieldInputs.push(fieldInput);
+            }
         }
+        //2、根据策略获得所有fieldInput的值
+        let validateError = false;
+        //3、校验表单值，放入code值
+        let modifiedFieldCount = 0,
+            removedEntitiesCount = 0;
+        fieldInputs.forEach((fieldInput)=>{
+           let thisValidateResult = _update.validateFieldInput(fieldInput);
+           if(!validateError && thisValidateResult === false){
+               validateError = true;
+           }
+           if(fieldInput.isStrict() || fieldInput.isModified()){
+               modifiedFieldCount++;
+               formData.append(fieldInput.getName(), fieldInput.getValue());
+           }
+        });
+        //4、统计表单修改数，新增数、删除数
+        //计算arrayComposite中创建和选择的entity的数量
         let createEntitiesCount = 0,
             selectedEntitiesCount = 0;
         this.state.entity.fieldGroups.forEach((fieldGroup)=>{
@@ -48,40 +74,65 @@ class EntityUpdate extends React.Component{
                 });
             }
         });
-        let modifiedFieldCount = 0;
-        this.inputMap.forEach((input)=>{
-            let modified = input.isModified();
-            if(input.isStrict() || modified){
-                if(modified){
-                    modifiedFieldCount++;
-                }
-                console.log(`${input.getName()}=${input.getValue()}`);
-                formData.append(input.getName(), input.getValue());
+        if(!validateError){
+            //验证成功
+            formData.delete('唯一编码');
+            if(this.state.entity && this.state.entity.code){
+                formData.append('唯一编码', this.state.entity.code);
             }
-        });
-        if(modifiedFieldCount > 0 || this.removeEntities.length > 0
-        || createEntitiesCount > 0 || selectedEntitiesCount > 0){
+            //5、询问提交确认
             this.dialog.confirm(`共修改了${modifiedFieldCount}个字段，创建了${createEntitiesCount}条多值属性/关联，`
                 +`新选择了${selectedEntitiesCount}条多值属性/关联，`
-                +`删除了${this.removeEntities.length}条多值属性/关联`, '确认保存？', ()=>{
-                utils.fetch(`/api/entity/update/${this.props.match.params.menuId}`,formData).then((data)=>{
+                +`删除了${removedEntitiesCount}条多值属性/关联`, '确认保存？', ()=>{
+                //6、提交到后台
+                utils.fetch(`/api/entity/update/${_update.props.match.params.menuId}`,formData).then((data)=>{
                     if(data.status === 'suc'){
-                        _this.dialog.alert('保存成功', '', ()=>{
+                        _update.dialog.alert('保存成功', '', ()=>{
                             if(this.mode === 'update'){
-                                _this.props.history.go(0);
+                                _update.props.history.go(0);
                             }else{
-                                _this.props.history.push(`/entity/detail/${this.props.match.params.menuId}/${data.code}`);
+                                _update.props.history.push(`/entity/detail/${_update.props.match.params.menuId}/${data.code}`);
                             }
                         });
                     }else{
-                        _this.dialog.alert('保存失败');
+                        _update.dialog.alert('保存失败');
                     }
                 });
             })
-        }else{
-            this.dialog.alert('没有修改数据');
         }
     }
+
+    /**
+     * 把FieldInput放到当前页面中的FieldInputMap容器中
+     * @param fieldInput
+     */
+    putFieldInput(fieldInput) {
+        if(fieldInput){
+            if(fieldInput instanceof FieldInput){
+                let uuid = fieldInput.getUUID();
+                this.fieldInputMap.set(uuid, fieldInput);
+            }else if(fieldInput.filedInputAdapter){
+                let uuid = fieldInput.filedInputAdapter.getUUID();
+                this.fieldInputMap.set(uuid, fieldInput.filedInputAdapter);
+            }
+        }
+    }
+
+    /**
+     * 根据field-input的元素获得对应的FieldInput对象
+     * @param $input html元素，拥有uuid属性，将会根据该uuid映射到对应的FieldInput对象
+     * @returns {FieldInput}
+     */
+    getFieldInput($input) {
+        let uuid = $input.getAttribute("uuid");
+        if(uuid){
+            return this.fieldInputMap.get(uuid);
+        }
+    }
+    validateFieldInput(fieldInput){
+
+    }
+
     reloadPage(){
 
     }
@@ -92,11 +143,14 @@ class EntityUpdate extends React.Component{
         if(this.mode === 'update'){
             utils.fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`)
                 .then((data)=>{
-                    this.setState({
-                        entity : data.entity,
-                        registScroll: true
-                    });
-                    store.dispatch(setTitle(`修改-${this.state.entity.title}`));
+                    if(data.entity){
+                        this.setState({
+                            entity : data.entity,
+                            registScroll: true
+                        }, ()=>{
+                            store.dispatch(setTitle(`修改-${this.state.entity.title}`))
+                        });
+                    }
                 });
         }else{
             utils.fetch(`/api/entity/dtmpl/${this.props.match.params.menuId}`).then((data)=>{
@@ -136,7 +190,7 @@ class EntityUpdate extends React.Component{
             <div key={field.id} className={`entity-field ${field.available? '': 'entity-field-unavailable'}`}>
                 <label>{field.title}</label>
                 <div>
-                    <FieldInput name={field.fieldName} inputMap={this.inputMap} field={field} />
+                    <FieldInput ref={(ins)=>{this.putFieldInput(ins)}} name={field.fieldName} field={field} />
                 </div>
                 {field.available? null: <span><i className={`iconfont icon-warning`}></i></span>}
             </div>
@@ -147,8 +201,8 @@ class EntityUpdate extends React.Component{
             <Folder key={`${compositeEntity.code}-${index}`} className={`entity-field-group-array source-${compositeEntity.source}`}>
                 <FieldInput hidden={true}
                             strict={true}
+                            ref={(ins)=>{this.putFieldInput(ins)}}
                             name={`${fieldGroup.composite.name}[${index}].唯一编码`}
-                            inputMap={this.inputMap}
                             value={compositeEntity.code}/>
                 <div className="entity-item-header">
                     <em>{index + 1}</em>
@@ -160,8 +214,8 @@ class EntityUpdate extends React.Component{
                             <label>关系</label>
                             <div>
                                 <InputSheet
+                                    ref={(ins)=>{this.putFieldInput(ins)}}
                                     name={`${fieldGroup.composite.name}[${index}].$$label$$`}
-                                    inputMap={this.inputMap}
                                     options={fieldGroup.composite.relationSubdomain}
                                     defaultValue={compositeEntity.relation}
                                 />
@@ -173,7 +227,7 @@ class EntityUpdate extends React.Component{
                     <div key={field.id} className={`entity-field ${field.available? '': 'entity-field-unavailable'}`}>
                         <label>{field.title}</label>
                         <div>
-                            <FieldInput name={this.generateArrayFieldName(fieldGroup.descs[fieldIndex], index)} inputMap={this.inputMap} field={field}/>
+                            <FieldInput ref={(ins)=>{this.putFieldInput(ins)}} name={this.generateArrayFieldName(fieldGroup.descs[fieldIndex], index)} field={field}/>
                         </div>
                         {field.available? null: <span><i className={`iconfont icon-warning`}></i></span>}
                     </div>
@@ -277,34 +331,36 @@ class EntityUpdate extends React.Component{
         return(
             <div>
                 <div ref={(instance)=>this.$entityUpdate = instance} className="entity-update">
-                    {
-                        this.state.entity.fieldGroups.map((fieldGroup)=>{
-                            let isArray = fieldGroup.fields == null;
-                            return (
-                                <div key={fieldGroup.id} className="entity-field-group">
-                                    <div className="entity-field-group-title">
-                                        <div>
-                                            <h3>{fieldGroup.title}</h3>
-                                            {isArray?
-                                                <span onClick={()=>this.showFieldGroupMenu(fieldGroup)}>
-                                                    <i className="iconfont icon-horizontal-menu"></i>
-                                                    <FieldInput hidden={true}
-                                                                strict={true}
-                                                                name={`${fieldGroup.composite.name}.$$flag$$`}
-                                                                inputMap={this.inputMap}
-                                                                value={true}/>
-                                                </span>
-                                                : null}
+                    <form ref={(ins)=>this.form = ins}>
+                        {
+                            this.state.entity.fieldGroups.map((fieldGroup)=>{
+                                let isArray = fieldGroup.fields == null;
+                                return (
+                                    <div key={fieldGroup.id} className="entity-field-group">
+                                        <div className="entity-field-group-title">
+                                            <div>
+                                                <h3>{fieldGroup.title}</h3>
+                                                {isArray?
+                                                    <span onClick={()=>this.showFieldGroupMenu(fieldGroup)}>
+                                                        <i className="iconfont icon-horizontal-menu"></i>
+                                                        <FieldInput hidden={true}
+                                                                    strict={true}
+                                                                    name={`${fieldGroup.composite.name}.$$flag$$`}
+                                                                    ref={(ins)=>this.putFieldInput(ins)}
+                                                                    value={true}/>
+                                                    </span>
+                                                    : null}
 
+                                            </div>
                                         </div>
+                                        {!isArray?
+                                            this.renderFields(fieldGroup)
+                                            : this.renderArray(fieldGroup)}
                                     </div>
-                                    {!isArray?
-                                        this.renderFields(fieldGroup)
-                                        : this.renderArray(fieldGroup)}
-                                </div>
-                            )
-                        })
-                    }
+                                )
+                            })
+                        }
+                    </form>
                 </div>
                 <AlertMenu>
                     <MenuItem onClick={()=>{this.submitUpdate()}} title="保存" iconfont="icon-save" />
@@ -328,6 +384,8 @@ class EntityUpdate extends React.Component{
             </div>
         );
     }
+
+
 }
 
 export default EntityUpdate;

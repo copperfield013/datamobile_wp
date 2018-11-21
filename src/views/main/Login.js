@@ -35,7 +35,7 @@ export default class Login extends React.Component{
                     }
                 })
             }
-        });
+        }).catch(()=>{});
     }
     componentDidMount(){
         store.dispatch(setTitle(`登录-易+数据融合工具`));
@@ -43,11 +43,13 @@ export default class Login extends React.Component{
     render(){
         let query = queryString.parse(this.props.location.search);
         console.log(query.reason);
-        let errorMsg = '';
-        if(!this.state.errorMsg){
+        let errorMsg = null;
+        if(query.reason){
             if(query.reason === 'notAcceptable'){
                 errorMsg = '验证错误， 请重新登录';
             }
+        }else{
+            errorMsg = this.state.errorMsg
         }
 
         return (

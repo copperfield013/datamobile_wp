@@ -1,8 +1,50 @@
 import FieldInput from './FieldInput';
+import Assert from '../../utils/Assert';
+
+class SetMap{
+    constructor(){
+        this.map = new Map();
+    }
+    put(key, item){
+        let array = this.get(key);
+        if(!array){
+            array = new Set();
+            this.map.set(key, array);
+        }
+        array.add(item);
+    }
+
+    /**
+     *
+     * @param key
+     * @return Array 返回key为关键字的集合的数组备份
+     */
+    get(key){
+        let array = this.map.get(key);
+        if(array){
+            return Array.from(array);
+        }
+    }
+    has(key){
+        return this.map.has(key);
+    }
+    delete(key){
+        return this.map.delete(key);
+    }
+    getItem(key, index){
+        Assert.hasText(key);
+        Assert.isNatural(index);
+        let array = this.get(key);
+        if(array){
+            return array[index];
+        }
+    }
+}
 
 export default class FieldInputMap{
     constructor(){
-        this.map = new Map();
+        this.map = new SetMap();
+        this.uuidMap = new Map();
     }
 
     /**
@@ -12,17 +54,24 @@ export default class FieldInputMap{
      */
     put(name, fieldInput){
         if(name && typeof name === 'string'){
-            if(!this.map.has(name)){
-                if(fieldInput instanceof FieldInput){
-                    let field = fieldInput.getField();
-                    if(fieldInput.isStrict() || field.available){
-                        this.map.set(name, fieldInput);
-                    }
-                }else if(fieldInput.filedInputAdapter){
-                    this.map.set(name, fieldInput.filedInputAdapter);
+            let uuid = null,
+                theInput = null;
+            if(fieldInput instanceof FieldInput){
+                let uuid = fieldInput.getUUID();
+                let field = fieldInput.getField();
+                if(fieldInput.isStrict() || field.available){
+                    theInput = fieldInput;
                 }
-            }else{
+            }else if(fieldInput.filedInputAdapter){
+                uuid = fieldInput.getUUID();
+                theInput = fieldInput.filedInputAdapter;
+            }
+            if(uuid && this.uuidMap.has(uuid)){
                 console.error(`name[${name}]在FieldInputMap中已经存在`);
+            }
+            if(uuid && theInput){
+                this.map.set(name, theInput);
+                this.uuidMap.put(uuid, theInput);
             }
         }
     }
@@ -37,7 +86,9 @@ export default class FieldInputMap{
     forEach(func){
         this.map.forEach(func);
     }
-
+    clear(){
+        this.map.clear();
+    }
     getSize() {
         return this.map.size;
     }

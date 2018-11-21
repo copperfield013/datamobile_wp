@@ -31,12 +31,15 @@ class EntityDetail extends React.Component{
 
         utils.fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`,formData)
             .then((data)=>{
-                this.setState({
-                    entity : data.entity,
-                    history: data.history,
-                    registScroll: true
-                });
-                store.dispatch(setTitle(`详情-${this.state.entity.title}`));
+                if(data.entity){
+                    this.setState({
+                        entity : data.entity,
+                        history: data.history,
+                        registScroll: true
+                    }, ()=>{
+                        store.dispatch(setTitle(`详情-${this.state.entity.title}`));
+                    });
+                }
             });
     }
     renderFields(fields) {
