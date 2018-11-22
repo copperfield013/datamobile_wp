@@ -32,11 +32,8 @@ export default class InputSheet extends React.Component{
                 return _this.state.modified;
             },
             getUUID() {
-                return this.uuid;
+                return _this.uuid;
             }
-        }
-        if(props.name && props.inputMap){
-            props.inputMap.put(props.name, this);
         }
     }
     selectOption(option) {
@@ -46,18 +43,15 @@ export default class InputSheet extends React.Component{
         })
     }
     showSheet() {
-        store.dispatch(showSheet(this.state.menus, (label)=>{
-            this.selectOption(label);
-        }));
-    }
-    componentWillUnmount(){
-        if(this.props.name && this.props.inputMap){
-            this.props.inputMap.remove(this.props.name, this);
+        if(this.props.readonly !== true){
+            store.dispatch(showSheet(this.state.menus, (label)=>{
+                this.selectOption(label);
+            }));
         }
     }
     render(){
         return (
-            <div className={`field-input field-input-sheet`}>
+            <div uuid={this.uuid} className={`field-input field-input-sheet`}>
                 <div className={`field-input-value`} onClick={this.showSheet}>
                     <span>{this.state.value}</span>
                 </div>

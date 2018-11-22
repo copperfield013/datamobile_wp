@@ -28,7 +28,7 @@ class InputCaselect extends Input{
         this.getValueItems = this.getValueItems.bind(this);
         this.onItemActivated = this.onItemActivated.bind(this);
     }
-    selectOption(option, e) {
+    selectOption(option) {
         if(option){
             let thisLevel = this.state.activeLevel;
             let thisLevelItem = this.getLevelItem(thisLevel);

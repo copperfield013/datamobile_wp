@@ -168,9 +168,18 @@ input[type="text"].field-input-text:focus {
     font-weight: bold;
 }
 
+.entity-field.entity-field-readonly {
+    background-color: #dadada;
+    color: #888;
+}
+.entity-field.entity-field-readonly .field-input:active{
+    background-color: inherit;
+}
+
 .entity-field-group>.entity-field-group-array.source-selected {
     border-left-color:  #40E0D0;
 }
 .entity-field-group>.entity-field-group-array.source-create {
     border-left-color:  #FF6A6A;
 }
+

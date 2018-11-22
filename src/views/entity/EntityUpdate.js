@@ -23,7 +23,7 @@ class EntityUpdate extends React.Component{
         };
         this.form = null;
         this.mode = props.match.params.code? 'update': 'create';
-        this.removeEntities = []
+        this.removeEntities = [];
         this.fieldInputMap = new Map();
         this.submitUpdate = this.submitUpdate.bind(this);
         this.reloadPage = this.reloadPage.bind(this);
@@ -40,7 +40,7 @@ class EntityUpdate extends React.Component{
         for(let i = 0; i < $formFieldInputs.length; i++){
             let $input = $formFieldInputs[i];
             let fieldInput = _update.getFieldInput($input);
-            if(fieldInput instanceof FieldInput){
+            if(fieldInput && fieldInput.getUUID()){
                 fieldInputs.push(fieldInput);
             }
         }
@@ -55,7 +55,9 @@ class EntityUpdate extends React.Component{
                validateError = true;
            }
            if(fieldInput.isStrict() || fieldInput.isModified()){
-               modifiedFieldCount++;
+               if(typeof fieldInput.isHidden === 'function' && !fieldInput.isHidden()){
+                   modifiedFieldCount++;
+               }
                formData.append(fieldInput.getName(), fieldInput.getValue());
            }
         });
@@ -83,7 +85,7 @@ class EntityUpdate extends React.Component{
             //5、询问提交确认
             this.dialog.confirm(`共修改了${modifiedFieldCount}个字段，创建了${createEntitiesCount}条多值属性/关联，`
                 +`新选择了${selectedEntitiesCount}条多值属性/关联，`
-                +`删除了${removedEntitiesCount}条多值属性/关联`, '确认保存？', ()=>{
+                +`删除了${this.removeEntities.length}条多值属性/关联`, '确认保存？', ()=>{
                 //6、提交到后台
                 utils.fetch(`/api/entity/update/${_update.props.match.params.menuId}`,formData).then((data)=>{
                     if(data.status === 'suc'){
@@ -110,10 +112,14 @@ class EntityUpdate extends React.Component{
         if(fieldInput){
             if(fieldInput instanceof FieldInput){
                 let uuid = fieldInput.getUUID();
-                this.fieldInputMap.set(uuid, fieldInput);
+                if(uuid){
+                    this.fieldInputMap.set(uuid, fieldInput);
+                }
             }else if(fieldInput.filedInputAdapter){
                 let uuid = fieldInput.filedInputAdapter.getUUID();
-                this.fieldInputMap.set(uuid, fieldInput.filedInputAdapter);
+                if(uuid){
+                    this.fieldInputMap.set(uuid, fieldInput.filedInputAdapter);
+                }
             }
         }
     }
@@ -134,9 +140,6 @@ class EntityUpdate extends React.Component{
     }
 
     reloadPage(){
-
-    }
-    componentWillMount () {
 
     }
     componentDidMount() {
@@ -168,32 +171,54 @@ class EntityUpdate extends React.Component{
         }
         return null;
     }
-    showArrayEntityMenu(array, compositeEntity){
-        if(array && compositeEntity){
-            store.dispatch(showSheet(['删除'], ()=>{
-                this.dialog.confirm('确认删除？', '', ()=>{
-                    let index = array.indexOf(compositeEntity);
-                    if(index >= 0){
-                        array.splice(index, 1);
-                        this.setState({entity: this.state.entity});
-                        if(!compositeEntity.source){
-                            //删除的compositeEntity是原本存在的
-                            this.removeEntities.push(compositeEntity);
+    arrayEntityRemovable(fieldGroup, arrayEntity){
+        return fieldGroup.composite.access === '写'
+            || !arrayEntity.source;
+    }
+    showArrayEntityMenu(fieldGroup, compositeEntity){
+        if(fieldGroup && fieldGroup.array && compositeEntity){
+            let array = fieldGroup.array;
+            if(this.arrayEntityRemovable(fieldGroup, compositeEntity)){
+                store.dispatch(showSheet(['删除'], ()=>{
+                    this.dialog.confirm('确认删除？', '', ()=>{
+                        let index = array.indexOf(compositeEntity);
+                        if(index >= 0){
+                            array.splice(index, 1);
+                            this.setState({entity: this.state.entity});
+                            if(!compositeEntity.source){
+                                //删除的compositeEntity是原本存在的
+                                this.removeEntities.push(compositeEntity);
+                            }
                         }
-                    }
-                });
-            }));
+                    });
+                }));
+            }else{
+                this.dialog.alert('不可移除');
+            }
         }
+    }
+    isFieldReadonly(field) {
+        let fieldAccess = field.access;
+        return fieldAccess === '读'
+            || fieldAccess === '补' && field.value !== '';
     }
     renderFields(fieldGroup) {
         return fieldGroup.fields.map((field)=>
-            <div key={field.id} className={`entity-field ${field.available? '': 'entity-field-unavailable'}`}>
-                <label>{field.title}</label>
-                <div>
-                    <FieldInput ref={(ins)=>{this.putFieldInput(ins)}} name={field.fieldName} field={field} />
-                </div>
-                {field.available? null: <span><i className={`iconfont icon-warning`}></i></span>}
-            </div>
+            {
+                let readonly = this.isFieldReadonly(field);
+                return (
+                    <div key={field.id} className={`entity-field ${field.available? '': 'entity-field-unavailable'} ${readonly? 'entity-field-readonly':''}`}>
+                        <label>{field.title}</label>
+                        <div>
+                            <FieldInput ref={(ins)=>{this.putFieldInput(ins)}}
+                                        readonly={readonly}
+                                        name={field.fieldName}
+                                        field={field} />
+                        </div>
+                        {field.available? null: <span><i className={`iconfont icon-warning`}></i></span>}
+                    </div>
+                )
+            }
         )
     }
     renderArray(fieldGroup) {
@@ -206,15 +231,21 @@ class EntityUpdate extends React.Component{
                             value={compositeEntity.code}/>
                 <div className="entity-item-header">
                     <em>{index + 1}</em>
-                    <span onClick={()=>this.showArrayEntityMenu(fieldGroup.array, compositeEntity)}><i className="iconfont icon-menu2"></i></span>
+                    {
+                        this.arrayEntityRemovable(fieldGroup, compositeEntity)?
+                            <span onClick={()=>this.showArrayEntityMenu(fieldGroup, compositeEntity)}><i className="iconfont icon-menu2"></i></span>
+                            :null
+
+                    }
                 </div>
                 {
                     fieldGroup.composite && fieldGroup.composite.relationKey?
-                        <div className="entity-field">
+                        <div className={`entity-field ${fieldGroup.composite.relationLabelAccess === '读'?'entity-field-readonly':''}`}>
                             <label>关系</label>
                             <div>
                                 <InputSheet
                                     ref={(ins)=>{this.putFieldInput(ins)}}
+                                    readonly={fieldGroup.composite.relationLabelAccess === '读'}
                                     name={`${fieldGroup.composite.name}[${index}].$$label$$`}
                                     options={fieldGroup.composite.relationSubdomain}
                                     defaultValue={compositeEntity.relation}
@@ -223,16 +254,23 @@ class EntityUpdate extends React.Component{
                         </div>
                         :null
                 }
-                {compositeEntity.fields.map((field, fieldIndex)=>
-                    <div key={field.id} className={`entity-field ${field.available? '': 'entity-field-unavailable'}`}>
-                        <label>{field.title}</label>
-                        <div>
-                            <FieldInput ref={(ins)=>{this.putFieldInput(ins)}} name={this.generateArrayFieldName(fieldGroup.descs[fieldIndex], index)} field={field}/>
-                        </div>
-                        {field.available? null: <span><i className={`iconfont icon-warning`}></i></span>}
-                    </div>
-
-                )}
+                {
+                    compositeEntity.fields.map((field, fieldIndex)=>{
+                        let readonly = this.isFieldReadonly(field);
+                        return (
+                            <div key={field.id} className={`entity-field ${field.available? '': 'entity-field-unavailable'} ${readonly? 'entity-field-readonly':''}`}>
+                                <label>{field.title}</label>
+                                <div>
+                                    <FieldInput ref={(ins)=>{this.putFieldInput(ins)}}
+                                                readonly={readonly}
+                                                name={this.generateArrayFieldName(fieldGroup.descs[fieldIndex], index)}
+                                                field={field}/>
+                                </div>
+                                {field.available? null: <span><i className={`iconfont icon-warning`}></i></span>}
+                            </div>
+                        )
+                    })
+                }
             </Folder>
         );
     }
@@ -267,62 +305,78 @@ class EntityUpdate extends React.Component{
                 "title": field.title,
                 "type": field.type,
                 "value": loadedEntity[field.fieldName] || '',
-                "fieldId": field.fieldId
+                "fieldId": field.fieldId,
+                "access": field.access,
+                "additionAccess": field.additionAccess,
+                "validators" : field.validators
             });
         }
         return entity;
     }
+    fieldGroupArrayPushable(fieldGroup) {
+        let compositeAccess = fieldGroup.composite.access;
+        let arrayPushable =
+            !(compositeAccess === '读' ||
+                compositeAccess === '补'
+                && Array.isArray(fieldGroup.array)
+                && fieldGroup.array.length > 0);
+        return arrayPushable;
+    }
     showFieldGroupMenu(fieldGroup) {
         let _this = this;
         let menus = [];
-        menus.push({
-            label   : '新建',
-            onClick : ()=>{
-                console.log('新建====');
-                let newEntityComposite = this.createEntityComposite(fieldGroup.descs);
-                fieldGroup.array = [...fieldGroup.array, newEntityComposite];
-                this.setState({entity  : this.state.entity});
-            }
-        });
-        if(fieldGroup.stmplId){
-            let excepts = [];
-            fieldGroup.array.forEach((entity)=>excepts.push(entity.code));
-            let fieldNames = [];
-            fieldGroup.descs.forEach((desc)=>fieldNames.push(desc.fieldName));
+        if(this.fieldGroupArrayPushable(fieldGroup)){
             menus.push({
-                label   : '选择',
+                label   : '新建',
                 onClick : ()=>{
-                    console.log('选择====');
-                    this.setState({
-                       stmplData    : {
-                           stmplId  : fieldGroup.stmplId,
-                           excepts  : excepts,
-                           onComplete: (code, req)=>{
-                               console.log(code);
-                               req(fieldNames).then((data)=>{
-                                   console.log(data);
-                                   if(data.entities){
-                                       let entityComposites = [];
-                                       for(let code in data.entities){
-                                           let newEntityComposite = this.createEntityComposite(fieldGroup.descs, data.entities[code]);
-                                           entityComposites.push(newEntityComposite);
-                                       }
-                                       fieldGroup.array = [...fieldGroup.array, ...entityComposites];
-                                       this.setState({entity  : this.state.entity});
-                                   }
-                               })
-                               this.setState({stmplData: null});
-
-                           },
-                           onCancel : ()=>{
-                               this.setState({stmplData: null});
-                           }
-                       }
-                    });
+                    console.log('新建====');
+                    let newEntityComposite = this.createEntityComposite(fieldGroup.descs);
+                    fieldGroup.array = [...fieldGroup.array, newEntityComposite];
+                    this.setState({entity  : this.state.entity});
                 }
-            })
+            });
+            if(fieldGroup.stmplId){
+                let excepts = [];
+                fieldGroup.array.forEach((entity)=>excepts.push(entity.code));
+                let fieldNames = [];
+                fieldGroup.descs.forEach((desc)=>fieldNames.push(desc.fieldName));
+                menus.push({
+                    label   : '选择',
+                    onClick : ()=>{
+                        console.log('选择====');
+                        this.setState({
+                           stmplData    : {
+                               stmplId  : fieldGroup.stmplId,
+                               excepts  : excepts,
+                               onComplete: (code, req)=>{
+                                   console.log(code);
+                                   req(fieldNames).then((data)=>{
+                                       console.log(data);
+                                       if(data.entities){
+                                           let entityComposites = [];
+                                           for(let code in data.entities){
+                                               let newEntityComposite = this.createEntityComposite(fieldGroup.descs, data.entities[code]);
+                                               entityComposites.push(newEntityComposite);
+                                           }
+                                           fieldGroup.array = [...fieldGroup.array, ...entityComposites];
+                                           this.setState({entity  : this.state.entity});
+                                       }
+                                   })
+                                   this.setState({stmplData: null});
+
+                               },
+                               onCancel : ()=>{
+                                   this.setState({stmplData: null});
+                               }
+                           }
+                        });
+                    }
+                })
+            }
+            store.dispatch(showSheet(menus));
+        }else{
+            this.dialog.alert('该字段组不可修改');
         }
-        store.dispatch(showSheet(menus));
     }
     render() {
         if(this.state.entity == null){
@@ -340,7 +394,7 @@ class EntityUpdate extends React.Component{
                                         <div className="entity-field-group-title">
                                             <div>
                                                 <h3>{fieldGroup.title}</h3>
-                                                {isArray?
+                                                {isArray && this.fieldGroupArrayPushable(fieldGroup)?
                                                     <span onClick={()=>this.showFieldGroupMenu(fieldGroup)}>
                                                         <i className="iconfont icon-horizontal-menu"></i>
                                                         <FieldInput hidden={true}
@@ -384,8 +438,6 @@ class EntityUpdate extends React.Component{
             </div>
         );
     }
-
-
 }
 
 export default EntityUpdate;

@@ -7,6 +7,7 @@ import InputDate from "./InputDate";
 import InputDateTime from "./InputDateTime";
 import InputCaselect from './InputCaselect';
 import Utils from "../../utils/Utils";
+import PropTypes from "prop-types";
 
 class FieldInput extends React.Component{
     constructor(props) {
@@ -22,10 +23,12 @@ class FieldInput extends React.Component{
         return this.uuid;
     }
     showDialog() {
-        let value = this.refs.value;
-        let dialog = this.refs.dialog;
-        if(value && dialog){
-            dialog.showWith(value);
+        if(this.props.readonly !== true){
+            let value = this.refs.value;
+            let dialog = this.refs.dialog;
+            if(value && dialog){
+                dialog.showWith(value);
+            }
         }
     }
     getName(){
@@ -54,12 +57,15 @@ class FieldInput extends React.Component{
             return false;
         }
     }
+    isHidden(){
+        return this.props.hidden === true;
+    }
     isStrict(){
         return !!this.props.strict || false;
     }
     render() {
         if(this.props.hidden === true){
-            return null;
+            return  <div uuid={this.getUUID()} className={`field-input`}></div>
         }
         if(this.props.field){
             let field = this.props.field;
@@ -119,5 +125,7 @@ class FieldInput extends React.Component{
         );
     }
 }
+
+
 
 export default FieldInput;

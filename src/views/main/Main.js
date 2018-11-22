@@ -24,40 +24,31 @@ class Main extends Component{
         }
     }
     handleGlobalSheet(page){
-        let globalSheetMenus = page.globalSheetMenus;
+        let globalSheetMenus = [];
         if(page.showGlobalSheet){
-            for(let i in globalSheetMenus){
-                if(typeof globalSheetMenus[i] === 'string'){
-                    globalSheetMenus[i] = {
-                        label   : globalSheetMenus[i]
-                    }
-                    if(page.globalSheetCallback){
-                        globalSheetMenus[i].onClick = ()=>{
-                            page.globalSheetCallback(globalSheetMenus[i].label);
-                            store.dispatch(hideSheet());
-                        }
-                    }else{
-                        globalSheetMenus[i].onClick = ()=>{
-                            store.dispatch(hideSheet());
-                        }
-                    }
-                }else if(typeof globalSheetMenus[i] === 'object'){
-                    let onClick = globalSheetMenus[i].onClick;
-                    globalSheetMenus[i] =
-                        {...globalSheetMenus[i],
-                            onClick:()=>{
-                                if(typeof onClick === 'function'){
-                                    try{
-                                        if(onClick(globalSheetMenus[i].label) === false){
-                                            return;
-                                        }
-                                    }catch(e){console.error(e)};
-                                }
-                                store.dispatch(hideSheet());
-                            }
-                        };
-                }
+            if(Array.isArray(page.globalSheetMenus)){
+                page.globalSheetMenus.forEach((menu)=>{
+                   if(typeof menu === 'string'){
+                       globalSheetMenus.push({
+                           label   : menu,
+                           onClick : null
+                       });
+                   }else if(typeof menu === 'object'){
+                       globalSheetMenus.push(menu);
+                   }
+                });
             }
+            globalSheetMenus.forEach((menu)=>{
+                let onClick = menu.onClick || page.globalSheetCallback;
+                menu.onClick = ()=>{
+                    try{
+                        if(onClick(menu.label) === false){
+                            return;
+                        }
+                    }catch(e){console.error(e)};
+                    store.dispatch(hideSheet());
+                }
+            });
         }
         return globalSheetMenus;
     }
