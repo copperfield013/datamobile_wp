@@ -12,6 +12,9 @@ import ArrayEntityItemList from "../field/ArrayEntityItemList";
 
 const ENTITY_SOURCE_SELECTED = 'selected';
 const ENTITY_SOURCE_CREATE = 'create';
+
+
+
 class EntityUpdate extends React.Component{
     constructor(props) {
         super(props);
@@ -47,8 +50,7 @@ class EntityUpdate extends React.Component{
         //2、根据策略获得所有fieldInput的值
         let validateError = false;
         //3、校验表单值，放入code值
-        let modifiedFieldCount = 0,
-            removedEntitiesCount = 0;
+        let modifiedFieldCount = 0;
         fieldInputs.forEach((fieldInput)=>{
            let thisValidateResult = _update.validateFieldInput(fieldInput);
            if(!validateError && thisValidateResult === false){
@@ -136,7 +138,7 @@ class EntityUpdate extends React.Component{
         }
     }
     validateFieldInput(fieldInput){
-
+        fieldInput.validate();
     }
 
     reloadPage(){
@@ -225,7 +227,7 @@ class EntityUpdate extends React.Component{
         return fieldGroup.array.map((compositeEntity, index)=>
             <Folder key={`${compositeEntity.code}-${index}`} className={`entity-field-group-array source-${compositeEntity.source}`}>
                 <FieldInput hidden={true}
-                            strict={true}
+                            strict={!compositeEntity.source}
                             ref={(ins)=>{this.putFieldInput(ins)}}
                             name={`${fieldGroup.composite.name}[${index}].唯一编码`}
                             value={compositeEntity.code}/>

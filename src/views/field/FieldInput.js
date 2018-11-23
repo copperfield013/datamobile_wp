@@ -7,7 +7,36 @@ import InputDate from "./InputDate";
 import InputDateTime from "./InputDateTime";
 import InputCaselect from './InputCaselect';
 import Utils from "../../utils/Utils";
-import PropTypes from "prop-types";
+
+class Validators {
+    constructor(validatorStrs) {
+        this.validatorNames = new Set();
+        if(typeof validatorStrs === 'string'){
+            let array = validatorStrs.split(',');
+            array.forEach((name)=>{
+                this.validatorNames.add(name);
+            });
+        }
+    }
+    format(prefix=''){
+        let array = [];
+        this.validatorNames.forEach((name)=>array.push(prefix + name));
+        return array.join(' ');
+    }
+    validate(){
+        let result = {
+            succeed  : true
+        };
+        this.validatorNames.forEach((name)=>{
+            switch (name) {
+                case 'required':
+
+            }
+        });
+
+        return result;
+    }
+}
 
 class FieldInput extends React.Component{
     constructor(props) {
@@ -17,7 +46,9 @@ class FieldInput extends React.Component{
             hiddenValue: props.value
         }
         this.uuid = Utils.uuid(5, 62);
+        this.validators = new Validators(props.field && props.field.validators);
         this.showDialog = this.showDialog.bind(this);
+        this.validate = this.validate.bind(this);
     }
     getUUID() {
         return this.uuid;
@@ -63,6 +94,9 @@ class FieldInput extends React.Component{
     isStrict(){
         return !!this.props.strict || false;
     }
+    validate(){
+
+    }
     render() {
         if(this.props.hidden === true){
             return  <div uuid={this.getUUID()} className={`field-input`}></div>
@@ -103,7 +137,7 @@ class FieldInput extends React.Component{
                 }
             }
             return (
-                <div uuid={this.getUUID()} className={`field-input field-input-${field.type}`}>
+                <div uuid={this.getUUID()} className={`field-input ${this.validators.format('field-input-validator-')} field-input-${field.type}`}>
                     <div className={`field-input-value`} onClick={this.showDialog}>
                         <FieldValue ref="value" field={field} />
                     </div>

@@ -183,3 +183,11 @@ input[type="text"].field-input-text:focus {
     border-left-color:  #FF6A6A;
 }
 
+.field-input.field-input-validator-required:before {
+    content: "*";
+    position: absolute;
+    right: 5px;
+    color: #f00;
+    top: 0;
+    font-size: 10px;
+}
