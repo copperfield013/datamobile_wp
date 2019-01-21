@@ -61,7 +61,7 @@ export default class ArrayEntityItemList extends React.Component{
                     let formData = new FormData();
                     formData.append('fields', fieldNames.join());
                     formData.append('codes', codes.join());
-                    utils.fetch(`/api/entity/load_entities/${menuId}/${stmplId}`, formData, {notAcceptableRedirect: false}).then((data)=>{
+                    utils.fetch(`/api/entity/curd/load_entities/${menuId}/${stmplId}`, formData, {notAcceptableRedirect: false}).then((data)=>{
                        resolve(data);
                     });
                 }
@@ -89,7 +89,7 @@ export default class ArrayEntityItemList extends React.Component{
             formData.append(key, this.state.queryCriterias[key]);
         }
         this.setState({loading: true});
-        utils.fetch(`/api/entity/selections/${this.props.menuId}/${this.props.stmplId}`,formData, {notAcceptableRedirect: false}).then((data)=>{
+        utils.fetch(`/api/entity/curd/selections/${this.props.menuId}/${this.props.stmplId}`,formData, {notAcceptableRedirect: false}).then((data)=>{
             this.setState({
                 loading  : false,
                 stmpl    : data.stmpl,

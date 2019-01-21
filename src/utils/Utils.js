@@ -12,7 +12,8 @@ let Utils = {
             responseDataType    : 'json',
             withToken       : true,
             tokenName       : '',
-            notAcceptableRedirect: true
+            notAcceptableRedirect: true,
+            sendJson        : false
         };
         if(url && typeof url === 'string'){
             param.url = url;
@@ -20,13 +21,19 @@ let Utils = {
             param = url;
         }
 
-        if(formData instanceof FormData){
-            param.formData = formData;
-        }else if(typeof formData === 'object'){
-            let f = new FormData();
-            param.formData = f;
-            for(let key in formData){
-                f.append(key, formData[key]);
+        if(param.sendJson === true){
+            if(typeof formData === 'object' && !(formData instanceof FormData)){
+                param.formData = formData;
+            }
+        }else{
+            if(formData instanceof FormData){
+                param.formData = formData;
+            }else if(typeof formData === 'object'){
+                let f = new FormData();
+                param.formData = f;
+                for(let key in formData){
+                    f.append(key, formData[key]);
+                }
             }
         }
         param = {...defFetchParam, ...param};
@@ -35,9 +42,14 @@ let Utils = {
         if(param.withToken){
             headers[param.tokenName || tokenStore.getTokenName()] = tokenStore.getToken();
         }
+        let body = param.formData;
+        if(param.sendJson === true){
+            headers['Content-Type'] = 'application/json';
+            body = JSON.stringify(param.formData);
+        }
         return new Promise((resolve)=>{
             if(param.url){
-                window.fetch(param.url,{method: param.method, body: param.formData, headers:headers})
+                window.fetch(param.url,{method: param.method, body: body, headers:headers})
                     .then((res)=> {
                         if (res.status >= 200 && res.status < 300) {
                             //请求已被处理

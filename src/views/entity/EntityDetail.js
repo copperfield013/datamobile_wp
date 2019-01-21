@@ -29,7 +29,7 @@ class EntityDetail extends React.Component{
             formData.append('historyId', query.hid);
         }
 
-        utils.fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`,formData)
+        utils.fetch(`/api/entity/curd/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`,formData)
             .then((data)=>{
                 if(data.entity){
                     this.setState({
@@ -37,7 +37,7 @@ class EntityDetail extends React.Component{
                         history: data.history,
                         registScroll: true
                     }, ()=>{
-                        store.dispatch(setTitle(`详情-${this.state.entity.title}`));
+                        store.dispatch(setTitle(`详情-${this.state.entity.title || ''}`));
                     });
                 }
             });

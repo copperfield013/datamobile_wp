@@ -89,7 +89,7 @@ class EntityUpdate extends React.Component{
                 +`新选择了${selectedEntitiesCount}条多值属性/关联，`
                 +`删除了${this.removeEntities.length}条多值属性/关联`, '确认保存？', ()=>{
                 //6、提交到后台
-                utils.fetch(`/api/entity/update/${_update.props.match.params.menuId}`,formData).then((data)=>{
+                utils.fetch(`/api/entity/curd/update/${_update.props.match.params.menuId}`,formData).then((data)=>{
                     if(data.status === 'suc'){
                         _update.dialog.alert('保存成功', '', ()=>{
                             if(this.mode === 'update'){
@@ -146,19 +146,20 @@ class EntityUpdate extends React.Component{
     }
     componentDidMount() {
         if(this.mode === 'update'){
-            utils.fetch(`/api/entity/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`)
+            //调用接口获得实体属性
+            utils.fetch(`/api/entity/curd/detail/${this.props.match.params.menuId}/${this.props.match.params.code}`)
                 .then((data)=>{
                     if(data.entity){
                         this.setState({
                             entity : data.entity,
                             registScroll: true
                         }, ()=>{
-                            store.dispatch(setTitle(`修改-${this.state.entity.title}`))
+                            store.dispatch(setTitle(`修改-${this.state.entity.title || ''}`))
                         });
                     }
                 });
         }else{
-            utils.fetch(`/api/entity/dtmpl/${this.props.match.params.menuId}`).then((data)=>{
+            utils.fetch(`/api/entity/curd/dtmpl/${this.props.match.params.menuId}`).then((data)=>{
                 this.setState({
                     entity : data.entity,
                     registScroll: true

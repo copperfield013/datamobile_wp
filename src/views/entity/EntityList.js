@@ -57,7 +57,7 @@ class EntityList extends React.Component{
             formData.append(key, this.state.queryCriterias[key]);
         }
         this.state.fetcting = true;
-        utils.fetch(`/api/entity/list/${this.props.match.params.menuId}`,formData).then((data)=>{
+        utils.fetch(`/api/entity/curd/list/${this.props.match.params.menuId}`,formData).then((data)=>{
             this.setState({
                 module   : data.module,
                 ltmpl    : data.ltmpl,
@@ -138,6 +138,9 @@ class EntityList extends React.Component{
             this.query();
         }
     }
+    startExport(){
+        utils.fetch('/api/entity/export/export_detail/30026/a666047f448f4d41a8d30e92898fb562');
+    }
     render() {
         console.log('render');
         if(this.state.entities == null){
@@ -181,6 +184,7 @@ class EntityList extends React.Component{
                     <MenuItem href={`/entity/create/${this.props.match.params.menuId}`} title="创建" iconfont="icon-new" />
                     <MenuItem href="/" title="首页" iconfont="icon-home"  />
                     <MenuItem href="/user" title="用户页" iconfont="icon-user"  />
+                    <MenuItem onClick={()=>{this.startExport()}} title="导出" iconfont="icon-new" />
                 </AlertMenu>
                 <Drawer ref="drawer" registMenu={false}>
                     <EntitySearch ltmpl={this.state.ltmpl}

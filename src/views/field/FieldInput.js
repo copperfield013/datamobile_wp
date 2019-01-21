@@ -23,17 +23,18 @@ class Validators {
         this.validatorNames.forEach((name)=>array.push(prefix + name));
         return array.join(' ');
     }
-    validate(){
+    validate(value){
         let result = {
             succeed  : true
         };
         this.validatorNames.forEach((name)=>{
             switch (name) {
                 case 'required':
-
+                    if(value === ''){
+                        result.succeed = false;
+                    }
             }
         });
-
         return result;
     }
 }
@@ -95,7 +96,12 @@ class FieldInput extends React.Component{
         return !!this.props.strict || false;
     }
     validate(){
+        let result = this.validators.validate(this.getValue());
+        if(!result.succeed){
+            this.props.toggleValidate();
+        }else{
 
+        }
     }
     render() {
         if(this.props.hidden === true){

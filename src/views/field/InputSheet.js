@@ -33,6 +33,12 @@ export default class InputSheet extends React.Component{
             },
             getUUID() {
                 return _this.uuid;
+            },
+            validate() {
+                let result = {
+                    succeed  : true
+                };
+                return result;
             }
         }
     }

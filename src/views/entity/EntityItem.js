@@ -54,7 +54,7 @@ class EntityItem extends Component{
      * 发送请求从服务端移除当前实体
      */
     removeEntity() {
-        utils.fetch(`/api/entity/remove/${this.props.menuId}/${this.props.entity.code}`, {
+        utils.fetch(`/api/entity/curd/remove/${this.props.menuId}/${this.props.entity.code}`, {
             method: 'DELETE'
         }).then((res)=>res.json().then((data)=>{
            if(data.status === 'suc'){

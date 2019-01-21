@@ -251,6 +251,8 @@ class CaselectLevelItem extends React.Component{
         return new Promise(function(resolve){
             if(_this.state.optionGroupId !== optionGroupId){
                 _this.setState({optionGroupId: optionGroupId, options: null, criteria: null}, resolve);
+            }else{
+                resolve();
             }
         });
 
